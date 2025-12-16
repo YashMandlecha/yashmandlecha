@@ -423,3 +423,8 @@ p{
 #site-search.active {
   display: inline-block;
 }
+
+/* ===== FORCE LATEX FONT ===== */
+html, body {
+  font-family: "Latin Modern Roman", "Latin Modern", serif !important;
+}
