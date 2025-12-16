@@ -1,99 +1,131 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
-
 <head>
-  <meta charset="utf-8">
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+
   <title>Yash Mandlecha</title>
+  <meta name="description" content="Personal website of Yash Mandlecha — research, writing, art, and CV." />
 
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <meta name="description"
-        content="PhD student in Physics and CMSE. Lattice QCD, computational physics, and scientific computing.">
+  <!-- OpenGraph -->
+  <meta property="og:site_name" content="Yash Mandlecha" />
+  <meta property="og:title" content="Yash Mandlecha" />
+  <meta property="og:type" content="website" />
+  <meta property="og:description" content="Research, blog, art, and curriculum vitae." />
 
-  <!-- Font -->
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap"
-        rel="stylesheet">
-
-  <!-- MathJax -->
-  <script async
-    src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/3.2.2/es5/tex-mml-chtml.js">
-  </script>
-
-  <style>
-    body {
-      font-family: Inter, system-ui, sans-serif;
-      max-width: 900px;
-      margin: 40px auto;
-      padding: 0 20px;
-      line-height: 1.6;
-      color: #111;
-    }
-
-    header {
-      margin-bottom: 3rem;
-    }
-
-    nav a {
-      margin-right: 20px;
-      text-decoration: none;
-      font-weight: 600;
-      color: #0055aa;
-    }
-
-    nav a:hover {
-      text-decoration: underline;
-    }
-
-    h1 {
-      font-size: 2.4rem;
-      margin-bottom: 0.3rem;
-    }
-
-    section {
-      margin-bottom: 3rem;
-    }
-
-    footer {
-      margin-top: 4rem;
-      font-size: 0.9rem;
-      color: #666;
-    }
-  </style>
+  <link rel="icon" href="data:,">
+  <link rel="stylesheet" href="assets/style.css" />
 </head>
 
 <body>
+  <header>
+    <div class="container nav">
+      <div class="brand">
+        <a class="name" href="index.html">Yash Mandlecha</a>
+        <div class="tag">Physics & CMSE PhD · Lattice field theory · HPC</div>
+      </div>
 
-<header>
-  <h1>Yash Mandlecha</h1>
-  <p>PhD Student · Physics & CMSE · Michigan State University</p>
+      <nav class="navlinks" aria-label="Primary">
+        <a data-nav href="research.html">Research</a>
+        <a data-nav href="blog.html">Blog</a>
+        <a data-nav href="art.html">Art</a>
+        <a data-nav href="cv.html">Curriculum Vitae</a>
+      </nav>
+    </div>
+  </header>
 
-  <nav>
-    <a href="#">CV</a>
-    <a href="#">Research</a>
-    <a href="https://github.com/yashmandlecha">GitHub</a>
-  </nav>
-</header>
+  <main class="container">
+    <section class="hero">
+      <div class="card pad flat">
+        <h1>Hi — I’m Yash.</h1>
+        <p>
+          I’m a dual PhD student in Physics and Computational Mathematics, Science, and Engineering (CMSE) at Michigan State University.
+          I work on lattice field theory / lattice QCD, numerical methods, and high-performance computing.
+        </p>
+        <p class="muted">
+          This site is intentionally simple: fast to load, easy to edit, and structured like a clean academic homepage.
+        </p>
 
-<section>
-  <p>
-    I work on lattice quantum field theory, computational physics,
-    and high-performance scientific computing.
-  </p>
-</section>
+        <div class="badges" aria-label="Highlights">
+          <span class="badge">Lattice QCD</span>
+          <span class="badge">Gradient flow</span>
+          <span class="badge">OpenMP / MPI</span>
+          <span class="badge">Python + C/C++</span>
+        </div>
 
-<section>
-  <h2>Example Math</h2>
-  \[
-    S = \sum_x \left[
-      \frac12 \sum_\mu (\phi_x - \phi_{x+\mu})^2
-      + \frac{m^2}{2} \phi_x^2
-      + \lambda \phi_x^4
-    \right]
-  \]
-</section>
+        <hr class="sep" />
 
-<footer>
-  © 2025 Yash Mandlecha
-</footer>
+        <p>
+          Quick links:
+          <a href="research.html">Research</a> ·
+          <a href="cv.html">CV</a> ·
+          <a href="blog.html">Blog</a> ·
+          <a href="art.html">Art</a>
+        </p>
 
+        <p class="muted">
+          Contact: <a href="mailto:yash@example.com">yash@example.com</a> ·
+          GitHub: <a href="https://github.com/YashMandlecha" target="_blank" rel="noopener">YashMandlecha</a>
+        </p>
+      </div>
+
+      <aside class="card">
+        <div class="figure">
+          <!-- Use your existing image file -->
+          <img src="FNAL_MILC_Nf0_beta.webp" alt="Research figure / visual" />
+          <div class="caption">A recent figure from my work (replace this image/caption anytime).</div>
+        </div>
+      </aside>
+    </section>
+
+    <section class="section" id="featured">
+      <div class="section-head">
+        <h2>Featured</h2>
+        <a href="cv.html">View CV →</a>
+      </div>
+
+      <div class="grid2">
+        <div class="item">
+          <h3>Current focus</h3>
+          <p class="meta">Lattice field theory · analysis tooling · HPC</p>
+          <p>
+            Building robust analysis workflows and performance-portable code for lattice computations.
+          </p>
+        </div>
+
+        <div class="item">
+          <h3>What you’ll find here</h3>
+          <p class="meta">Short updates, notes, and curated artifacts</p>
+          <p>
+            Research summaries, readable notes, code pointers, and an art section for non-technical work.
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="updates">
+      <div class="section-head">
+        <h2>Latest updates</h2>
+        <a href="blog.html">All posts →</a>
+      </div>
+
+      <div class="list">
+        <div class="item">
+          <h3><a href="blog.html#post-1">Example post title (edit me)</a></h3>
+          <div class="meta">Dec 2025 · 2 min read</div>
+          <p class="muted">This is a placeholder entry — replace with your real update.</p>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <div class="container row">
+      <div>© <span id="year"></span> Yash Mandlecha</div>
+      <div class="muted">Built with plain HTML/CSS · Hosted on GitHub Pages</div>
+    </div>
+  </footer>
+
+  <script src="assets/script.js"></script>
 </body>
 </html>

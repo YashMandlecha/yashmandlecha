@@ -1,0 +1,224 @@
+/* assets/style.css */
+:root{
+  --bg: #ffffff;
+  --fg: #111111;
+  --muted: #555555;
+  --border: #e6e6e6;
+  --max: 980px;
+  --radius: 14px;
+  --shadow: 0 10px 30px rgba(0,0,0,0.08);
+  --link: #0b57d0;
+}
+
+* { box-sizing: border-box; }
+html { scroll-behavior: smooth; }
+body{
+  margin: 0;
+  background: var(--bg);
+  color: var(--fg);
+  font-family: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial, "Apple Color Emoji","Segoe UI Emoji";
+  line-height: 1.6;
+}
+
+a{
+  color: var(--link);
+  text-decoration: none;
+}
+a:hover{ text-decoration: underline; }
+
+.container{
+  width: min(var(--max), calc(100% - 2.2rem));
+  margin: 0 auto;
+}
+
+header{
+  position: sticky;
+  top: 0;
+  z-index: 20;
+  background: rgba(255,255,255,0.86);
+  backdrop-filter: blur(12px);
+  border-bottom: 1px solid var(--border);
+}
+
+.nav{
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+  padding: 0.9rem 0;
+}
+
+.brand{
+  display: flex;
+  flex-direction: column;
+  gap: 0.1rem;
+}
+.brand a{
+  color: var(--fg);
+  text-decoration: none;
+}
+.brand .name{
+  font-weight: 700;
+  letter-spacing: 0.2px;
+}
+.brand .tag{
+  color: var(--muted);
+  font-size: 0.92rem;
+}
+
+.navlinks{
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  flex-wrap: wrap;
+}
+.navlinks a{
+  color: var(--fg);
+  padding: 0.45rem 0.6rem;
+  border-radius: 10px;
+}
+.navlinks a.active{
+  background: #f3f3f3;
+}
+.navlinks a:hover{
+  background: #f6f6f6;
+  text-decoration: none;
+}
+
+main{ padding: 2.2rem 0 3rem; }
+
+.hero{
+  display: grid;
+  grid-template-columns: 1.15fr 0.85fr;
+  gap: 2rem;
+  align-items: start;
+  margin-top: 0.8rem;
+}
+@media (max-width: 860px){
+  .hero{ grid-template-columns: 1fr; }
+}
+
+.card{
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  background: #fff;
+  box-shadow: var(--shadow);
+  overflow: hidden;
+}
+
+.card.pad{ padding: 1.4rem 1.4rem; box-shadow: none; }
+.card.flat{ box-shadow: none; }
+
+h1{
+  font-size: clamp(1.8rem, 2.6vw, 2.3rem);
+  line-height: 1.25;
+  margin: 0 0 0.6rem;
+}
+h2{
+  margin: 0 0 0.6rem;
+  font-size: 1.35rem;
+}
+h3{
+  margin: 0 0 0.4rem;
+  font-size: 1.1rem;
+}
+p{ margin: 0.5rem 0; color: var(--fg); }
+.muted{ color: var(--muted); }
+
+.kbd{
+  font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
+  font-size: 0.92rem;
+  padding: 0.1rem 0.4rem;
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  background: #fafafa;
+}
+
+.grid2{
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1.2rem;
+}
+@media (max-width: 860px){
+  .grid2{ grid-template-columns: 1fr; }
+}
+
+.figure{
+  display: grid;
+  gap: 0.55rem;
+  padding: 1rem;
+}
+.figure img{
+  width: 100%;
+  display: block;
+  border-radius: 12px;
+}
+.caption{
+  font-size: 0.95rem;
+  color: var(--muted);
+  text-align: center;
+}
+
+.section{
+  margin-top: 2.4rem;
+}
+.section .section-head{
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: 1rem;
+  padding-bottom: 0.6rem;
+  border-bottom: 1px solid var(--border);
+  margin-bottom: 1rem;
+}
+.section .section-head a{ font-size: 0.95rem; }
+
+.list{
+  display: grid;
+  gap: 0.9rem;
+}
+.item{
+  border: 1px solid var(--border);
+  border-radius: 14px;
+  padding: 1rem 1.1rem;
+  background: #fff;
+}
+.item .meta{
+  color: var(--muted);
+  font-size: 0.95rem;
+  margin-top: 0.2rem;
+}
+
+.footer{
+  border-top: 1px solid var(--border);
+  padding: 1.4rem 0 2rem;
+  color: var(--muted);
+  font-size: 0.95rem;
+}
+.footer .row{
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+  flex-wrap: wrap;
+}
+
+.badges{
+  display: flex;
+  gap: 0.6rem;
+  flex-wrap: wrap;
+  margin-top: 0.8rem;
+}
+.badge{
+  border: 1px solid var(--border);
+  border-radius: 999px;
+  padding: 0.25rem 0.65rem;
+  font-size: 0.92rem;
+  background: #fafafa;
+}
+
+hr.sep{
+  border: none;
+  border-top: 1px dashed var(--border);
+  margin: 1.2rem 0;
+}
