@@ -16,9 +16,10 @@ body{
   margin: 0;
   background: var(--bg);
   color: var(--fg);
-  font-family: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial, "Apple Color Emoji","Segoe UI Emoji";
+  font-family: "CMU Serif", "Computer Modern", "Times New Roman", serif;
   line-height: 1.6;
 }
+
 
 a{
   color: var(--link);
@@ -221,4 +222,57 @@ hr.sep{
   border: none;
   border-top: 1px dashed var(--border);
   margin: 1.2rem 0;
+}
+
+/* ============================= */
+/* Research parallax header      */
+/* ============================= */
+
+.parallax-strip{
+  height: 150px;
+  margin-top: 1.5rem;
+  background-image:
+    linear-gradient(rgba(255,255,255,0.78), rgba(255,255,255,0.78)),
+    url("research-bg.jpg");
+  background-size: cover;
+  background-position: center;
+  background-attachment: fixed;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.parallax-strip h1{
+  font-size: 2.2rem;
+  margin: 0;
+}
+
+/* ============================= */
+/* Research project layout       */
+/* ============================= */
+
+.project{
+  display: flex;
+  gap: 2rem;
+  margin-bottom: 3.5rem;
+}
+
+.project-text{
+  flex: 1.2;
+}
+
+.project-figure{
+  flex: 1;
+}
+
+.project-figure img{
+  width: 100%;
+  border-radius: 12px;
+  border: 1px solid var(--border);
+}
+
+@media (max-width: 860px){
+  .project{
+    flex-direction: column;
+  }
 }
