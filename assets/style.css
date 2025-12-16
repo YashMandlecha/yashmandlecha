@@ -1,4 +1,8 @@
 /* assets/style.css */
+* {
+  font-family: "Latin Modern Roman", serif !important;
+}
+
 :root{
   --bg: #ffffff;
   --fg: #111111;
@@ -12,13 +16,14 @@
 
 * { box-sizing: border-box; }
 html { scroll-behavior: smooth; }
-body{
+body {
   margin: 0;
   background: var(--bg);
   color: var(--fg);
-  font-family: "Latin Modern Roman", "Computer Modern", serif;
+  font-family: "Latin Modern Roman", "CMU Serif", "Computer Modern", serif !important;
   line-height: 1.6;
 }
+
 
 
 a{
