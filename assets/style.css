@@ -281,3 +281,55 @@ hr.sep{
     flex-direction: column;
   }
 }
+
+/* Blog cards */
+.blog-list {
+  display: grid;
+  gap: 1.5rem;
+}
+
+.blog-card {
+  display: block;
+  padding: 1.5rem;
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  text-decoration: none;
+  color: inherit;
+}
+
+.blog-card:hover {
+  background: var(--bg-soft);
+}
+
+/* Claps */
+.claps {
+  margin-top: 2rem;
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+
+.clap-btn {
+  cursor: pointer;
+  font-size: 1rem;
+}
+
+/* Comments */
+.comments {
+  margin-top: 2.5rem;
+}
+
+.comment-input {
+  width: 100%;
+  margin-bottom: 0.5rem;
+}
+
+.comment-list {
+  list-style: none;
+  padding-left: 0;
+}
+
+.comment-list li {
+  padding: 0.5rem 0;
+  border-bottom: 1px solid var(--border);
+}
