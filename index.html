@@ -1,34 +1,35 @@
 <!doctype html>
 <html lang="en">
 <head>
-  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/lmweb@1.0.0/lmroman10-regular.css">
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
 
   <title>Yash Mandlecha</title>
   <meta name="description" content="Personal website of Yash Mandlecha — research, writing, art, and CV." />
 
-  <!-- OpenGraph -->
-  <meta property="og:site_name" content="Yash Mandlecha" />
-  <meta property="og:title" content="Yash Mandlecha" />
-  <meta property="og:type" content="website" />
-  <meta property="og:description" content="Research, blog, art, and curriculum vitae." />
+  <!-- LaTeX font -->
+  <link rel="stylesheet"
+        href="https://cdn.jsdelivr.net/npm/lmweb@1.0.0/lmroman10-regular.css">
 
-  <link rel="icon" href="data:,">
-  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/lmweb@1.0.0/lmroman10-regular.css">
   <link rel="stylesheet" href="assets/style.css">
-
 </head>
 
 <body>
-  <header>
+
+  <!-- ================= HEADER ================= -->
+  <header class="site-header">
     <div class="container nav">
       <div class="brand">
-        <a class="name" href="index.html">Yash Mandlecha</a>
-        <div class="tag">Physics & CMSE PhD · Lattice field theory · HPC</div>
+        <a class="name large-name" href="index.html">Yash Mandlecha</a>
       </div>
 
       <nav class="navlinks" aria-label="Primary">
+        <input
+          type="search"
+          id="site-search"
+          placeholder="Search…"
+          aria-label="Search site"
+        />
         <a data-nav href="research.html">Research</a>
         <a data-nav href="blog.html">Blog</a>
         <a data-nav href="art.html">Art</a>
@@ -37,99 +38,67 @@
     </div>
   </header>
 
-  <main class="container">
+  <!-- ================= MAIN ================= -->
+  <main class="container narrow">
+
     <section class="hero">
+
+      <aside class="card personal-photo">
+        <img src="profile.jpg" alt="Photo of Yash Mandlecha" />
+      </aside>
+
       <div class="card pad flat">
         <h1 id="greeting">Hello — I’m Yash.</h1>
+
         <p>
-          I’m a dual PhD student in Physics and Computational Mathematics, Science, and Engineering (CMSE) at Michigan State University.
-          I work on lattice field theory / lattice QCD, numerical methods, and high-performance computing.
-        </p>
-        <p class="muted">
-          This site is intentionally simple: fast to load, easy to edit, and structured like a clean academic homepage.
+          I am a dual PhD student in Physics and Computational Mathematics,
+          Science, and Engineering (CMSE) at Michigan State University.
         </p>
 
-        <div class="badges" aria-label="Highlights">
-          <span class="badge">Lattice QCD</span>
+        <p>
+          My academic journey has been shaped by a long-standing interest in
+          fundamental physics, numerical methods, and the philosophy of
+          scientific inquiry. I currently work on lattice field theory,
+          including lattice QCD, with an emphasis on non-perturbative methods,
+          gradient flow, and high-performance computing.
+        </p>
+
+        <p>
+          Beyond research, I care deeply about learning outside formal
+          classrooms, writing, and creative expression. This website is a
+          space where I document that journey — technical and otherwise.
+        </p>
+
+        <div class="badges">
+          <span class="badge">Lattice field theory</span>
           <span class="badge">Gradient flow</span>
-          <span class="badge">OpenMP / MPI</span>
-          <span class="badge">Python + C/C++</span>
+          <span class="badge">HPC (MPI / OpenMP)</span>
+          <span class="badge">Python · C · C++</span>
         </div>
-
-        <hr class="sep" />
-
-        <p>
-          Quick links:
-          <a href="research.html">Research</a> ·
-          <a href="cv.html">CV</a> ·
-          <a href="blog.html">Blog</a> ·
-          <a href="art.html">Art</a>
-        </p>
 
         <p class="muted">
-          Contact: <a href="mailto:yash@example.com">yash@example.com</a> ·
-          GitHub: <a href="https://github.com/YashMandlecha" target="_blank" rel="noopener">YashMandlecha</a>
+          Contact:
+          <a href="mailto:yash@example.com">yash@example.com</a> ·
+          <a href="https://github.com/YashMandlecha" target="_blank" rel="noopener">
+            GitHub
+          </a>
         </p>
       </div>
 
-      <aside class="card">
-        <div class="figure">
-          <!-- Use your existing image file -->
-          <img src="FNAL_MILC_Nf0_beta.webp" alt="Research figure / visual" />
-          <div class="caption">A recent figure from my work (replace this image/caption anytime).</div>
-        </div>
-      </aside>
     </section>
 
-    <section class="section" id="featured">
-      <div class="section-head">
-        <h2>Featured</h2>
-        <a href="cv.html">View CV →</a>
-      </div>
-
-      <div class="grid2">
-        <div class="item">
-          <h3>Current focus</h3>
-          <p class="meta">Lattice field theory · analysis tooling · HPC</p>
-          <p>
-            Building robust analysis workflows and performance-portable code for lattice computations.
-          </p>
-        </div>
-
-        <div class="item">
-          <h3>What you’ll find here</h3>
-          <p class="meta">Short updates, notes, and curated artifacts</p>
-          <p>
-            Research summaries, readable notes, code pointers, and an art section for non-technical work.
-          </p>
-        </div>
-      </div>
-    </section>
-
-    <section class="section" id="updates">
-      <div class="section-head">
-        <h2>Latest updates</h2>
-        <a href="blog.html">All posts →</a>
-      </div>
-
-      <div class="list">
-        <div class="item">
-          <h3><a href="blog.html#post-1">Example post title (edit me)</a></h3>
-          <div class="meta">Dec 2025 · 2 min read</div>
-          <p class="muted">This is a placeholder entry — replace with your real update.</p>
-        </div>
-      </div>
-    </section>
   </main>
 
+  <!-- ================= FOOTER ================= -->
   <footer class="footer">
     <div class="container row">
       <div>© <span id="year"></span> Yash Mandlecha</div>
-      <div class="muted">Built with plain HTML/CSS · Hosted on GitHub Pages</div>
+      <div class="muted"><a href="index.html">Home</a></div>
     </div>
   </footer>
 
   <script src="assets/script.js"></script>
   <script src="assets/greeting.js"></script>
+  <script src="assets/search.js"></script>
 </body>
 </html>

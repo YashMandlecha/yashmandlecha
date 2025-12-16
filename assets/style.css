@@ -1,6 +1,10 @@
-/* assets/style.css */
+/* ============================= */
+/* Global font + variables       */
+/* ============================= */
+
 * {
-  font-family: "Latin Modern Roman", serif !important;
+  font-family: "Latin Modern Roman", "Computer Modern", serif !important;
+  box-sizing: border-box;
 }
 
 :root{
@@ -8,23 +12,26 @@
   --fg: #111111;
   --muted: #555555;
   --border: #e6e6e6;
-  --max: 980px;
+  --max: 1100px;          /* wider than before */
   --radius: 14px;
   --shadow: 0 10px 30px rgba(0,0,0,0.08);
   --link: #0b57d0;
+  --bg-soft: #fafafa;
 }
 
-* { box-sizing: border-box; }
 html { scroll-behavior: smooth; }
+
 body {
   margin: 0;
   background: var(--bg);
   color: var(--fg);
-  font-family: "Latin Modern Roman", "CMU Serif", "Computer Modern", serif !important;
   line-height: 1.6;
+  font-size: calc(1rem + 1pt); /* +1pt overall */
 }
 
-
+/* ============================= */
+/* Links                         */
+/* ============================= */
 
 a{
   color: var(--link);
@@ -32,17 +39,32 @@ a{
 }
 a:hover{ text-decoration: underline; }
 
+/* ============================= */
+/* Layout containers             */
+/* ============================= */
+
 .container{
-  width: min(var(--max), calc(100% - 2.2rem));
+  width: min(var(--max), calc(100% - 1.8rem)); /* reduced side margins */
   margin: 0 auto;
 }
 
-header{
+.container.narrow{
+  width: min(1100px, calc(100% - 1.6rem));
+}
+
+/* ============================= */
+/* Header / Navigation           */
+/* ============================= */
+
+.site-header{
   position: sticky;
   top: 0;
   z-index: 20;
-  background: rgba(255,255,255,0.86);
-  backdrop-filter: blur(12px);
+  background-image: url("background.jpg"); /* optional */
+  background-size: cover;
+  background-position: center;
+  background-color: rgba(255,255,255,0.92);
+  backdrop-filter: blur(10px);
   border-bottom: 1px solid var(--border);
 }
 
@@ -57,52 +79,95 @@ header{
 .brand{
   display: flex;
   flex-direction: column;
-  gap: 0.1rem;
 }
+
 .brand a{
   color: var(--fg);
   text-decoration: none;
 }
-.brand .name{
+
+/* Larger name in header */
+.large-name{
+  font-size: 1.9rem;
   font-weight: 700;
   letter-spacing: 0.2px;
-}
-.brand .tag{
-  color: var(--muted);
-  font-size: 0.92rem;
 }
 
 .navlinks{
   display: flex;
   align-items: center;
-  gap: 1rem;
+  gap: 0.9rem;
   flex-wrap: wrap;
 }
+
 .navlinks a{
   color: var(--fg);
   padding: 0.45rem 0.6rem;
   border-radius: 10px;
 }
+
 .navlinks a.active{
   background: #f3f3f3;
 }
+
 .navlinks a:hover{
   background: #f6f6f6;
   text-decoration: none;
 }
 
-main{ padding: 2.2rem 0 3rem; }
+/* Search bar */
+#site-search{
+  padding: 0.35rem 0.5rem;
+  font-size: 0.95rem;
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  background: #fff;
+}
+
+/* ============================= */
+/* Main content                  */
+/* ============================= */
+
+main{
+  padding: 2.2rem 0 3rem;
+}
+
+/* ============================= */
+/* Hero section                  */
+/* ============================= */
 
 .hero{
   display: grid;
-  grid-template-columns: 1.15fr 0.85fr;
-  gap: 2rem;
+  grid-template-columns: 0.7fr 1.3fr;
+  gap: 2.2rem;
   align-items: start;
   margin-top: 0.8rem;
 }
+
 @media (max-width: 860px){
-  .hero{ grid-template-columns: 1fr; }
+  .hero{
+    grid-template-columns: 1fr;
+  }
 }
+
+/* Personal photo */
+.personal-photo{
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  background: #fff;
+  box-shadow: var(--shadow);
+  padding: 1rem;
+}
+
+.personal-photo img{
+  width: 100%;
+  border-radius: 10px;
+  display: block;
+}
+
+/* ============================= */
+/* Cards                         */
+/* ============================= */
 
 .card{
   border: 1px solid var(--border);
@@ -112,62 +177,71 @@ main{ padding: 2.2rem 0 3rem; }
   overflow: hidden;
 }
 
-.card.pad{ padding: 1.4rem 1.4rem; box-shadow: none; }
-.card.flat{ box-shadow: none; }
+.card.pad{
+  padding: 1.4rem;
+  box-shadow: none;
+}
+
+.card.flat{
+  box-shadow: none;
+}
+
+/* ============================= */
+/* Typography                    */
+/* ============================= */
 
 h1{
-  font-size: clamp(1.8rem, 2.6vw, 2.3rem);
+  font-size: clamp(2rem, 2.8vw, 2.6rem);
   line-height: 1.25;
-  margin: 0 0 0.6rem;
+  margin: 0 0 0.7rem;
 }
+
 h2{
   margin: 0 0 0.6rem;
-  font-size: 1.35rem;
+  font-size: 1.4rem;
 }
+
 h3{
   margin: 0 0 0.4rem;
-  font-size: 1.1rem;
+  font-size: 1.15rem;
 }
-p{ margin: 0.5rem 0; color: var(--fg); }
-.muted{ color: var(--muted); }
 
-.kbd{
-  font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
-  font-size: 0.92rem;
-  padding: 0.1rem 0.4rem;
+p{
+  margin: 0.6rem 0;
+  color: var(--fg);
+}
+
+.muted{
+  color: var(--muted);
+}
+
+/* ============================= */
+/* Badges                        */
+/* ============================= */
+
+.badges{
+  display: flex;
+  gap: 0.6rem;
+  flex-wrap: wrap;
+  margin-top: 0.9rem;
+}
+
+.badge{
   border: 1px solid var(--border);
-  border-radius: 8px;
+  border-radius: 999px;
+  padding: 0.25rem 0.65rem;
+  font-size: 0.92rem;
   background: #fafafa;
 }
 
-.grid2{
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 1.2rem;
-}
-@media (max-width: 860px){
-  .grid2{ grid-template-columns: 1fr; }
-}
-
-.figure{
-  display: grid;
-  gap: 0.55rem;
-  padding: 1rem;
-}
-.figure img{
-  width: 100%;
-  display: block;
-  border-radius: 12px;
-}
-.caption{
-  font-size: 0.95rem;
-  color: var(--muted);
-  text-align: center;
-}
+/* ============================= */
+/* Sections / lists              */
+/* ============================= */
 
 .section{
-  margin-top: 2.4rem;
+  margin-top: 2.6rem;
 }
+
 .section .section-head{
   display: flex;
   align-items: baseline;
@@ -177,23 +251,32 @@ p{ margin: 0.5rem 0; color: var(--fg); }
   border-bottom: 1px solid var(--border);
   margin-bottom: 1rem;
 }
-.section .section-head a{ font-size: 0.95rem; }
+
+.section .section-head a{
+  font-size: 0.95rem;
+}
 
 .list{
   display: grid;
   gap: 0.9rem;
 }
+
 .item{
   border: 1px solid var(--border);
   border-radius: 14px;
   padding: 1rem 1.1rem;
   background: #fff;
 }
+
 .item .meta{
   color: var(--muted);
   font-size: 0.95rem;
   margin-top: 0.2rem;
 }
+
+/* ============================= */
+/* Footer                        */
+/* ============================= */
 
 .footer{
   border-top: 1px solid var(--border);
@@ -201,32 +284,13 @@ p{ margin: 0.5rem 0; color: var(--fg); }
   color: var(--muted);
   font-size: 0.95rem;
 }
+
 .footer .row{
   display: flex;
   align-items: center;
   justify-content: space-between;
   gap: 1rem;
   flex-wrap: wrap;
-}
-
-.badges{
-  display: flex;
-  gap: 0.6rem;
-  flex-wrap: wrap;
-  margin-top: 0.8rem;
-}
-.badge{
-  border: 1px solid var(--border);
-  border-radius: 999px;
-  padding: 0.25rem 0.65rem;
-  font-size: 0.92rem;
-  background: #fafafa;
-}
-
-hr.sep{
-  border: none;
-  border-top: 1px dashed var(--border);
-  margin: 1.2rem 0;
 }
 
 /* ============================= */
@@ -253,7 +317,7 @@ hr.sep{
 }
 
 /* ============================= */
-/* Research project layout       */
+/* Research projects             */
 /* ============================= */
 
 .project{
@@ -282,54 +346,57 @@ hr.sep{
   }
 }
 
-/* Blog cards */
-.blog-list {
+/* ============================= */
+/* Blog cards / interactions     */
+/* ============================= */
+
+.blog-list{
   display: grid;
   gap: 1.5rem;
 }
 
-.blog-card {
+.blog-card{
   display: block;
   padding: 1.5rem;
   border: 1px solid var(--border);
   border-radius: 12px;
-  text-decoration: none;
   color: inherit;
+  background: #fff;
 }
 
-.blog-card:hover {
+.blog-card:hover{
   background: var(--bg-soft);
 }
 
 /* Claps */
-.claps {
+.claps{
   margin-top: 2rem;
   display: flex;
   align-items: center;
   gap: 1rem;
 }
 
-.clap-btn {
+.clap-btn{
   cursor: pointer;
   font-size: 1rem;
 }
 
 /* Comments */
-.comments {
+.comments{
   margin-top: 2.5rem;
 }
 
-.comment-input {
+.comment-input{
   width: 100%;
   margin-bottom: 0.5rem;
 }
 
-.comment-list {
+.comment-list{
   list-style: none;
   padding-left: 0;
 }
 
-.comment-list li {
+.comment-list li{
   padding: 0.5rem 0;
   border-bottom: 1px solid var(--border);
 }
