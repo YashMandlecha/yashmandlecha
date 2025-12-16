@@ -9,7 +9,7 @@
 
   <!-- LaTeX font -->
   <link rel="stylesheet"
-        href="https://cdn.jsdelivr.net/npm/lmweb@1.0.0/lmroman10-regular.css">
+        href="https://cdn.jsdelivr.net/npm/lmweb@1.0.0/lmroman10.css">
 
   <link rel="stylesheet" href="assets/style.css">
 </head>
@@ -24,19 +24,27 @@
       </div>
 
       <nav class="navlinks" aria-label="Primary">
+        <a data-nav href="research.html">Research</a>
+        <a data-nav href="cv.html">Curriculum Vitae</a>
+        <a data-nav href="blog.html">Blog</a>
+        <a data-nav href="art.html">Art</a>
+
+        <!-- Search toggle -->
+        <button id="search-toggle" aria-label="Open search" title="Search">
+          🔍
+        </button>
+
+        <!-- Hidden search input -->
         <input
           type="search"
           id="site-search"
           placeholder="Search…"
           aria-label="Search site"
         />
-        <a data-nav href="research.html">Research</a>
-        <a data-nav href="blog.html">Blog</a>
-        <a data-nav href="art.html">Art</a>
-        <a data-nav href="cv.html">Curriculum Vitae</a>
       </nav>
     </div>
   </header>
+
 
   <!-- ================= MAIN ================= -->
   <main class="container narrow">
@@ -48,7 +56,7 @@
       </aside>
 
       <div class="card pad flat">
-        <h1 id="greeting">Hello — I’m Yash.</h1>
+        <h1 id="greeting"></h1>
 
         <p>
           I am a dual PhD student in Physics and Computational Mathematics,
@@ -59,8 +67,12 @@
           My academic journey has been shaped by a long-standing interest in
           fundamental physics, numerical methods, and the philosophy of
           scientific inquiry. I currently work on lattice field theory,
-          including lattice QCD, with an emphasis on non-perturbative methods,
+          including lattice quantum chromodynamics (QCD), with an emphasis on non-perturbative methods,
           gradient flow, and high-performance computing.
+        </p>
+
+        <p>
+         I have worked on analog quantum simulations of simple quantum field theory models on quantum computers, and previously on problems in plasma physics and magnetohydrodynamics.
         </p>
 
         <p>
@@ -78,7 +90,7 @@
 
         <p class="muted">
           Contact:
-          <a href="mailto:yash@example.com">yash@example.com</a> ·
+          <a href="mailto:mandlec1@msu.edu">mandlec1@msu.edu</a> ·
           <a href="https://github.com/YashMandlecha" target="_blank" rel="noopener">
             GitHub
           </a>

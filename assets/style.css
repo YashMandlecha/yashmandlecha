@@ -400,3 +400,26 @@ p{
   padding: 0.5rem 0;
   border-bottom: 1px solid var(--border);
 }
+
+/* Search toggle button */
+#search-toggle {
+  background: none;
+  border: none;
+  font-size: 1.1rem;
+  cursor: pointer;
+  padding: 0.3rem;
+}
+
+/* Search input hidden by default */
+#site-search {
+  display: none;
+  padding: 0.35rem 0.5rem;
+  font-size: 0.95rem;
+  border: 1px solid var(--border);
+  border-radius: 8px;
+}
+
+/* When search is active */
+#site-search.active {
+  display: inline-block;
+}
