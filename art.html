@@ -1,66 +1,201 @@
 <!doctype html>
 <html lang="en">
 <head>
-  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/lmweb@1.0.0/lmroman10.css">
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Art · Yash Mandlecha</title>
-  <meta name="description" content="Art and non-technical work." />
-  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/lmweb@1.0.0/lmroman10.css">
-  <link rel="stylesheet" href="assets/style.css">
-</head>
-<body>
-  <header>
-    <div class="container nav">
-      <div class="brand">
-        <a class="name" href="index.html">Yash Mandlecha</a>
-        <div class="tag">Art</div>
-      </div>
-      <nav class="navlinks" aria-label="Primary">
-        <a data-nav href="research.html">Research</a>
-        <a data-nav href="blog.html">Blog</a>
-        <a data-nav href="art.html">Art</a>
-        <a data-nav href="cv.html">Curriculum Vitae</a>
-      </nav>
-    </div>
-  </header>
 
-  <main class="container">
-    <h1>Art</h1>
+  <title>Art · Yash Mandlecha</title>
+  <meta name="description" content="Art and non-technical work by Yash Mandlecha." />
+
+  <!-- LaTeX / Latin Modern font -->
+  <link rel="stylesheet"
+        href="https://cdn.jsdelivr.net/npm/lmweb@1.0.0/lmroman10.css">
+
+  <link rel="stylesheet" href="assets/style.css">
+
+  <style>
+    /* ===== Header typography (same as research/blog) ===== */
+    header .name {
+      font-weight: 700;
+      font-size: 1.4rem;
+      color: #000;
+    }
+
+    header .tag {
+      font-size: 0.95rem;
+      color: #000;
+    }
+
+    header .navlinks a {
+      color: #000;
+    }
+
+    /* ===== Sticky header ===== */
+    header {
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+      background: transparent;
+    }
+
+    /* ===== Art hero ===== */
+    .art-hero {
+      background-image: url("assets/art-bg.jpg");
+      background-size: cover;
+      background-position: center;
+      background-repeat: no-repeat;
+
+      /* extend behind header */
+      margin-top: -4.5rem;
+      padding-top: 7.5rem;
+      padding-bottom: 4.5rem;
+
+      border-bottom-left-radius: 40px;
+      border-bottom-right-radius: 40px;
+    }
+
+    .art-hero h1 {
+      color: #ffffff;
+    }
+
+    /* ===== Page ===== */
+    main {
+      background: transparent;
+    }
+
+    /* ===== Gallery grid ===== */
+    .gallery {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+      gap: 2rem;
+    }
+
+    .figure img {
+      width: 100%;
+      height: auto;
+      border-radius: 16px;
+      display: block;
+    }
+
+    .caption {
+      margin-top: 0.6rem;
+      font-size: 0.95rem;
+      line-height: 1.4;
+    }
+
+    .caption strong {
+      font-weight: 600;
+    }
+  </style>
+</head>
+
+<body>
+
+<header>
+  <div class="container nav">
+    <div class="brand">
+      <a class="name" href="index.html">Yash Mandlecha</a>
+      <div class="tag">Art</div>
+    </div>
+    <nav class="navlinks" aria-label="Primary">
+      <a data-nav href="research.html">Research</a>
+      <a data-nav href="blog.html">Blog</a>
+      <a data-nav href="art.html">Art</a>
+      <a data-nav href="cv.html">Curriculum Vitae</a>
+    </nav>
+  </div>
+</header>
+
+<!-- ===== HERO ===== -->
+<section class="parallax-strip art-hero">
+  <h1>Art</h1>
+</section>
+
+<main class="container">
+
+  <section class="section">
+    <div class="section-head">
+      <h2>Gallery</h2>
+      <a
+        class="muted"
+        href="https://www.instagram.com/artbyyaman?utm_source=ig_web_button_share_sheet&igsh=ZDNlZDc0MzIxNw=="
+        target="_blank"
+        rel="noopener"
+      >
+        Instagram →
+      </a>
+    </div>
+
     <p class="muted">
-      A small gallery. Add images into <span class="kbd">assets/</span> and list them below.
+      A selection of artworks across digital and traditional media.
     </p>
 
-    <section class="section">
-      <div class="section-head">
-        <h2>Gallery</h2>
-        <a class="muted" href="#">Instagram →</a>
-      </div>
+    <div class="gallery">
 
-      <div class="grid2">
-        <div class="card">
-          <div class="figure">
-            <img src="FNAL_MILC_Nf0_beta.webp" alt="Artwork / image 1" />
-            <div class="caption">Caption (replace): Title, medium, year.</div>
-          </div>
-        </div>
-
-        <div class="card">
-          <div class="figure">
-            <img src="FNAL_MILC_Nf0_beta.webp" alt="Artwork / image 2" />
-            <div class="caption">Caption (replace): Another piece.</div>
+      <!-- ===== Artwork 1 ===== -->
+      <div class="card">
+        <div class="figure">
+          <img src="assets/art1.png" alt="Artwork 1" />
+          <div class="caption">
+            <strong>Untitled I</strong><br>
+            Created: March 2021<br>
+            Medium: Digital / Canvas<br>
+            Size: 3000 × 4000 px
           </div>
         </div>
       </div>
-    </section>
-  </main>
 
-  <footer class="footer">
-    <div class="container row">
-      <div>© <span id="year"></span> Yash Mandlecha</div>
-      <div class="muted"><a href="index.html">Home</a></div>
+      <!-- ===== Artwork 2 ===== -->
+      <div class="card">
+        <div class="figure">
+          <img src="assets/art2.png" alt="Artwork 2" />
+          <div class="caption">
+            <strong>Untitled II</strong><br>
+            Created: July 2021<br>
+            Medium: Acrylic on Canvas<br>
+            Size: 18 × 24 in
+          </div>
+        </div>
+      </div>
+
+      <!-- ===== Artwork 3 ===== -->
+      <div class="card">
+        <div class="figure">
+          <img src="assets/art3.png" alt="Artwork 3" />
+          <div class="caption">
+            <strong>Untitled III</strong><br>
+            Created: January 2022<br>
+            Medium: Oil on Canvas<br>
+            Size: 24 × 36 in
+          </div>
+        </div>
+      </div>
+
+      <!-- ===== Artwork 4 ===== -->
+      <div class="card">
+        <div class="figure">
+          <img src="assets/art4.png" alt="Artwork 4" />
+          <div class="caption">
+            <strong>Untitled IV</strong><br>
+            Created: August 2022<br>
+            Medium: Digital / Canvas<br>
+            Size: 3500 × 5000 px
+          </div>
+        </div>
+      </div>
+
     </div>
-  </footer>
-  <script src="assets/script.js"></script>
+  </section>
+
+</main>
+
+<footer class="footer">
+  <div class="container row">
+    <div>© <span id="year"></span> Yash Mandlecha</div>
+    <div class="muted"><a href="index.html">Home</a></div>
+  </div>
+</footer>
+
+<script src="assets/script.js"></script>
 </body>
 </html>

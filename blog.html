@@ -30,6 +30,7 @@
       color: #000;
     }
 
+    /* ===== Sticky header ===== */
     header {
       position: sticky;
       top: 0;
@@ -37,14 +38,18 @@
       background: transparent;
     }
 
-    /* ===== Blog hero (mirrors research-hero) ===== */
+    /* ===== Blog hero (matches research hero behavior) ===== */
     .blog-hero {
       background-image: url("assets/blog-bg.jpg");
       background-size: cover;
       background-position: center;
       background-repeat: no-repeat;
-      padding-top: 5.5rem;     /* pushes hero behind header */
+
+      /* extend behind header */
+      margin-top: -4.5rem;
+      padding-top: 7.5rem;
       padding-bottom: 4.5rem;
+
       border-bottom-left-radius: 40px;
       border-bottom-right-radius: 40px;
     }
@@ -53,7 +58,7 @@
       color: #ffffff;
     }
 
-    /* ===== Page behavior ===== */
+    /* ===== Page ===== */
     main {
       background: transparent;
     }
@@ -159,77 +164,80 @@
 
 <body>
 
-  <header>
-    <div class="container nav">
-      <div class="brand">
-        <a class="name" href="index.html">Yash Mandlecha</a>
-        <div class="tag">Blog</div>
-      </div>
-      <nav class="navlinks">
-        <a href="research.html">Research</a>
-        <a href="blog.html">Blog</a>
-        <a href="art.html">Art</a>
-        <a href="cv.html">Curriculum Vitae</a>
-      </nav>
+<header>
+  <div class="container nav">
+    <div class="brand">
+      <a class="name" href="index.html">Yash Mandlecha</a>
+      <div class="tag">Blog</div>
     </div>
-  </header>
+    <nav class="navlinks">
+      <a href="research.html">Research</a>
+      <a href="blog.html">Blog</a>
+      <a href="art.html">Art</a>
+      <a href="cv.html">Curriculum Vitae</a>
+    </nav>
+  </div>
+</header>
 
-  <!-- ===== HERO ===== -->
-  <section class="parallax-strip blog-hero">
-    <h1>Blog</h1>
-  </section>
+<!-- ===== HERO ===== -->
+<section class="parallax-strip blog-hero">
+  <h1>Blog</h1>
+</section>
 
-  <!-- ===== CONTENT ===== -->
-  <main class="container">
+<main class="container">
 
-    <!-- Intro + subscribe -->
-    <section class="section">
-      <div class="item">
-        <p class="muted">
-          This blog spans theoretical physics, high-performance computing,
-          data analysis, and inspirations drawn from nature.
-          A new article is added approximately every two weeks.
+<!-- ===== Intro ===== -->
+<section class="section">
+  <div class="item">
+    <p class="muted">
+      This blog spans theoretical physics, high-performance computing,
+      data analysis, and inspirations drawn from nature.
+      A new article is added approximately every two weeks.
+    </p>
+
+    <div class="subscribe">
+      <strong>Subscribe for new posts</strong>
+      <form id="subscribe-form" class="subscribe-row">
+        <input id="subscribe-email" type="email"
+               placeholder="Your email address" required>
+        <button type="submit">Subscribe</button>
+      </form>
+      <small class="muted">
+        Subscription requests are sent to the author by email.
+      </small>
+    </div>
+  </div>
+</section>
+
+<!-- ===== Post index ===== -->
+<section class="section" id="post-index">
+  <div class="section-head">
+    <h2>Posts</h2>
+  </div>
+
+  <a class="blog-card" data-open-post="not-all-classrooms">
+    <h3>Not All Classrooms Have Four Walls</h3>
+    <p class="muted">August 2020 · Essay</p>
+    <p class="excerpt">
+      Reflections on learning from nature, humility, and quiet wisdom.
+    </p>
+  </a>
+</section>
+
+<!-- ===== Full post ===== -->
+<section class="section" id="post-view">
+  <div class="section-head">
+    <h2>Post</h2>
+    <a href="#" id="back-to-posts">Back to posts →</a>
+  </div>
+
+  <article class="item blog-post" id="not-all-classrooms" data-post="classrooms">
+
+<h2>Not All Classrooms Have Four Walls</h2>
+
+        <p class="meta muted">
+          August 2020 · Originally written as a personal essay
         </p>
-
-        <div class="subscribe">
-          <strong>Subscribe for new posts</strong>
-          <form id="subscribe-form" class="subscribe-row">
-            <input id="subscribe-email" type="email"
-                   placeholder="Your email address" required>
-            <button type="submit">Subscribe</button>
-          </form>
-          <small class="muted">
-            Subscription requests are sent to the author by email.
-          </small>
-        </div>
-      </div>
-    </section>
-
-    <!-- Post index -->
-    <section class="section" id="post-index">
-      <div class="section-head">
-        <h2>Posts</h2>
-      </div>
-
-      <a class="blog-card" data-open-post="not-all-classrooms">
-        <h3>Not All Classrooms Have Four Walls</h3>
-        <p class="muted">August 2020 · Essay</p>
-        <p class="excerpt">
-          Reflections on learning from nature, humility, and quiet wisdom.
-        </p>
-      </a>
-    </section>
-
-    <!-- Full post -->
-    <section class="section" id="post-view">
-      <div class="section-head">
-        <h2>Post</h2>
-        <a href="#" id="back-to-posts">Back to posts →</a>
-      </div>
-
-      <article class="item blog-post" id="not-all-classrooms" data-post="classrooms">
-        <h2>Not All Classrooms Have Four Walls</h2>
-        <p class="meta muted">August 2020 · Personal essay</p>
 
         <!-- ===== FULL ARTICLE CONTENT (UNCHANGED) ===== -->
 
@@ -332,31 +340,33 @@
         <p class="muted">
           — Yash Mandlecha
         </p>
+        
+<div class="claps" data-post="classrooms">
+  <button class="clap-btn">👏 Clap</button>
+  <span class="clap-count">0</span>
+</div>
 
-        <div class="claps" data-post="classrooms">
-          <button class="clap-btn">👏 Clap</button>
-          <span class="clap-count">0</span>
-        </div>
+<div class="comments" data-post="classrooms">
+  <h4>Comments</h4>
+  <textarea class="comment-input" rows="3"
+            placeholder="Write a comment…"></textarea>
+  <button class="comment-submit">Post</button>
+  <ul class="comment-list"></ul>
+</div>
 
-        <div class="comments" data-post="classrooms">
-          <h4>Comments</h4>
-          <textarea class="comment-input" rows="3"
-                    placeholder="Write a comment…"></textarea>
-          <button class="comment-submit">Post</button>
-          <ul class="comment-list"></ul>
-        </div>
-      </article>
-    </section>
+  </article>
+</section>
 
-  </main>
+</main>
 
-  <footer class="footer">
-    <div class="container row">
-      <div>© <span id="year"></span> Yash Mandlecha</div>
-    </div>
-  </footer>
+<footer class="footer">
+  <div class="container row">
+    <div>© <span id="year"></span> Yash Mandlecha</div>
+  </div>
+</footer>
 
-  <script src="assets/script.js"></script>
-  <script src="assets/blog.js"></script>
+<script src="assets/script.js"></script>
+<script src="assets/blog.js"></script>
+
 </body>
 </html>
