@@ -8,214 +8,262 @@
   <meta name="description" content="Essays and reflections by Yash Mandlecha." />
 
   <!-- LaTeX / Latin Modern font -->
-  <link
-    rel="stylesheet"
-    href="https://cdn.jsdelivr.net/npm/lmweb@1.0.0/lmroman10.css"
-  >
+  <link rel="stylesheet"
+        href="https://cdn.jsdelivr.net/npm/lmweb@1.0.0/lmroman10.css">
+
   <link rel="stylesheet" href="assets/style.css">
+
+  <style>
+    /* ================= HEADER ================= */
+    header {
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+      background: transparent;
+    }
+
+    header .name {
+      font-weight: 700;
+      font-size: 1.4rem;
+      color: #ffffff;
+    }
+
+    header .tag {
+      font-size: 0.95rem;
+      color: #ffffff;
+      opacity: 0.9;
+    }
+
+    header .navlinks a {
+      color: #ffffff;
+    }
+
+    /* ================= BACKGROUND ================= */
+    .page-bg.blog-bg {
+      min-height: 100vh;
+      background-image: url("assets/blog-bg.jpg");
+      background-size: cover;
+      background-position: center;
+      background-attachment: fixed;
+      background-repeat: no-repeat;
+    }
+
+    /* ================= HERO ================= */
+    .parallax-strip h1 {
+      color: #ffffff;
+    }
+
+    /* ================= VISIBILITY LOGIC ================= */
+    #post-view {
+      display: none;
+    }
+
+    #post-view:target {
+      display: block;
+    }
+
+    #post-view:target ~ #post-index {
+      display: none;
+    }
+
+    .blog-card {
+      cursor: pointer;
+      display: block;
+      text-decoration: none;
+    }
+  </style>
 </head>
 
 <body>
 
-  <!-- ===== FULL-PAGE BACKGROUND WRAPPER ===== -->
-  <div class="page-bg blog-bg">
+<div class="page-bg blog-bg">
 
-    <header>
-      <div class="container nav">
-        <div class="brand">
-          <a class="name" href="index.html">Yash Mandlecha</a>
-          <div class="tag">Blog</div>
-        </div>
-        <nav class="navlinks" aria-label="Primary">
-          <a data-nav href="research.html">Research</a>
-          <a data-nav href="blog.html">Blog</a>
-          <a data-nav href="art.html">Art</a>
-          <a data-nav href="cv.html">Curriculum Vitae</a>
-        </nav>
+  <!-- ================= HEADER ================= -->
+  <header>
+    <div class="container nav">
+      <div class="brand">
+        <a class="name" href="index.html">Yash Mandlecha</a>
+        <div class="tag">Blog</div>
       </div>
-    </header>
+      <nav class="navlinks" aria-label="Primary">
+        <a data-nav href="research.html">Research</a>
+        <a data-nav href="blog.html">Blog</a>
+        <a data-nav href="art.html">Art</a>
+        <a data-nav href="cv.html">Curriculum Vitae</a>
+      </nav>
+    </div>
+  </header>
 
-    <main class="container">
+  <main class="container">
 
-      <!-- Hero strip -->
-      <section class="parallax-strip">
-        <h1>Blog</h1>
-      </section>
+    <!-- ================= HERO ================= -->
+    <section class="parallax-strip">
+      <h1>Blog</h1>
+    </section>
 
-      <!-- ===================== -->
-      <!-- Blog index / cards    -->
-      <!-- ===================== -->
-      <section class="section">
-        <div class="section-head">
-          <h2>Posts</h2>
-        </div>
+    <!-- ================= FULL POST (HIDDEN) ================= -->
+    <section class="section" id="post-view">
 
-        <div class="blog-list">
-          <a class="blog-card" href="#not-all-classrooms">
-            <h3>Not All Classrooms Have Four Walls</h3>
-            <p class="muted">August 2020 · Essay</p>
-            <p class="excerpt">
-              Reflections on learning from nature, humility, and the quiet
-              wisdom embedded in the world beyond formal classrooms.
-            </p>
-          </a>
-        </div>
-      </section>
-
-      <!-- ===================== -->
-      <!-- Full blog post        -->
-      <!-- ===================== -->
-      <section class="section">
-
-        <article class="item blog-post" id="not-all-classrooms">
-
-          <h2>Not All Classrooms Have Four Walls</h2>
-
-          <p class="meta muted">
-            August 2020 · Originally written as a personal essay
-          </p>
-
-          <!-- ===== ORIGINAL CONTENT (UNCHANGED) ===== -->
-
-          <p>
-            Nature is a great teacher. No wonder why Grandma used to look up to
-            elements of nature to understand life. The Sun, the Moon, Trees,
-            Rivers, the streams, and the seasons were all treated with divinity.
-          </p>
-
-          <p>
-            Today, the human race has created very compulsive and derogatory
-            circumstances for itself pushing Mother Nature into the garb of
-            uncertainty. Today, youth must be sensitive enough to understand that
-            the essence of being human is to be cosmic, and not be narcissistic.
-            My cosmic identity, the realization of oneself as the entire cosmos,
-            entangles me to the emotions of every form of life. If I consider all
-            the trees around me a very natural extension of myself, I will never
-            be interested in cutting or exploiting them by any means. Likewise,
-            if I experience the bliss and sorrow of all life forms around me as
-            much as they do, this would make me realize what harm are my actions
-            causing to the environment I live in. Thus, refraining me from a
-            felony.
-          </p>
-
-          <p>
-            The sun does not wrestle with the clouds to show its greatness; it
-            does not take away the cloud’s moment of glory, that the cloud could
-            overshadow somebody as high as the sun. Instead, the sun gives the
-            cloud a halo, a silver lining, making the cloud look even more
-            beautiful. Humans, especially leaders, need to learn this from the
-            sun. When one is paramount, is in a position of power, it is not
-            necessary to take away the limelight from others all the time.
-            Appreciating others not only adds to your glory, but it also mandates
-            how others look upon to you again.
-          </p>
-
-          <p>
-            The moon is always happy and filled with love. It doesn’t matter that
-            it is faced with a change every single day. A crescent smile or a
-            wide one, it still inspires hope and love. Let there be imperfections;
-            the moon’s surface is what draws people in admiration. Remember the
-            moon and realize that what you perceive to be flaws may be what drives
-            others towards you.
-          </p>
-
-          <p>
-            We live in a rainbow of chaos, and it is delicate yet charming. That
-            multi-hued semicircle appears in the sky every time there is a bit of
-            drizzle and a bit of sunshine. It feels so ecstatic. Take a break to
-            realize that life is always like that — a bit of sun and a bit of
-            drizzle over our best-laid plans. But then it is that what gives it a
-            lovely colour, without which, life would be just black and white. It
-            also tells us that beauty lies in the diversity, more so in the unity
-            of diversity.
-          </p>
-
-          <p>
-            The tree never knowingly harms anybody. Instead, it feeds the hands
-            that hurt it, whether one pelts it with stones for the fruit or cuts
-            it for the wood. The first knowledge of virtues like patience,
-            forgiveness, generosity must have come by observing the trees.
-          </p>
-
-          <p>
-            The river is playful in some places, tumbles down with a roar or is
-            very peaceful sometimes. It finds its sweet music, makes its path,
-            and there is nothing that can stop it, no, not even the biggest
-            boulder. And best of all, it selflessly accepts its merger into the
-            big, vast sea.
-          </p>
-
-          <p>
-            Can human life and its final journey be any different? Today, If all
-            the life but humans disappear from the face of this planet, The Human
-            race being subject to its pettiness would be extinct in no time. On
-            the shear contrary, If all the humans disappear right now, the planet
-            and all its life forms would flourish to glory. This situation is
-            unfortunate, yet is a harsh alarm to get sustainable and wholly
-            aligned with the rules of nature in whatever we do. The widespread
-            destruction and the loss of life and property in the recent natural
-            calamities is a prompt reaction to our gradual anarchy and
-            unsustainable lifestyle. It is a mere testimony to the fact that we
-            are in no shape to sustain a war with Mother Nature. In that case, we
-            would be waging war against ourselves because even if we have built
-            civilizations that have distanced us from the roots of our evolution,
-            we are no lesser sprouts of our Mother whom we often take for granted.
-          </p>
-
-          <p>
-            Although no words are enough, I thank Mother Earth for her teachings,
-            for the abundant love and warmth she brings to life and the gifts she
-            shares with every creature of which humankind is only a bit. Let’s
-            take this opportunity to involve ourselves, and gain perspective of
-            our role on this Earth. It may seem like a simple task, but taking a
-            day-long trek in the woods all by yourself would make you realize that
-            removing ourselves from the busyness of human life may be one of the
-            most human things we can do for ourselves.
-          </p>
-
-          <p class="muted">
-            — Yash Mandlecha
-          </p>
-
-          <!-- ===================== -->
-          <!-- Claps section         -->
-          <!-- ===================== -->
-          <div class="claps" data-post="classrooms">
-            <button class="clap-btn">👏</button>
-            <span class="clap-count">0</span>
-          </div>
-
-          <!-- ===================== -->
-          <!-- Comments section      -->
-          <!-- ===================== -->
-          <div class="comments" data-post="classrooms">
-            <h4>Comments</h4>
-
-            <textarea
-              class="comment-input"
-              rows="3"
-              placeholder="Write a comment…"></textarea>
-
-            <button class="comment-submit">Post</button>
-
-            <ul class="comment-list"></ul>
-          </div>
-
-        </article>
-
-      </section>
-    </main>
-
-    <footer class="footer">
-      <div class="container row">
-        <div>© <span id="year"></span> Yash Mandlecha</div>
-        <div class="muted"><a href="index.html">Home</a></div>
+      <div class="section-head">
+        <h2>Post</h2>
+        <a href="#post-index">Back to posts →</a>
       </div>
-    </footer>
 
-  </div> <!-- end page-bg -->
+      <article class="item blog-post" id="not-all-classrooms">
 
-  <script src="assets/script.js"></script>
-  <script src="assets/blog.js"></script>
+        <h2>Not All Classrooms Have Four Walls</h2>
+
+        <p class="meta muted">
+          August 2020 · Originally written as a personal essay
+        </p>
+
+        <p>
+          Nature is a great teacher. No wonder why Grandma used to look up to
+          elements of nature to understand life. The Sun, the Moon, Trees,
+          Rivers, the streams, and the seasons were all treated with divinity.
+        </p>
+
+        <p>
+          Today, the human race has created very compulsive and derogatory
+          circumstances for itself pushing Mother Nature into the garb of
+          uncertainty. Today, youth must be sensitive enough to understand that
+          the essence of being human is to be cosmic, and not be narcissistic.
+          My cosmic identity, the realization of oneself as the entire cosmos,
+          entangles me to the emotions of every form of life. If I consider all
+          the trees around me a very natural extension of myself, I will never
+          be interested in cutting or exploiting them by any means. Likewise,
+          if I experience the bliss and sorrow of all life forms around me as
+          much as they do, this would make me realize what harm are my actions
+          causing to the environment I live in. Thus, refraining me from a
+          felony.
+        </p>
+
+        <p>
+          The sun does not wrestle with the clouds to show its greatness; it
+          does not take away the cloud’s moment of glory, that the cloud could
+          overshadow somebody as high as the sun. Instead, the sun gives the
+          cloud a halo, a silver lining, making the cloud look even more
+          beautiful. Humans, especially leaders, need to learn this from the
+          sun. When one is paramount, is in a position of power, it is not
+          necessary to take away the limelight from others all the time.
+          Appreciating others not only adds to your glory, but it also mandates
+          how others look upon to you again.
+        </p>
+
+        <p>
+          The moon is always happy and filled with love. It doesn’t matter that
+          it is faced with a change every single day. A crescent smile or a
+          wide one, it still inspires hope and love. Let there be imperfections;
+          the moon’s surface is what draws people in admiration. Remember the
+          moon and realize that what you perceive to be flaws may be what drives
+          others towards you.
+        </p>
+
+        <p>
+          We live in a rainbow of chaos, and it is delicate yet charming. That
+          multi-hued semicircle appears in the sky every time there is a bit of
+          drizzle and a bit of sunshine. It feels so ecstatic. Take a break to
+          realize that life is always like that — a bit of sun and a bit of
+          drizzle over our best-laid plans. But then it is that what gives it a
+          lovely colour, without which, life would be just black and white. It
+          also tells us that beauty lies in the diversity, more so in the unity
+          of diversity.
+        </p>
+
+        <p>
+          The tree never knowingly harms anybody. Instead, it feeds the hands
+          that hurt it, whether one pelts it with stones for the fruit or cuts
+          it for the wood. The first knowledge of virtues like patience,
+          forgiveness, generosity must have come by observing the trees.
+        </p>
+
+        <p>
+          The river is playful in some places, tumbles down with a roar or is
+          very peaceful sometimes. It finds its sweet music, makes its path,
+          and there is nothing that can stop it, no, not even the biggest
+          boulder. And best of all, it selflessly accepts its merger into the
+          big, vast sea.
+        </p>
+
+        <p>
+          Can human life and its final journey be any different? Today, If all
+          the life but humans disappear from the face of this planet, The Human
+          race being subject to its pettiness would be extinct in no time. On
+          the shear contrary, If all the humans disappear right now, the planet
+          and all its life forms would flourish to glory. This situation is
+          unfortunate, yet is a harsh alarm to get sustainable and wholly
+          aligned with the rules of nature in whatever we do. The widespread
+          destruction and the loss of life and property in the recent natural
+          calamities is a prompt reaction to our gradual anarchy and
+          unsustainable lifestyle. It is a mere testimony to the fact that we
+          are in no shape to sustain a war with Mother Nature. In that case, we
+          would be waging war against ourselves because even if we have built
+          civilizations that have distanced us from the roots of our evolution,
+          we are no lesser sprouts of our Mother whom we often take for granted.
+        </p>
+
+        <p>
+          Although no words are enough, I thank Mother Earth for her teachings,
+          for the abundant love and warmth she brings to life and the gifts she
+          shares with every creature of which humankind is only a bit. Let’s
+          take this opportunity to involve ourselves, and gain perspective of
+          our role on this Earth. It may seem like a simple task, but taking a
+          day-long trek in the woods all by yourself would make you realize that
+          removing ourselves from the busyness of human life may be one of the
+          most human things we can do for ourselves.
+        </p>
+
+        <p class="muted">
+          — Yash Mandlecha
+        </p>
+
+        <div class="claps" data-post="classrooms">
+          <button class="clap-btn">👏</button>
+          <span class="clap-count">0</span>
+        </div>
+
+        <div class="comments" data-post="classrooms">
+          <h4>Comments</h4>
+          <textarea class="comment-input" rows="3"
+                    placeholder="Write a comment…"></textarea>
+          <button class="comment-submit">Post</button>
+          <ul class="comment-list"></ul>
+        </div>
+
+      </article>
+
+    </section>
+
+    <!-- ================= POST INDEX ================= -->
+    <section class="section" id="post-index">
+      <div class="section-head">
+        <h2>Posts</h2>
+      </div>
+
+      <div class="blog-list">
+        <a class="blog-card" href="#post-view">
+          <h3>Not All Classrooms Have Four Walls</h3>
+          <p class="muted">August 2020 · Article</p>
+          <p class="excerpt">
+            Reflections on learning from nature, humility, and the quiet
+            wisdom embedded in the world beyond formal classrooms.
+          </p>
+        </a>
+      </div>
+    </section>
+
+  </main>
+
+  <footer class="footer">
+    <div class="container row">
+      <div>© <span id="year"></span> Yash Mandlecha</div>
+      <div class="muted"><a href="index.html">Home</a></div>
+    </div>
+  </footer>
+
+</div>
+
+<script src="assets/script.js"></script>
+<script src="assets/blog.js"></script>
 </body>
 </html>

@@ -12,6 +12,44 @@
   />
 
   <link rel="stylesheet" href="assets/style.css">
+
+  <!-- Page-specific adjustments -->
+  <style>
+    /* ===== Header typography ===== */
+    header .name {
+      font-weight: 700;
+      font-size: 1.4rem;
+    }
+
+    header .tag {
+      font-size: 0.95rem;
+    }
+
+    /* ===== Research hero ===== */
+    .research-hero {
+      background-image: url("assets/research-bg.jpg");
+      background-size: cover;
+      background-position: center;
+      background-repeat: no-repeat;
+    }
+
+    .research-hero h1 {
+      color: #ffffff;
+    }
+
+    /* ===== Interests + Profiles layout ===== */
+    .grid2 {
+      display: grid;
+      grid-template-columns: 1.2fr 0.8fr;
+      gap: 2rem;
+    }
+
+    @media (max-width: 800px) {
+      .grid2 {
+        grid-template-columns: 1fr;
+      }
+    }
+  </style>
 </head>
 
 <body>
@@ -39,7 +77,7 @@
 
   <main class="container">
 
-    <!-- ===== INTERESTS + PROFILES (PLAIN BOXES) ===== -->
+    <!-- ===== INTERESTS + PROFILES ===== -->
     <div class="grid2">
 
       <div class="item card">
@@ -47,7 +85,7 @@
         <p class="muted">
           My research interests lie in lattice field theory, particularly
           lattice quantum chromodynamics (QCD), gradient flow and
-          renormalization techniques, numerical algorithms, and
+          renormalization methods, numerical algorithms, and
           high-performance computing using MPI/OpenMP and GPU offload where
           relevant.
         </p>
@@ -87,8 +125,6 @@
       <section class="project">
         <div class="project-text">
           <h3>Gradient Flow Scale Setting in Lattice QCD</h3>
-          <p><em>Guide:</em> Prof. Alexei Bazavov</p>
-          <p><strong>Institute:</strong> Michigan State University</p>
           <p class="muted">
             High-precision scale setting and continuous β-function analysis
             using gradient flow.
@@ -103,8 +139,6 @@
       <section class="project">
         <div class="project-text">
           <h3>Higher-Derivative Scalar Field Theories</h3>
-          <p><em>Guides:</em> Prof. Dean Lee, Prof. Alexei Bazavov</p>
-          <p><strong>Institute:</strong> Michigan State University</p>
           <p class="muted">
             Non-perturbative lattice study of higher-derivative theories at
             strong coupling.
