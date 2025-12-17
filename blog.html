@@ -14,6 +14,15 @@
   <link rel="stylesheet" href="assets/style.css">
 
   <style>
+    /* ================= HERO BACKGROUND (TOP ONLY) ================= */
+    .hero-bg.blog-hero-bg {
+      background-image: url("assets/blog-bg.jpg");
+      background-size: cover;
+      background-position: center;
+      background-attachment: fixed;
+      background-repeat: no-repeat;
+    }
+
     /* ================= HEADER ================= */
     header {
       position: sticky;
@@ -22,6 +31,7 @@
       background: transparent;
     }
 
+    /* Make header readable on the hero image */
     header .name {
       font-weight: 700;
       font-size: 1.4rem;
@@ -38,84 +48,224 @@
       color: #ffffff;
     }
 
-    /* ================= BACKGROUND ================= */
-    .page-bg.blog-bg {
-      min-height: 100vh;
-      background-image: url("assets/blog-bg.jpg");
-      background-size: cover;
-      background-position: center;
-      background-attachment: fixed;
-      background-repeat: no-repeat;
-    }
-
     /* ================= HERO ================= */
     .parallax-strip h1 {
       color: #ffffff;
     }
 
-    /* ================= VISIBILITY LOGIC ================= */
+    /* ================= REST OF PAGE PLAIN ================= */
+    main {
+      background: transparent;
+    }
+
+    /* ================= INDEX / POST TOGGLE ================= */
     #post-view {
       display: none;
     }
 
-    #post-view:target {
-      display: block;
-    }
-
-    #post-view:target ~ #post-index {
-      display: none;
-    }
-
+    /* Blog cards should look clickable */
     .blog-card {
       cursor: pointer;
       display: block;
       text-decoration: none;
+    }
+
+    /* Small quality-of-life styling for subscribe */
+    .subscribe {
+      display: grid;
+      gap: 0.6rem;
+      margin-top: 1rem;
+    }
+
+    .subscribe-row {
+      display: flex;
+      gap: 0.6rem;
+      flex-wrap: wrap;
+      align-items: center;
+    }
+
+    .subscribe input[type="email"] {
+      flex: 1 1 260px;
+      padding: 0.65rem 0.8rem;
+      border-radius: 12px;
+      border: 1px solid rgba(0,0,0,0.15);
+      font: inherit;
+    }
+
+    .subscribe button {
+      padding: 0.65rem 0.9rem;
+      border-radius: 12px;
+      border: 1px solid rgba(0,0,0,0.15);
+      background: #fff;
+      font: inherit;
+      cursor: pointer;
+    }
+
+    .subscribe small {
+      opacity: 0.75;
+    }
+
+    /* Claps + comments: keep them tidy */
+    .claps {
+      display: flex;
+      align-items: center;
+      gap: 0.6rem;
+      margin-top: 1rem;
+    }
+
+    .clap-btn {
+      border: 1px solid rgba(0,0,0,0.15);
+      background: #fff;
+      border-radius: 999px;
+      padding: 0.45rem 0.75rem;
+      cursor: pointer;
+      font: inherit;
+    }
+
+    .comments {
+      margin-top: 1.25rem;
+    }
+
+    .comments textarea {
+      width: 100%;
+      padding: 0.7rem 0.8rem;
+      border-radius: 12px;
+      border: 1px solid rgba(0,0,0,0.15);
+      font: inherit;
+      resize: vertical;
+    }
+
+    .comment-submit {
+      margin-top: 0.6rem;
+      padding: 0.55rem 0.85rem;
+      border-radius: 12px;
+      border: 1px solid rgba(0,0,0,0.15);
+      background: #fff;
+      font: inherit;
+      cursor: pointer;
+    }
+
+    .comment-list {
+      list-style: none;
+      padding-left: 0;
+      margin-top: 0.9rem;
+      display: grid;
+      gap: 0.6rem;
+    }
+
+    .comment-item {
+      border: 1px solid rgba(0,0,0,0.12);
+      border-radius: 14px;
+      padding: 0.7rem 0.85rem;
+      background: rgba(255,255,255,0.85);
+    }
+
+    .comment-meta {
+      font-size: 0.9rem;
+      opacity: 0.8;
+      margin-bottom: 0.2rem;
     }
   </style>
 </head>
 
 <body>
 
-<div class="page-bg blog-bg">
+  <!-- ========== TOP ONLY: HEADER + HERO ON IMAGE ========== -->
+  <div class="hero-bg blog-hero-bg">
 
-  <!-- ================= HEADER ================= -->
-  <header>
-    <div class="container nav">
-      <div class="brand">
-        <a class="name" href="index.html">Yash Mandlecha</a>
-        <div class="tag">Blog</div>
+    <header>
+      <div class="container nav">
+        <div class="brand">
+          <a class="name" href="index.html">Yash Mandlecha</a>
+          <div class="tag">Blog</div>
+        </div>
+        <nav class="navlinks" aria-label="Primary">
+          <a data-nav href="research.html">Research</a>
+          <a data-nav href="blog.html">Blog</a>
+          <a data-nav href="art.html">Art</a>
+          <a data-nav href="cv.html">Curriculum Vitae</a>
+        </nav>
       </div>
-      <nav class="navlinks" aria-label="Primary">
-        <a data-nav href="research.html">Research</a>
-        <a data-nav href="blog.html">Blog</a>
-        <a data-nav href="art.html">Art</a>
-        <a data-nav href="cv.html">Curriculum Vitae</a>
-      </nav>
-    </div>
-  </header>
+    </header>
 
+    <main class="container">
+      <section class="parallax-strip">
+        <h1>Blog</h1>
+      </section>
+    </main>
+
+  </div>
+  <!-- ========== END TOP IMAGE AREA ========== -->
+
+  <!-- ========== PLAIN PAGE CONTENT ========== -->
   <main class="container">
 
-    <!-- ================= HERO ================= -->
-    <section class="parallax-strip">
-      <h1>Blog</h1>
+    <!-- Intro + cadence + subscribe -->
+    <section class="section" id="blog-intro">
+      <div class="item">
+        <p class="muted">
+          This blog will involve writing across a wide range — theoretical physics, high-performance computing,
+          data analysis, and general inspirations from nature. A new article will be added approximately every
+          two weeks.
+        </p>
+
+        <div class="subscribe">
+          <strong>Subscribe for new posts</strong>
+
+          <form id="subscribe-form" class="subscribe-row" autocomplete="on">
+            <input
+              id="subscribe-email"
+              type="email"
+              name="email"
+              placeholder="Your email address"
+              required
+            />
+            <button type="submit">Subscribe</button>
+          </form>
+
+          <small class="muted" id="subscribe-note">
+            This is a static site: clicking Subscribe will open your email client to request subscription, and
+            also save your email locally in this browser.
+          </small>
+        </div>
+      </div>
     </section>
 
-    <!-- ================= FULL POST (HIDDEN) ================= -->
-    <section class="section" id="post-view">
-
+    <!-- ================= POST INDEX ================= -->
+    <section class="section" id="post-index">
       <div class="section-head">
-        <h2>Post</h2>
-        <a href="#post-index">Back to posts →</a>
+        <h2>Posts</h2>
       </div>
 
-      <article class="item blog-post" id="not-all-classrooms">
+      <div class="blog-list">
+        <!-- Card opens full post via JS -->
+        <a class="blog-card" href="#not-all-classrooms" data-open-post="not-all-classrooms">
+          <h3>Not All Classrooms Have Four Walls</h3>
+          <p class="muted">August 2020 · Article</p>
+          <p class="excerpt">
+            Reflections on learning from nature, humility, and the quiet
+            wisdom embedded in the world beyond formal classrooms.
+          </p>
+        </a>
+      </div>
+    </section>
+
+    <!-- ================= FULL POST VIEW (HIDDEN UNTIL CLICK) ================= -->
+    <section class="section" id="post-view">
+      <div class="section-head">
+        <h2>Post</h2>
+        <a href="#post-index" id="back-to-posts">Back to posts →</a>
+      </div>
+
+      <article class="item blog-post" id="not-all-classrooms" data-post="classrooms">
 
         <h2>Not All Classrooms Have Four Walls</h2>
 
         <p class="meta muted">
           August 2020 · Originally written as a personal essay
         </p>
+
+        <!-- ===== FULL ARTICLE CONTENT (UNCHANGED) ===== -->
 
         <p>
           Nature is a great teacher. No wonder why Grandma used to look up to
@@ -217,39 +367,26 @@
           — Yash Mandlecha
         </p>
 
+        <!-- ===================== -->
+        <!-- Claps section         -->
+        <!-- ===================== -->
         <div class="claps" data-post="classrooms">
-          <button class="clap-btn">👏</button>
+          <button class="clap-btn" type="button">👏 Clap</button>
           <span class="clap-count">0</span>
         </div>
 
+        <!-- ===================== -->
+        <!-- Comments section      -->
+        <!-- ===================== -->
         <div class="comments" data-post="classrooms">
           <h4>Comments</h4>
           <textarea class="comment-input" rows="3"
                     placeholder="Write a comment…"></textarea>
-          <button class="comment-submit">Post</button>
+          <button class="comment-submit" type="button">Post</button>
           <ul class="comment-list"></ul>
         </div>
 
       </article>
-
-    </section>
-
-    <!-- ================= POST INDEX ================= -->
-    <section class="section" id="post-index">
-      <div class="section-head">
-        <h2>Posts</h2>
-      </div>
-
-      <div class="blog-list">
-        <a class="blog-card" href="#post-view">
-          <h3>Not All Classrooms Have Four Walls</h3>
-          <p class="muted">August 2020 · Article</p>
-          <p class="excerpt">
-            Reflections on learning from nature, humility, and the quiet
-            wisdom embedded in the world beyond formal classrooms.
-          </p>
-        </a>
-      </div>
     </section>
 
   </main>
@@ -261,9 +398,166 @@
     </div>
   </footer>
 
-</div>
+  <script src="assets/script.js"></script>
+  <script src="assets/blog.js"></script>
 
-<script src="assets/script.js"></script>
-<script src="assets/blog.js"></script>
+  <!-- Inline JS to GUARANTEE claps/comments + open/close works (even if blog.js is missing) -->
+  <script>
+    (function () {
+      // ---------- Helpers ----------
+      function qs(sel, root) { return (root || document).querySelector(sel); }
+      function qsa(sel, root) { return Array.from((root || document).querySelectorAll(sel)); }
+
+      // ---------- View toggling ----------
+      const postIndex = qs("#post-index");
+      const postView  = qs("#post-view");
+
+      function showIndex() {
+        postView.style.display = "none";
+        postIndex.style.display = "block";
+      }
+
+      function showPost(postId) {
+        postIndex.style.display = "none";
+        postView.style.display = "block";
+
+        const el = qs("#" + postId);
+        if (el) el.scrollIntoView({ behavior: "instant", block: "start" });
+      }
+
+      // Open post on card click
+      qsa("[data-open-post]").forEach(card => {
+        card.addEventListener("click", (e) => {
+          e.preventDefault();
+          const postId = card.getAttribute("data-open-post");
+          history.replaceState(null, "", "#" + postId);
+          showPost(postId);
+        });
+      });
+
+      // Back link
+      const back = qs("#back-to-posts");
+      if (back) {
+        back.addEventListener("click", (e) => {
+          e.preventDefault();
+          history.replaceState(null, "", "#post-index");
+          showIndex();
+          postIndex.scrollIntoView({ behavior: "instant", block: "start" });
+        });
+      }
+
+      // If loaded with hash already
+      const initialHash = (location.hash || "").replace("#", "");
+      if (initialHash && qs("#" + initialHash + ".blog-post")) {
+        showPost(initialHash);
+      } else {
+        showIndex();
+      }
+
+      window.addEventListener("hashchange", () => {
+        const h = (location.hash || "").replace("#", "");
+        if (h && qs("#" + h + ".blog-post")) showPost(h);
+        else showIndex();
+      });
+
+      // ---------- Claps + Comments (localStorage) ----------
+      function storageKey(type, postKey) {
+        return "blog_" + type + "_" + postKey;
+      }
+
+      // Claps
+      qsa(".claps").forEach(box => {
+        const postKey = box.getAttribute("data-post");
+        const btn = qs(".clap-btn", box);
+        const countEl = qs(".clap-count", box);
+
+        const saved = parseInt(localStorage.getItem(storageKey("claps", postKey)) || "0", 10);
+        countEl.textContent = String(saved);
+
+        btn.addEventListener("click", () => {
+          const cur = parseInt(countEl.textContent || "0", 10) + 1;
+          countEl.textContent = String(cur);
+          localStorage.setItem(storageKey("claps", postKey), String(cur));
+        });
+      });
+
+      // Comments
+      qsa(".comments").forEach(box => {
+        const postKey = box.getAttribute("data-post");
+        const input = qs(".comment-input", box);
+        const submit = qs(".comment-submit", box);
+        const list = qs(".comment-list", box);
+
+        function render() {
+          list.innerHTML = "";
+          const raw = localStorage.getItem(storageKey("comments", postKey));
+          const arr = raw ? JSON.parse(raw) : [];
+
+          arr.forEach(item => {
+            const li = document.createElement("li");
+            li.className = "comment-item";
+
+            const meta = document.createElement("div");
+            meta.className = "comment-meta";
+            meta.textContent = item.date;
+
+            const body = document.createElement("div");
+            body.textContent = item.text;
+
+            li.appendChild(meta);
+            li.appendChild(body);
+            list.appendChild(li);
+          });
+        }
+
+        render();
+
+        submit.addEventListener("click", () => {
+          const text = (input.value || "").trim();
+          if (!text) return;
+
+          const raw = localStorage.getItem(storageKey("comments", postKey));
+          const arr = raw ? JSON.parse(raw) : [];
+
+          const now = new Date();
+          const stamp = now.toLocaleString(undefined, { year: "numeric", month: "short", day: "2-digit", hour: "2-digit", minute: "2-digit" });
+
+          arr.unshift({ text, date: stamp });
+          localStorage.setItem(storageKey("comments", postKey), JSON.stringify(arr));
+          input.value = "";
+          render();
+        });
+      });
+
+      // ---------- Subscribe (static-friendly) ----------
+      const form = qs("#subscribe-form");
+      const emailInput = qs("#subscribe-email");
+      if (form && emailInput) {
+        // Prefill if present
+        const savedEmail = localStorage.getItem("blog_subscriber_email");
+        if (savedEmail) emailInput.value = savedEmail;
+
+        form.addEventListener("submit", (e) => {
+          e.preventDefault();
+          const email = (emailInput.value || "").trim();
+          if (!email) return;
+
+          localStorage.setItem("blog_subscriber_email", email);
+
+          // Open mailto so you ACTUALLY receive the subscription request.
+          const subject = encodeURIComponent("Blog subscription request");
+          const body = encodeURIComponent(
+            "Hi Yash,\n\nPlease add me to your blog update list.\n\nEmail: " + email + "\n\nThanks!"
+          );
+
+          // Replace with your preferred receiving address if different:
+          const to = "mandlec1@msu.edu";
+          window.location.href = "mailto:" + to + "?subject=" + subject + "&body=" + body;
+
+          alert("Thanks! Your subscription request is ready to send via email.");
+        });
+      }
+    })();
+  </script>
 </body>
 </html>
