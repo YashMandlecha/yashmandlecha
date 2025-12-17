@@ -454,3 +454,24 @@ html, body {
   background-position: center;
   background-attachment: fixed;
 }
+
+/* ===== Research hero background ===== */
+.research-hero {
+  background:
+    linear-gradient(
+      rgba(255,255,255,0.35),
+      rgba(255,255,255,0.35)
+    ),
+    url("assets/research-bg.webp");
+  background-size: cover;
+  background-position: center;
+  background-attachment: fixed;
+
+  border-bottom-left-radius: 40px;
+  border-bottom-right-radius: 40px;
+}
+
+/* Ensure clean separation */
+.research-hero + .container {
+  margin-top: 2.5rem;
+}
