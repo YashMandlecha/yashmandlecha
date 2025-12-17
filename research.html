@@ -1,149 +1,142 @@
 <!doctype html>
 <html lang="en">
-  <head>
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/lmweb@1.0.0/lmroman10.css">
-    <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <title>Research · Yash Mandlecha</title>
-    <meta
-      name="description"
-      content="Research overview, interests, publications, and projects."
-    />
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/lmweb@1.0.0/lmroman10.css">
-    <link rel="stylesheet" href="assets/style.css">
+<head>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/lmweb@1.0.0/lmroman10.css">
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
 
-  </head>
+  <title>Research · Yash Mandlecha</title>
+  <meta
+    name="description"
+    content="Research overview, interests, publications, and projects."
+  />
 
-  <body>
-    <header>
-      <div class="container nav">
-        <div class="brand">
-          <a class="name" href="index.html">Yash Mandlecha</a>
-          <div class="tag">Research</div>
-        </div>
+  <link rel="stylesheet" href="assets/style.css">
+</head>
 
-        <nav class="navlinks" aria-label="Primary">
-          <a data-nav href="research.html">Research</a>
-          <a data-nav href="blog.html">Blog</a>
-          <a data-nav href="art.html">Art</a>
-          <a data-nav href="cv.html">Curriculum Vitae</a>
-        </nav>
+<body>
+
+  <header class="site-header">
+    <div class="container nav">
+      <div class="brand">
+        <a class="name" href="index.html">Yash Mandlecha</a>
+        <div class="tag">Research</div>
       </div>
-    </header>
 
-    <main class="container">
-      <section class="parallax-strip">
-        <h1>Research</h1>
-      </section>
+      <nav class="navlinks" aria-label="Primary">
+        <a data-nav href="research.html">Research</a>
+        <a data-nav href="blog.html">Blog</a>
+        <a data-nav href="art.html">Art</a>
+        <a data-nav href="cv.html">Curriculum Vitae</a>
+      </nav>
+    </div>
+  </header>
 
-      <div class="grid2">
-        <div class="item">
-          <h3>Interests</h3>
-          <p class="muted">
-            Lattice field theory (lattice QCD / related), gradient flow,
-            renormalization, numerical methods, and high-performance computing
-            (MPI/OpenMP, GPU offload where relevant).
-          </p>
+  <!-- Extended parallax -->
+  <section class="parallax-strip tall">
+    <h1>Research</h1>
+  </section>
 
-          <div class="badges">
-            <span class="badge">Lattice</span>
-            <span class="badge">RG / β-function</span>
-            <span class="badge">HPC</span>
-            <span class="badge">Data analysis</span>
-          </div>
+  <main class="container">
+
+    <div class="grid2">
+
+      <div class="item card bg-image">
+        <h3>Interests</h3>
+        <p class="muted">
+          My research interests lie broadly in lattice field theory, with a
+          focus on lattice quantum chromodynamics (QCD), gradient flow,
+          renormalization and continuous β-function methods, numerical
+          algorithms, and high-performance computing using MPI/OpenMP and GPU
+          offload where relevant.
+        </p>
+
+        <div class="badges">
+          <span class="badge">Lattice</span>
+          <span class="badge">RG / β-function</span>
+          <span class="badge">HPC</span>
+          <span class="badge">Data analysis</span>
         </div>
+      </div>
 
-        <div class="item">
-          <h3>Profiles</h3>
-          <p class="muted">Add links you want people to use:</p>
+      <div class="item card bg-image">
+        <h3>Profiles</h3>
+        <p class="muted">External profiles and academic presence:</p>
 
-          <p>
-            • <a href="#" target="_blank" rel="noopener">Google Scholar</a><br />
-            • <a href="#" target="_blank" rel="noopener">INSPIRE-HEP</a><br />
-            •
-            <a
+        <p>
+          • <a href="#" target="_blank" rel="noopener">Google Scholar</a><br />
+          • <a href="#" target="_blank" rel="noopener">INSPIRE-HEP</a><br />
+          • <a
               href="https://github.com/YashMandlecha"
               target="_blank"
               rel="noopener"
-              >GitHub</a
-            >
-          </p>
-        </div>
+            >GitHub</a>
+        </p>
       </div>
 
-      <section class="section" id="projects">
-        <div class="section-head">
-          <h2>Projects</h2>
-          <a href="cv.html">Citations &amp; CV →</a>
-        </div>
+    </div>
 
-        <section class="project">
-          <div class="project-text">
-            <h3>Gradient Flow Scale Setting in Lattice QCD</h3>
-            <p><em>Guide:</em> Prof. Alexei Bazavov</p>
-            <p><strong>Institute:</strong> Michigan State University</p>
-            <p class="muted">
-              High-precision scale setting and continuous β-function analysis
-              using gradient flow.
-            </p>
-          </div>
+    <section class="section" id="projects">
+      <div class="section-head">
+        <h2>Projects</h2>
+        <a href="cv.html">Citations &amp; CV →</a>
+      </div>
 
-          <div class="project-figure">
-            <img
-              src="FNAL_MILC_Nf0_beta.webp"
-              alt="Gradient flow project"
-            />
-          </div>
-        </section>
-
-        <section class="project">
-          <div class="project-text">
-            <h3>Higher-Derivative Scalar Field Theories</h3>
-            <p>
-              <em>Guides:</em> Prof. Dean Lee, Prof. Alexei Bazavov
-            </p>
-            <p><strong>Institute:</strong> Michigan State University</p>
-            <p class="muted">
-              Non-perturbative lattice study of higher-derivative theories at
-              strong coupling.
-            </p>
-          </div>
-
-          <div class="project-figure">
-            <img
-              src="FNAL_MILC_Nf0_beta.webp"
-              alt="Higher derivative project"
-            />
-          </div>
-        </section>
-      </section>
-
-      <section class="section" id="publications">
-        <div class="section-head">
-          <h2>Publications</h2>
-          <a href="#">Full list →</a>
-        </div>
-
-        <div class="item">
+      <section class="project">
+        <div class="project-text">
+          <h3>Gradient Flow Scale Setting in Lattice QCD</h3>
+          <p><em>Guide:</em> Prof. Alexei Bazavov</p>
+          <p><strong>Institute:</strong> Michigan State University</p>
           <p class="muted">
-            Put a short list here (3–8 items), each as one line. Example:
-          </p>
-
-          <p>
-            • Author, Author, <em>Title</em>, Journal (Year).<br />
-            • Author, <em>Title</em>, arXiv:xxxx.xxxxx (Year).
+            High-precision scale setting and continuous β-function analysis
+            using gradient flow.
           </p>
         </div>
+
+        <div class="project-figure">
+          <img src="FNAL_MILC_Nf0_beta.webp" alt="Gradient flow project">
+        </div>
       </section>
-    </main>
 
-    <footer class="footer">
-      <div class="container row">
-        <div>© <span id="year"></span> Yash Mandlecha</div>
-        <div class="muted"><a href="index.html">Home</a></div>
+      <section class="project">
+        <div class="project-text">
+          <h3>Higher-Derivative Scalar Field Theories</h3>
+          <p><em>Guides:</em> Prof. Dean Lee, Prof. Alexei Bazavov</p>
+          <p><strong>Institute:</strong> Michigan State University</p>
+          <p class="muted">
+            Non-perturbative lattice study of higher-derivative theories at
+            strong coupling.
+          </p>
+        </div>
+
+        <div class="project-figure">
+          <img src="FNAL_MILC_Nf0_beta.webp" alt="Higher derivative project">
+        </div>
+      </section>
+    </section>
+
+    <section class="section" id="publications">
+      <div class="section-head">
+        <h2>Publications</h2>
+        <a href="#">Full list →</a>
       </div>
-    </footer>
 
-    <script src="assets/script.js"></script>
-  </body>
+      <div class="item">
+        <p class="muted">
+          Put a short list here (3–8 items), each as one line.
+        </p>
+      </div>
+    </section>
+
+  </main>
+
+  <footer class="footer">
+    <div class="container row">
+      <div>© <span id="year"></span> Yash Mandlecha</div>
+      <div class="muted"><a href="index.html">Home</a></div>
+    </div>
+  </footer>
+
+  <script src="assets/script.js"></script>
+</body>
 </html>

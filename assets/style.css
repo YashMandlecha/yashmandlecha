@@ -428,3 +428,29 @@ p{
 html, body {
   font-family: "Latin Modern Roman", "Latin Modern", serif !important;
 }
+
+.parallax-strip.tall {
+  min-height: 260px;
+}
+
+.card.bg-image {
+  background:
+    linear-gradient(rgba(255,255,255,0.88), rgba(255,255,255,0.88)),
+    url("research-bg.jpg");
+  background-size: cover;
+  background-position: center;
+}
+
+/* ===== Blog page background ===== */
+.page-bg.blog-bg {
+  min-height: 100vh;
+  background:
+    linear-gradient(
+      rgba(255, 255, 255, 0.88),
+      rgba(255, 255, 255, 0.88)
+    ),
+    url("assets/blog-bg.webp");
+  background-size: cover;
+  background-position: center;
+  background-attachment: fixed;
+}
