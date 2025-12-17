@@ -7,14 +7,14 @@
   <title>Blog · Yash Mandlecha</title>
   <meta name="description" content="Essays and reflections by Yash Mandlecha." />
 
-  <!-- LaTeX / Latin Modern font -->
+  <!-- LaTeX font -->
   <link rel="stylesheet"
         href="https://cdn.jsdelivr.net/npm/lmweb@1.0.0/lmroman10.css">
 
   <link rel="stylesheet" href="assets/style.css">
 
   <style>
-    /* ===== Header typography (same as research.html) ===== */
+    /* ===== Header typography (match research.html) ===== */
     header .name {
       font-weight: 700;
       font-size: 1.4rem;
@@ -35,21 +35,17 @@
       position: sticky;
       top: 0;
       z-index: 1000;
-      background: transparent;
+      background: white;
     }
 
-    /* ===== Blog hero (matches research hero behavior) ===== */
+    /* ===== Blog hero (identical to research hero) ===== */
     .blog-hero {
       background-image: url("assets/blog-bg.jpg");
       background-size: cover;
       background-position: center;
       background-repeat: no-repeat;
-
-      /* extend behind header */
-      margin-top: -4.5rem;
-      padding-top: 7.5rem;
+      padding-top: 5.5rem;   /* same scale as research.html */
       padding-bottom: 4.5rem;
-
       border-bottom-left-radius: 40px;
       border-bottom-right-radius: 40px;
     }
@@ -91,7 +87,6 @@
       padding: 0.65rem 0.8rem;
       border-radius: 12px;
       border: 1px solid rgba(0,0,0,0.15);
-      font: inherit;
     }
 
     .subscribe button {
@@ -99,7 +94,6 @@
       border-radius: 12px;
       border: 1px solid rgba(0,0,0,0.15);
       background: #fff;
-      font: inherit;
       cursor: pointer;
     }
 
@@ -119,16 +113,11 @@
       cursor: pointer;
     }
 
-    .comments {
-      margin-top: 1.25rem;
-    }
-
     .comments textarea {
       width: 100%;
       padding: 0.7rem 0.8rem;
       border-radius: 12px;
       border: 1px solid rgba(0,0,0,0.15);
-      resize: vertical;
     }
 
     .comment-submit {
@@ -366,7 +355,42 @@
 </footer>
 
 <script src="assets/script.js"></script>
-<script src="assets/blog.js"></script>
+
+<!-- ===== Article open/close logic ===== -->
+<script>
+(function() {
+  const postIndex = document.getElementById("post-index");
+  const postView  = document.getElementById("post-view");
+
+  function showIndex() {
+    postView.style.display = "none";
+    postIndex.style.display = "block";
+  }
+
+  function showPost(id) {
+    postIndex.style.display = "none";
+    postView.style.display = "block";
+    const el = document.getElementById(id);
+    if (el) el.scrollIntoView({ behavior: "instant", block: "start" });
+  }
+
+  // Card click
+  document.querySelectorAll("[data-open-post]").forEach(card => {
+    card.addEventListener("click", () => {
+      const id = card.getAttribute("data-open-post");
+      showPost(id);
+    });
+  });
+
+  // Back button
+  document.getElementById("back-to-posts").addEventListener("click", e => {
+    e.preventDefault();
+    showIndex();
+  });
+
+  showIndex(); // default view
+})();
+</script>
 
 </body>
 </html>
