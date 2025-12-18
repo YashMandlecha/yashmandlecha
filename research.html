@@ -15,17 +15,61 @@
 
   <!-- Page-specific adjustments -->
   <style>
-    /* ===== Header typography ===== */
+    /* ================= HEADER (SAME AS INDEX) ================= */
+    header.site-header {
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+      position: relative;
+
+      background-image: url("assets/index-bg.jpg") !important;
+      background-size: cover !important;
+      background-position: center !important;
+      background-repeat: no-repeat !important;
+
+      padding-top: 1.25rem;
+      padding-bottom: 1.25rem;
+
+      border-bottom: 1px solid rgba(255,255,255,0.25);
+    }
+
+    header.site-header::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background: rgba(0,0,0,0.55);
+      z-index: 0;
+      pointer-events: none;
+    }
+
+    header.site-header > * {
+      position: relative;
+      z-index: 1;
+    }
+
     header .name {
       font-weight: 700;
-      font-size: 1.4rem;
+      font-size: 2.05rem;
+      color: #ffffff;
     }
 
     header .tag {
-      font-size: 0.95rem;
+      font-size: 1rem;
+      color: #ffffff;
+      opacity: 0.85;
     }
 
-    /* ===== Research hero ===== */
+    header .navlinks a {
+      font-size: 1.1rem;
+      color: #ffffff;
+      transition: color 0.15s ease;
+    }
+
+    header .navlinks a:hover {
+      color: #000000;
+    }
+
+    /* ================= RESEARCH HERO ================= */
     .parallax-strip.tall {
       padding-top: 6.5rem;
       padding-bottom: 5.5rem;
@@ -38,12 +82,11 @@
       background-repeat: no-repeat;
     }
 
-
     .research-hero h1 {
       color: #ffffff;
     }
 
-    /* ===== Interests + Profiles layout ===== */
+    /* ================= INTERESTS + PROFILES ================= */
     .grid2 {
       display: grid;
       grid-template-columns: 1.2fr 0.8fr;
@@ -55,11 +98,43 @@
         grid-template-columns: 1fr;
       }
     }
+
+    /* ================= FOOTER (SAME AS INDEX) ================= */
+    .footer {
+      position: relative;
+
+      background-image: url("assets/index-bg.jpg") !important;
+      background-size: cover !important;
+      background-position: center !important;
+      background-repeat: no-repeat !important;
+
+      border-top: 1px solid rgba(255,255,255,0.25);
+      color: #ffffff;
+    }
+
+    .footer::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background: rgba(0,0,0,0.55);
+      z-index: 0;
+      pointer-events: none;
+    }
+
+    .footer > * {
+      position: relative;
+      z-index: 1;
+    }
+
+    .footer a {
+      color: #ffffff;
+    }
   </style>
 </head>
 
 <body>
 
+  <!-- ================= HEADER ================= -->
   <header class="site-header">
     <div class="container nav">
       <div class="brand">
@@ -114,12 +189,12 @@
               href="https://github.com/YashMandlecha"
               target="_blank"
               rel="noopener"
-            >GitHub</a>
+            >GitHub</a><br />
           • <a
               href="https://gitlab.msu.edu/hostet22/lgt_codebase"
               target="_blank"
               rel="noopener"
-            > MSU GitLab</a>
+            >MSU GitLab</a>
         </p>
       </div>
 
@@ -177,6 +252,7 @@
 
   </main>
 
+  <!-- ================= FOOTER ================= -->
   <footer class="footer">
     <div class="container row">
       <div>© <span id="year"></span> Yash Mandlecha</div>

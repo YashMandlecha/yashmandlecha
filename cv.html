@@ -7,58 +7,110 @@
   <title>Curriculum Vitae · Yash Mandlecha</title>
   <meta name="description" content="Curriculum vitae of Yash V. Mandlecha." />
 
-  <!-- Latin Modern font -->
+  <!-- Latin Modern -->
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/lmweb@1.0.0/lmroman10.css">
   <link rel="stylesheet" href="assets/style.css">
 
   <style>
-    /* ========= Sticky header with clear boundary (same as research.html) ========= */
+    /* ================= HEADER (SITE-WIDE CONSISTENT) ================= */
     header.site-header {
       position: sticky;
       top: 0;
       z-index: 1000;
-      background: white;            /* Not transparent — clear separation */
-      border-bottom: 1px solid rgba(0,0,0,0.08);
-      backdrop-filter: blur(6px);
+      position: relative;
+
+      background-image: url("assets/index-bg.jpg") !important;
+      background-size: cover !important;
+      background-position: center !important;
+      background-repeat: no-repeat !important;
+
+      padding-top: 1.25rem;
+      padding-bottom: 1.25rem;
+      border-bottom: 1px solid rgba(255,255,255,0.25);
+    }
+
+    header.site-header::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background: rgba(0,0,0,0.55);
+      z-index: 0;
+      pointer-events: none;
+    }
+
+    header.site-header > * {
+      position: relative;
+      z-index: 1;
     }
 
     header .name {
       font-weight: 700;
-      font-size: 1.4rem;
-      color: #000;
+      font-size: 2.05rem;
+      color: #ffffff;
     }
 
-    header .tag,
+    header .tag {
+      font-size: 1rem;
+      color: rgba(255,255,255,0.85);
+    }
+
     header .navlinks a {
-      color: #000;
+      font-size: 1.05rem;
+      color: #ffffff;
+      transition: color 0.15s ease;
     }
 
-    /* ========= CV HERO (same geometry & spacing as research hero) ========= */
+    header .navlinks a:hover {
+      color: #000000;
+    }
+
+    /* ================= CV HERO ================= */
     .cv-hero {
       background-image: url("assets/cv-bg.jpg");
       background-size: cover;
       background-position: center;
       background-repeat: no-repeat;
 
-      padding-top: 6.5rem;   /* identical proportions */
+      padding-top: 6.5rem;
       padding-bottom: 4.5rem;
 
       border-bottom-left-radius: 40px;
       border-bottom-right-radius: 40px;
-
       text-align: center;
     }
 
     .cv-hero h1 {
-      color: white;
+      color: #ffffff;
       margin: 0;
+      font-size: 2.6rem;
+      letter-spacing: 0.02em;
     }
 
-    /* ========= CV item layout (two-column rows) ========= */
+    /* ================= CV LAYOUT ================= */
+    main {
+      background: #ffffff;
+    }
+
+    .section {
+      margin-top: 2.8rem;
+    }
+
+    .cv-card {
+      background: rgba(0,0,0,0.015);
+      border: 1px solid rgba(0,0,0,0.06);
+      border-radius: 18px;
+      padding: 1.6rem 1.8rem;
+    }
+
+    h3 {
+      margin-bottom: 0.9rem;
+    }
+
+    /* Two-column rows */
     .cv-row {
       display: grid;
       grid-template-columns: 1fr auto;
-      gap: 1.5rem;
+      gap: 1.8rem;
       align-items: start;
       margin-bottom: 1.6rem;
     }
@@ -66,8 +118,21 @@
     .cv-right {
       white-space: nowrap;
       text-align: right;
-      opacity: 0.85;
       font-size: 0.95rem;
+      color: rgba(0,0,0,0.65);
+    }
+
+    .cv-row strong {
+      font-weight: 600;
+    }
+
+    .cv-row em {
+      font-style: italic;
+      color: rgba(0,0,0,0.75);
+    }
+
+    ul.muted {
+      margin-top: 0.4rem;
     }
 
     @media (max-width: 800px) {
@@ -79,15 +144,42 @@
       }
     }
 
-    .section {
-      margin-top: 2.5rem;
+    /* ================= FOOTER ================= */
+    .footer {
+      position: relative;
+
+      background-image: url("assets/index-bg.jpg") !important;
+      background-size: cover !important;
+      background-position: center !important;
+      background-repeat: no-repeat !important;
+
+      border-top: 1px solid rgba(255,255,255,0.25);
+      color: #ffffff;
+    }
+
+    .footer::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background: rgba(0,0,0,0.55);
+      z-index: 0;
+      pointer-events: none;
+    }
+
+    .footer > * {
+      position: relative;
+      z-index: 1;
+    }
+
+    .footer a {
+      color: #ffffff;
     }
   </style>
 </head>
 
 <body>
 
-<!-- ========= HEADER (same structure as research.html) ========= -->
+<!-- ================= HEADER ================= -->
 <header class="site-header">
   <div class="container nav">
     <div class="brand">
@@ -95,7 +187,7 @@
       <div class="tag">Curriculum Vitae</div>
     </div>
 
-    <nav class="navlinks" aria-label="Primary">
+    <nav class="navlinks">
       <a href="research.html">Research</a>
       <a href="blog.html">Blog</a>
       <a href="art.html">Art</a>
@@ -104,17 +196,17 @@
   </div>
 </header>
 
-<!-- ========= HERO ========= -->
+<!-- ================= HERO ================= -->
 <section class="parallax-strip cv-hero">
   <h1>Curriculum Vitae</h1>
 </section>
 
-<!-- ========= MAIN CONTENT ========= -->
+<!-- ================= MAIN ================= -->
 <main class="container">
 
-  <!-- ===== CONTACT ===== -->
+  <!-- CONTACT -->
   <section class="section">
-    <div class="item">
+    <div class="cv-card">
       <p class="muted">
         <strong>Email:</strong> mandlec1@msu.edu<br>
         <strong>Phone:</strong> +1&nbsp;517-980-0618<br>
@@ -123,172 +215,114 @@
     </div>
   </section>
 
-  <!-- ===== RESEARCH INTERESTS ===== -->
+  <!-- RESEARCH INTERESTS -->
   <section class="section">
-    <h3>Research Interests</h3>
-    <p class="muted">
-      Lattice Quantum Chromodynamics; Standard Model parameters; high-performance
-      computing; gradient flow; Gaussian processes.
-    </p>
-  </section>
-
-  <!-- ===== EDUCATION ===== -->
-  <section class="section">
-    <h3>Education</h3>
-
-    <div class="cv-row">
-      <div>
-        <strong>Dual Doctor of Philosophy, Physics &amp; CMSE</strong><br>
-        Michigan State University<br>
-        Advisor: Prof. Alexei Bazavov<br>
-        Grade: 4.0 / 4.0
-      </div>
-      <div class="cv-right">East Lansing, MI<br>2022–Present</div>
-    </div>
-
-    <div class="cv-row">
-      <div>
-        <strong>BS–MS Dual Degree, Physics</strong><br>
-        Indian Institute of Science Education and Research Bhopal<br>
-        CPI: 9.58 / 10
-      </div>
-      <div class="cv-right">Bhopal, India<br>2017–2022</div>
+    <div class="cv-card">
+      <h3>Research Interests</h3>
+      <p class="muted">
+        Lattice Quantum Chromodynamics; Standard Model parameters;
+        high-performance computing; gradient flow; Gaussian processes.
+      </p>
     </div>
   </section>
 
-  <!-- ===== RESEARCH EXPERIENCE ===== -->
+  <!-- EDUCATION -->
   <section class="section">
-    <h3>Research Experience &amp; Projects</h3>
+    <div class="cv-card">
+      <h3>Education</h3>
 
-    <div class="cv-row">
-      <div>
-        <strong>Scale Setting &amp; Strong Coupling Constant with Gradient Flow</strong><br>
-        Supervisor: Prof. Alexei Bazavov
-        <ul class="muted">
-          <li>Gradient flow in 2+1+1 flavor lattice QCD for precision scale setting.</li>
-          <li>Continuous β-function framework treating flow as RG evolution.</li>
-          <li>Developing improved extrapolation and analysis techniques.</li>
-        </ul>
+      <div class="cv-row">
+        <div>
+          <strong>Dual Doctor of Philosophy, Physics &amp; CMSE</strong><br>
+          <em>Michigan State University</em><br>
+          Advisor: Prof. Alexei Bazavov<br>
+          Grade: 4.0 / 4.0
+        </div>
+        <div class="cv-right">East Lansing, MI<br>2022–Present</div>
       </div>
-      <div class="cv-right">MSU<br>Dec 2024–Present</div>
-    </div>
 
-    <div class="cv-row">
-      <div>
-        <strong>Non-perturbative Study of Higher-Derivative Theories</strong><br>
-        Supervisors: Prof. Dean Lee, Prof. Alexei Bazavov
-        <ul class="muted">
-          <li>Lattice studies of strongly interacting Higgs-sector models.</li>
-          <li>Code development and large-scale ensemble generation.</li>
-        </ul>
+      <div class="cv-row">
+        <div>
+          <strong>BS–MS Dual Degree, Physics</strong><br>
+          <em>IISER Bhopal</em><br>
+          CPI: 9.58 / 10
+        </div>
+        <div class="cv-right">Bhopal, India<br>2017–2022</div>
       </div>
-      <div class="cv-right">MSU<br>Jan 2023–Present</div>
-    </div>
-
-    <div class="cv-row">
-      <div>
-        <strong>Machine Learning for Phase Transitions</strong><br>
-        Supervisor: Prof. Michael Murillo
-        <ul class="muted">
-          <li>CNN-based phase identification without Hamiltonian input.</li>
-          <li>Histogram reweighting and transfer learning (Potts, ϕ⁴).</li>
-        </ul>
-      </div>
-      <div class="cv-right">MSU<br>Jan–Jun 2024</div>
-    </div>
-
-    <div class="cv-row">
-      <div>
-        <strong>MS Thesis: Casimir Effect for Lattice Fermions</strong><br>
-        Supervisor: Prof. Rajiv V. Gavai
-        <ul class="muted">
-          <li>Wilson and Möbius DWF agreement with continuum results.</li>
-          <li>Resolved universality issues for naïve fermions.</li>
-        </ul>
-      </div>
-      <div class="cv-right">TIFR / IISER<br>Aug 2021–Dec 2022</div>
     </div>
   </section>
 
-  <!-- ===== TEACHING ===== -->
+  <!-- RESEARCH EXPERIENCE -->
   <section class="section">
-    <h3>Teaching</h3>
+    <div class="cv-card">
+      <h3>Research Experience &amp; Projects</h3>
 
-    <div class="cv-row">
-      <div>
-        <strong>Teaching Assistant, Michigan State University</strong>
-        <ul class="muted">
-          <li>PHY 481 – Electromagnetism (Fall 2022)</li>
-          <li>PHY 222 – Physics for Life Sciences (Spring 2023)</li>
-          <li>PHY 831 – Statistical Mechanics (Fall 2024)</li>
-          <li>PHY 851 – Quantum Mechanics (Fall 2024)</li>
-          <li>Coming up to speed ’25 (Summer 2025)</li>
-        </ul>
+      <div class="cv-row">
+        <div>
+          <strong>Scale Setting &amp; Strong Coupling Constant with Gradient Flow</strong><br>
+          <em>Supervisor: Prof. Alexei Bazavov</em>
+          <ul class="muted">
+            <li>Gradient flow in 2+1+1 flavor lattice QCD.</li>
+            <li>Continuous β-function as RG evolution.</li>
+            <li>Improved extrapolation and analysis frameworks.</li>
+          </ul>
+        </div>
+        <div class="cv-right">MSU<br>Dec 2024–Present</div>
       </div>
-      <div class="cv-right">MSU</div>
-    </div>
 
-    <div class="cv-row">
-      <div>
-        <strong>Co-Instructor</strong><br>
-        CMSE 495 – Data Science Capstone
+      <div class="cv-row">
+        <div>
+          <strong>Non-perturbative Study of Higher-Derivative Theories</strong><br>
+          <em>Supervisors: Prof. Dean Lee, Prof. Alexei Bazavov</em>
+          <ul class="muted">
+            <li>Strongly interacting Higgs-sector models.</li>
+            <li>Large-scale ensemble generation and code development.</li>
+          </ul>
+        </div>
+        <div class="cv-right">MSU<br>Jan 2023–Present</div>
       </div>
-      <div class="cv-right">Spring 2025</div>
+
+      <div class="cv-row">
+        <div>
+          <strong>Machine Learning for Phase Transitions</strong><br>
+          <em>Supervisor: Prof. Michael Murillo</em>
+          <ul class="muted">
+            <li>CNN-based phase identification.</li>
+            <li>Histogram reweighting and transfer learning.</li>
+          </ul>
+        </div>
+        <div class="cv-right">MSU<br>Jan–Jun 2024</div>
+      </div>
+
+      <div class="cv-row">
+        <div>
+          <strong>MS Thesis: Casimir Effect for Lattice Fermions</strong><br>
+          <em>Supervisor: Prof. Rajiv V. Gavai</em>
+          <ul class="muted">
+            <li>Wilson and Möbius DWF continuum agreement.</li>
+            <li>Universality resolution for naïve fermions.</li>
+          </ul>
+        </div>
+        <div class="cv-right">TIFR / IISER<br>Aug 2021–Dec 2022</div>
+      </div>
     </div>
   </section>
 
-  <!-- ===== PUBLICATIONS ===== -->
+  <!-- PUBLICATIONS -->
   <section class="section">
-    <h3>Publications</h3>
-    <p class="muted">
-      Y. V. Mandlecha and R. V. Gavai,<br>
-      <em>Lattice fermionic Casimir effect in a slab bag and universality</em>,<br>
-      Physics Letters B <strong>832</strong>, 137558 (2022).
-    </p>
-  </section>
-
-  <!-- ===== SKILLS ===== -->
-  <section class="section">
-    <h3>Technical Skills</h3>
-    <p class="muted">
-      <strong>Languages:</strong> C++, C, Python, Wolfram Language, HTML, LaTeX<br>
-      <strong>Libraries:</strong> MPI, OpenMP, NumPy, Pandas, Matplotlib, Keras, TensorFlow<br>
-      <strong>Tools:</strong> Mathematica, Jupyter, Linux, Git
-    </p>
-  </section>
-
-  <!-- ===== LANGUAGES ===== -->
-  <section class="section">
-    <h3>Languages</h3>
-    <p class="muted">
-      English (Fluent), Hindi (Native), Marathi (Native), Marwari (Native), German (A2)
-    </p>
-  </section>
-
-  <!-- ===== AWARDS ===== -->
-  <section class="section">
-    <h3>Scholarships &amp; Awards</h3>
-    <ul class="muted">
-      <li>DST INSPIRE Scholarship, Government of India (2017–2022)</li>
-      <li>1st Position – Braincafe’ Budding Scientist Contest (ZEE Learn)</li>
-      <li>Winner – Model Solvay Conference, IISER Bhopal (2018)</li>
-      <li>Gold Medal – SOF International English Olympiad (2017)</li>
-    </ul>
-  </section>
-
-  <!-- ===== EXTRACURRICULAR ===== -->
-  <section class="section">
-    <h3>Extracurricular Activities</h3>
-    <ul class="muted">
-      <li>Grad-Grad Mentor, MSU Physics &amp; Astronomy (2024–2025)</li>
-      <li>Coordinator, Physics Club &amp; Model Solvay Conference, IISER Bhopal</li>
-      <li>Coordinator, Rashtriya Avishkaar Abhiyaan, IISER Bhopal</li>
-    </ul>
+    <div class="cv-card">
+      <h3>Publications</h3>
+      <p class="muted">
+        Y. V. Mandlecha and R. V. Gavai,<br>
+        <em>Lattice fermionic Casimir effect in a slab bag and universality</em>,<br>
+        Physics Letters B <strong>832</strong>, 137558 (2022).
+      </p>
+    </div>
   </section>
 
 </main>
 
-<!-- ========= FOOTER ========= -->
+<!-- ================= FOOTER ================= -->
 <footer class="footer">
   <div class="container row">
     <div>© <span id="year"></span> Yash Mandlecha</div>

@@ -7,45 +7,78 @@
   <title>Blog · Yash Mandlecha</title>
   <meta name="description" content="Essays and reflections by Yash Mandlecha." />
 
-  <!-- LaTeX font -->
+  <!-- Latin Modern -->
   <link rel="stylesheet"
         href="https://cdn.jsdelivr.net/npm/lmweb@1.0.0/lmroman10.css">
 
   <link rel="stylesheet" href="assets/style.css">
 
   <style>
-    /* ===== Header typography (match research.html) ===== */
-    header .name {
-      font-weight: 700;
-      font-size: 1.4rem;
-      color: #000;
-    }
-
-    header .tag {
-      font-size: 0.95rem;
-      color: #000;
-    }
-
-    header .navlinks a {
-      color: #000;
-    }
-
-    /* ===== Sticky header ===== */
-    header {
+    /* ================= HEADER (MATCH INDEX / RESEARCH) ================= */
+    header.site-header {
       position: sticky;
       top: 0;
       z-index: 1000;
-      background: white;
+      position: relative;
+
+      background-image: url("assets/index-bg.jpg") !important;
+      background-size: cover !important;
+      background-position: center !important;
+      background-repeat: no-repeat !important;
+
+      padding-top: 1.25rem;
+      padding-bottom: 1.25rem;
+
+      border-bottom: 1px solid rgba(255,255,255,0.25);
     }
 
-    /* ===== Blog hero (identical to research hero) ===== */
+    header.site-header::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background: rgba(0,0,0,0.55);
+      z-index: 0;
+      pointer-events: none;
+    }
+
+    header.site-header > * {
+      position: relative;
+      z-index: 1;
+    }
+
+    header .name {
+      font-weight: 700;
+      font-size: 2.05rem;
+      color: #ffffff;
+    }
+
+    header .tag {
+      font-size: 1rem;
+      color: #ffffff;
+      opacity: 0.85;
+    }
+
+    header .navlinks a {
+      font-size: 1.1rem;
+      color: #ffffff;
+      transition: color 0.15s ease;
+    }
+
+    header .navlinks a:hover {
+      color: #000000;
+    }
+
+    /* ================= BLOG HERO ================= */
+    .parallax-strip.tall {
+      padding-top: 6.5rem;
+      padding-bottom: 5.5rem;
+    }
+
     .blog-hero {
       background-image: url("assets/blog-bg.jpg");
       background-size: cover;
       background-position: center;
       background-repeat: no-repeat;
-      padding-top: 5.5rem;   /* same scale as research.html */
-      padding-bottom: 4.5rem;
       border-bottom-left-radius: 40px;
       border-bottom-right-radius: 40px;
     }
@@ -54,7 +87,7 @@
       color: #ffffff;
     }
 
-    /* ===== Page ===== */
+    /* ================= PAGE ================= */
     main {
       background: transparent;
     }
@@ -69,7 +102,7 @@
       text-decoration: none;
     }
 
-    /* ===== Subscribe ===== */
+    /* ================= SUBSCRIBE ================= */
     .subscribe {
       display: grid;
       gap: 0.6rem;
@@ -97,7 +130,7 @@
       cursor: pointer;
     }
 
-    /* ===== Claps + comments ===== */
+    /* ================= COMMENTS ================= */
     .claps {
       display: flex;
       align-items: center;
@@ -144,16 +177,43 @@
       background: rgba(255,255,255,0.85);
     }
 
-    .comment-meta {
-      font-size: 0.9rem;
-      opacity: 0.8;
+    /* ================= FOOTER (MATCH INDEX / RESEARCH) ================= */
+    .footer {
+      position: relative;
+
+      background-image: url("assets/index-bg.jpg") !important;
+      background-size: cover !important;
+      background-position: center !important;
+      background-repeat: no-repeat !important;
+
+      border-top: 1px solid rgba(255,255,255,0.25);
+      color: #ffffff;
+    }
+
+    .footer::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background: rgba(0,0,0,0.55);
+      z-index: 0;
+      pointer-events: none;
+    }
+
+    .footer > * {
+      position: relative;
+      z-index: 1;
+    }
+
+    .footer a {
+      color: #ffffff;
     }
   </style>
 </head>
 
 <body>
 
-<header>
+<!-- ================= HEADER ================= -->
+<header class="site-header">
   <div class="container nav">
     <div class="brand">
       <a class="name" href="index.html">Yash Mandlecha</a>
@@ -168,14 +228,14 @@
   </div>
 </header>
 
-<!-- ===== HERO ===== -->
+<!-- ================= HERO ================= -->
 <section class="parallax-strip tall blog-hero">
   <h1>Blog</h1>
 </section>
 
 <main class="container">
 
-<!-- ===== Intro ===== -->
+<!-- ================= INTRO ================= -->
 <section class="section">
   <div class="item">
     <p class="muted">
@@ -198,7 +258,7 @@
   </div>
 </section>
 
-<!-- ===== Post index ===== -->
+<!-- ================= POST INDEX ================= -->
 <section class="section" id="post-index">
   <div class="section-head">
     <h2>Posts</h2>
@@ -213,16 +273,16 @@
   </a>
 </section>
 
-<!-- ===== Full post ===== -->
+<!-- ================= FULL POST ================= -->
 <section class="section" id="post-view">
   <div class="section-head">
     <h2>Post</h2>
     <a href="#" id="back-to-posts">Back to posts →</a>
   </div>
 
-  <article class="item blog-post" id="not-all-classrooms" data-post="classrooms">
+  <article class="item blog-post" id="not-all-classrooms">
 
-<h2>Not All Classrooms Have Four Walls</h2>
+    <h2>Not All Classrooms Have Four Walls</h2>
 
         <p class="meta muted">
           August 2020 · Originally written as a personal essay
@@ -330,24 +390,25 @@
           — Yash Mandlecha
         </p>
 
-<div class="claps" data-post="classrooms">
-  <button class="clap-btn">👏 Clap</button>
-  <span class="clap-count">0</span>
-</div>
 
-<div class="comments" data-post="classrooms">
-  <h4>Comments</h4>
-  <textarea class="comment-input" rows="3"
-            placeholder="Write a comment…"></textarea>
-  <button class="comment-submit">Post</button>
-  <ul class="comment-list"></ul>
-</div>
+    <div class="claps">
+      <button class="clap-btn">👏 Clap</button>
+      <span class="clap-count">0</span>
+    </div>
+
+    <div class="comments">
+      <h4>Comments</h4>
+      <textarea rows="3" placeholder="Write a comment…"></textarea>
+      <button class="comment-submit">Post</button>
+      <ul class="comment-list"></ul>
+    </div>
 
   </article>
 </section>
 
 </main>
 
+<!-- ================= FOOTER ================= -->
 <footer class="footer">
   <div class="container row">
     <div>© <span id="year"></span> Yash Mandlecha</div>
@@ -356,7 +417,6 @@
 
 <script src="assets/script.js"></script>
 
-<!-- ===== Article open/close logic ===== -->
 <script>
 (function() {
   const postIndex = document.getElementById("post-index");
@@ -374,21 +434,18 @@
     if (el) el.scrollIntoView({ behavior: "instant", block: "start" });
   }
 
-  // Card click
   document.querySelectorAll("[data-open-post]").forEach(card => {
     card.addEventListener("click", () => {
-      const id = card.getAttribute("data-open-post");
-      showPost(id);
+      showPost(card.getAttribute("data-open-post"));
     });
   });
 
-  // Back button
   document.getElementById("back-to-posts").addEventListener("click", e => {
     e.preventDefault();
     showIndex();
   });
 
-  showIndex(); // default view
+  showIndex();
 })();
 </script>
 
