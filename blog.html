@@ -75,12 +75,29 @@
     }
 
     .blog-hero {
+      position: relative; /* REQUIRED for overlay */
       background-image: url("assets/blog-bg.jpg");
       background-size: cover;
       background-position: center;
       background-repeat: no-repeat;
       border-bottom-left-radius: 40px;
       border-bottom-right-radius: 40px;
+      overflow: hidden;
+    }
+
+    /* ===== DIM OVERLAY (ONLY CHANGE) ===== */
+    .blog-hero::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background: rgba(0,0,0,0.45);
+      z-index: 0;
+      pointer-events: none;
+    }
+
+    .blog-hero > * {
+      position: relative;
+      z-index: 1;
     }
 
     .blog-hero h1 {
@@ -180,12 +197,10 @@
     /* ================= FOOTER (MATCH INDEX / RESEARCH) ================= */
     .footer {
       position: relative;
-
       background-image: url("assets/index-bg.jpg") !important;
       background-size: cover !important;
       background-position: center !important;
       background-repeat: no-repeat !important;
-
       border-top: 1px solid rgba(255,255,255,0.25);
       color: #ffffff;
     }
@@ -212,7 +227,6 @@
 
 <body>
 
-<!-- ================= HEADER ================= -->
 <header class="site-header">
   <div class="container nav">
     <div class="brand">
@@ -228,10 +242,10 @@
   </div>
 </header>
 
-<!-- ================= HERO ================= -->
 <section class="parallax-strip tall blog-hero">
   <h1>Blog</h1>
 </section>
+
 
 <main class="container">
 
