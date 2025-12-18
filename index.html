@@ -7,18 +7,85 @@
   <title>Yash Mandlecha</title>
   <meta name="description" content="Personal website of Yash Mandlecha — research, writing, art, and CV." />
 
-  <!-- LaTeX font -->
+  <!-- LaTeX / Latin Modern font -->
   <link
     rel="stylesheet"
     href="https://cdn.jsdelivr.net/npm/lmweb@1.0.0/lmroman10.css"
   />
 
   <link rel="stylesheet" href="assets/style.css">
+
+  <style>
+    /* ===== PAGE BACKGROUND FOR HEADER + FOOTER ONLY ===== */
+    .page-bg {
+      background-image: url("assets/index-bg.jpg");
+      background-size: cover;
+      background-position: center;
+      background-repeat: no-repeat;
+      min-height: 100vh;
+
+      /* The middle section stays plain because only header and footer sit inside this layer. */
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+    }
+
+    /* ===== Ensure main content stays plain ===== */
+    main {
+      background: #ffffff;
+      position: relative;
+      z-index: 2;
+      padding-top: 2rem;
+      padding-bottom: 4rem;
+    }
+
+    /* ===== HEADER (same aesthetic as research.html) ===== */
+    header.site-header {
+      position: sticky;
+      top: 0;
+      z-index: 10;
+      background: rgba(255,255,255,0.85);
+      border-bottom: 1px solid rgba(0,0,0,0.08);
+      backdrop-filter: blur(6px);
+    }
+
+    header .name.large-name {
+      font-size: 1.7rem;
+      font-weight: 700;
+      color: #000;
+    }
+
+    header .navlinks a {
+      color: #000;
+    }
+
+    /* ===== HERO IMAGE CARD ===== */
+    .hero {
+      display: grid;
+      grid-template-columns: 160px 1fr;
+      gap: 1.5rem;
+      align-items: start;
+      margin-top: 1.5rem;
+      margin-bottom: 2rem;
+    }
+
+    .personal-photo img {
+      width: 100%;
+      height: auto;
+      border-radius: 14px;
+    }
+
+    @media (max-width: 700px) {
+      .hero {
+        grid-template-columns: 1fr;
+      }
+    }
+  </style>
 </head>
 
 <body>
 
-  <!-- ===== FULL-PAGE BACKGROUND WRAPPER ===== -->
+  <!-- ===== FULL-PAGE BACKGROUND WRAPPER WITH INDEX-BG.JPG ===== -->
   <div class="page-bg">
 
     <!-- ================= HEADER ================= -->
@@ -48,7 +115,7 @@
       </div>
     </header>
 
-    <!-- ================= MAIN ================= -->
+    <!-- ================= MAIN CONTENT (PLAIN BACKGROUND) ================= -->
     <main class="container narrow">
 
       <section class="hero">
@@ -118,7 +185,7 @@
 
     </main>
 
-    <!-- ================= FOOTER ================= -->
+    <!-- ================= FOOTER (ALSO ON INDEX-BG) ================= -->
     <footer class="footer">
       <div class="container row">
         <div>© <span id="year"></span> Yash Mandlecha</div>
@@ -126,10 +193,11 @@
       </div>
     </footer>
 
-  </div> <!-- end page-bg -->
+  </div> <!-- END page-bg -->
 
   <script src="assets/script.js"></script>
   <script src="assets/greeting.js"></script>
   <script src="assets/search.js"></script>
+
 </body>
 </html>
