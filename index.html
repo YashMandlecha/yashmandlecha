@@ -30,14 +30,8 @@
       position: sticky;
       top: 0;
       z-index: 1000;
-
-      /* IMPORTANT: anchors ::before overlay to the header itself */
-      position: sticky;
-      top: 0;
-      z-index: 1000;
       position: relative;
 
-      /* FORCE background image even if style.css overrides */
       background-image: url("assets/index-bg.jpg") !important;
       background-size: cover !important;
       background-position: center !important;
@@ -45,11 +39,9 @@
 
       padding-top: 1.25rem;
       padding-bottom: 1.25rem;
-
       border-bottom: 1px solid rgba(255,255,255,0.25);
     }
 
-    /* dim overlay */
     header.site-header::before {
       content: "";
       position: absolute;
@@ -81,18 +73,22 @@
       color: #000000;
     }
 
-    header.site-header input[type="search"] {
+    /* ================= SEARCH ================= */
+    #site-search {
+      display: none;
+      margin-left: 0.5rem;
       font-size: 1rem;
       color: #ffffff;
       background: rgba(255,255,255,0.15);
       border: 1px solid rgba(255,255,255,0.4);
+      padding: 0.35rem 0.55rem;
+      border-radius: 8px;
     }
 
-    header.site-header input::placeholder {
+    #site-search::placeholder {
       color: rgba(255,255,255,0.7);
     }
 
-    /* ================= SEARCH RESULTS ================= */
     #search-results {
       position: absolute;
       right: 1rem;
@@ -101,7 +97,6 @@
       width: 360px;
       max-height: 420px;
       overflow-y: auto;
-
       background: #ffffff;
       border-radius: 12px;
       border: 1px solid rgba(0,0,0,0.15);
@@ -120,31 +115,21 @@
       border-bottom: none;
     }
 
-    .search-item strong {
-      display: block;
-      font-size: 0.95rem;
-    }
-
-    .search-item span {
-      font-size: 0.85rem;
-      opacity: 0.75;
-    }
-
     /* ================= HERO ================= */
     .hero {
       display: grid;
-      grid-template-columns: 220px 1fr; /* widened photo */
-      gap: 1.75rem;
+      grid-template-columns: 260px 1fr; /* BROADER IMAGE */
+      gap: 2rem;
       margin-top: 1.5rem;
     }
 
     .personal-photo img {
       width: 100%;
-      border-radius: 14px;
+      border-radius: 16px;
     }
 
     .card.pad.flat {
-      max-width: 640px; /* shorten text block */
+      max-width: 560px; /* SHORTER TEXT BLOCK */
     }
 
     @media (max-width: 700px) {
@@ -155,15 +140,11 @@
 
     /* ================= FOOTER ================= */
     .footer {
-      /* IMPORTANT: anchors ::before overlay to the footer itself */
       position: relative;
-
-      /* FORCE background image even if style.css overrides */
       background-image: url("assets/index-bg.jpg") !important;
       background-size: cover !important;
       background-position: center !important;
       background-repeat: no-repeat !important;
-
       border-top: 1px solid rgba(255,255,255,0.25);
       color: #ffffff;
     }
@@ -174,7 +155,6 @@
       inset: 0;
       background: rgba(0,0,0,0.55);
       z-index: 0;
-      pointer-events: none;
     }
 
     .footer > * {
@@ -214,37 +194,38 @@
 
   <section class="hero">
     <aside class="card personal-photo">
-      <img src="profile.jpg" alt="Photo of Yash Mandlecha">
+      <!-- ✅ CORRECT PATH -->
+      <img src="assets/profile.jpg" alt="Photo of Yash Mandlecha">
     </aside>
 
     <div class="card pad flat">
       <h1 id="greeting"></h1>
 
       <p>
-        I am a dual PhD student in Physics and Computational Mathematics,
-        Science, and Engineering (CMSE) at Michigan State University.
-      </p>
+          I am a dual PhD student in Physics and Computational Mathematics,
+          Science, and Engineering (CMSE) at Michigan State University.
+        </p>
 
-      <p>
-        My academic journey has been shaped by a long-standing interest in
-        fundamental physics, numerical methods, and the philosophy of
-        scientific inquiry. I currently work on lattice field theory,
-        including lattice quantum chromodynamics (QCD), with an emphasis on
-        non-perturbative methods, gradient flow, and high-performance
-        computing.
-      </p>
+        <p>
+          My academic journey has been shaped by a long-standing interest in
+          fundamental physics, numerical methods, and the philosophy of
+          scientific inquiry. I currently work on lattice field theory,
+          including lattice quantum chromodynamics (QCD), with an emphasis on
+          non-perturbative methods, gradient flow, and high-performance
+          computing.
+        </p>
 
-      <p>
-        I have worked on analog quantum simulations of simple quantum field
-        theory models on quantum computers, and previously on problems in
-        plasma physics and magnetohydrodynamics.
-      </p>
+        <p>
+          I have worked on analog quantum simulations of simple quantum field
+          theory models on quantum computers, and previously on problems in
+          plasma physics and magnetohydrodynamics.
+        </p>
 
-      <p>
-        Beyond research, I care deeply about learning outside formal
-        classrooms, writing, and creative expression. This website is a
-        space where I document that journey — technical and otherwise.
-      </p>
+        <p>
+          Beyond research, I care deeply about learning outside formal
+          classrooms, writing, and creative expression. This website is a
+          space where I document that journey — technical and otherwise.
+        </p>
 
       <p class="muted">
         Contact:
@@ -266,9 +247,18 @@
 <script src="assets/script.js"></script>
 <script src="assets/greeting.js"></script>
 
-<!-- ================= REAL SITE SEARCH ================= -->
+<!-- ================= SEARCH TOGGLE + SEARCH LOGIC ================= -->
 <script>
 (() => {
+  const toggle = document.getElementById("search-toggle");
+  const input  = document.getElementById("site-search");
+  const resultsBox = document.getElementById("search-results");
+
+  toggle.addEventListener("click", () => {
+    input.style.display = input.style.display === "none" ? "inline-block" : "none";
+    input.focus();
+  });
+
   const pages = [
     { url: "research.html", title: "Research" },
     { url: "cv.html", title: "Curriculum Vitae" },
@@ -276,51 +266,38 @@
     { url: "art.html", title: "Art" }
   ];
 
-  const input = document.getElementById("site-search");
-  const resultsBox = document.getElementById("search-results");
-
   let cache = [];
 
   async function loadPages() {
     for (const p of pages) {
       const res = await fetch(p.url);
       const text = await res.text();
-      const plain = text.replace(/<[^>]+>/g, " ");
-      cache.push({ ...p, text: plain.toLowerCase() });
+      cache.push({ ...p, text: text.replace(/<[^>]+>/g, " ").toLowerCase() });
     }
   }
-
   loadPages();
 
   input.addEventListener("input", () => {
     const q = input.value.toLowerCase().trim();
     resultsBox.innerHTML = "";
-    if (!q) {
-      resultsBox.style.display = "none";
-      return;
-    }
+    if (!q) return (resultsBox.style.display = "none");
 
     let found = false;
-
     cache.forEach(p => {
       const idx = p.text.indexOf(q);
       if (idx !== -1) {
         found = true;
-        const snippet = p.text.substring(idx, idx + 120) + "...";
-
         const div = document.createElement("div");
         div.className = "search-item";
-        div.innerHTML = `<strong>${p.title}</strong><span>${snippet}</span>`;
+        div.innerHTML = `<strong>${p.title}</strong>`;
         div.onclick = () => location.href = p.url;
         resultsBox.appendChild(div);
       }
     });
 
     if (!found) {
-      resultsBox.innerHTML =
-        `<div class="search-item"><strong>No results matched</strong></div>`;
+      resultsBox.innerHTML = `<div class="search-item"><strong>No results matched</strong></div>`;
     }
-
     resultsBox.style.display = "block";
   });
 })();

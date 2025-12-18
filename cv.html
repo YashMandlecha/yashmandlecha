@@ -18,10 +18,12 @@
       top: 0;
       z-index: 1000;
       position: relative;
+
       background-image: url("assets/index-bg.jpg") !important;
       background-size: cover !important;
       background-position: center !important;
       background-repeat: no-repeat !important;
+
       padding: 1.25rem 0;
       border-bottom: 1px solid rgba(255,255,255,0.25);
     }
@@ -60,14 +62,19 @@
       color: #000000;
     }
 
-    /* ================= HERO ================= */
+    /* ================= HERO (FIXED) ================= */
     .cv-hero {
       background-image: url("assets/cv-bg.jpg");
-      background-size: cover;
-      background-position: center;
+
+      /* ZOOM OUT / MAX RESOLUTION */
+      background-size: 100% auto;
+      background-position: center top;
       background-repeat: no-repeat;
+
+      /* MATCH BLOG HERO HEIGHT EXACTLY */
       padding-top: 6.5rem;
-      padding-bottom: 4.5rem;
+      padding-bottom: 5.5rem;
+
       border-bottom-left-radius: 40px;
       border-bottom-right-radius: 40px;
       text-align: center;
@@ -134,15 +141,22 @@
       .cv-right {
         text-align: left;
       }
+
+      /* mobile safety */
+      .cv-hero {
+        background-size: cover;
+      }
     }
 
     /* ================= FOOTER ================= */
     .footer {
       position: relative;
+
       background-image: url("assets/index-bg.jpg") !important;
       background-size: cover !important;
       background-position: center !important;
       background-repeat: no-repeat !important;
+
       border-top: 1px solid rgba(255,255,255,0.25);
       color: #ffffff;
     }
@@ -188,6 +202,9 @@
 </section>
 
 <main class="container">
+
+  <!-- ALL CONTENT BELOW UNCHANGED -->
+  <!-- (exactly as you provided) -->
 
   <!-- CONTACT -->
   <section class="section">

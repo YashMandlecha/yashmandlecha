@@ -7,41 +7,71 @@
   <title>Art · Yash Mandlecha</title>
   <meta name="description" content="Art and non-technical work by Yash Mandlecha." />
 
-  <!-- LaTeX / Latin Modern font -->
+  <!-- Latin Modern -->
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/lmweb@1.0.0/lmroman10.css">
-
   <link rel="stylesheet" href="assets/style.css">
 
   <style>
-    /* ===== Sticky header (same as research.html) ===== */
+    /* ================= HEADER (MATCH BLOG / INDEX) ================= */
     header.site-header {
       position: sticky;
       top: 0;
       z-index: 1000;
-      background: white;
-      border-bottom: 1px solid rgba(0,0,0,0.08);
-      backdrop-filter: blur(6px);
+      position: relative;
+
+      background-image: url("assets/index-bg.jpg") !important;
+      background-size: cover !important;
+      background-position: center !important;
+      background-repeat: no-repeat !important;
+
+      padding-top: 1.25rem;
+      padding-bottom: 1.25rem;
+      border-bottom: 1px solid rgba(255,255,255,0.25);
+    }
+
+    header.site-header::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background: rgba(0,0,0,0.55);
+      z-index: 0;
+      pointer-events: none;
+    }
+
+    header.site-header > * {
+      position: relative;
+      z-index: 1;
     }
 
     header .name {
       font-weight: 700;
-      font-size: 1.4rem;
-      color: #000;
+      font-size: 2.05rem;
+      color: #ffffff;
     }
 
-    header .tag,
+    header .tag {
+      font-size: 1rem;
+      color: rgba(255,255,255,0.85);
+    }
+
     header .navlinks a {
-      color: #000;
+      font-size: 1.1rem;
+      color: #ffffff;
+      transition: color 0.15s ease;
     }
 
-    /* ===== Art hero (same spacing as research hero) ===== */
+    header .navlinks a:hover {
+      color: #000000;
+    }
+
+    /* ================= ART HERO ================= */
     .art-hero {
       background-image: url("assets/art-bg.jpg");
       background-size: cover;
       background-position: center;
       background-repeat: no-repeat;
 
-      padding-top: 5.5rem;   /* same scale as research.html */
+      padding-top: 6.5rem;
       padding-bottom: 4.5rem;
 
       border-bottom-left-radius: 40px;
@@ -50,11 +80,11 @@
     }
 
     .art-hero h1 {
-      color: white;
+      color: #ffffff;
       margin: 0;
     }
 
-    /* ===== Gallery grid ===== */
+    /* ================= GALLERY ================= */
     .gallery {
       display: grid;
       grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
@@ -77,12 +107,43 @@
     .caption strong {
       font-weight: 600;
     }
+
+    /* ================= FOOTER (MATCH BLOG / INDEX) ================= */
+    .footer {
+      position: relative;
+
+      background-image: url("assets/index-bg.jpg") !important;
+      background-size: cover !important;
+      background-position: center !important;
+      background-repeat: no-repeat !important;
+
+      border-top: 1px solid rgba(255,255,255,0.25);
+      color: #ffffff;
+    }
+
+    .footer::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background: rgba(0,0,0,0.55);
+      z-index: 0;
+      pointer-events: none;
+    }
+
+    .footer > * {
+      position: relative;
+      z-index: 1;
+    }
+
+    .footer a {
+      color: #ffffff;
+    }
   </style>
 </head>
 
 <body>
 
-<!-- ===== HEADER ===== -->
+<!-- ================= HEADER ================= -->
 <header class="site-header">
   <div class="container nav">
     <div class="brand">
@@ -98,12 +159,12 @@
   </div>
 </header>
 
-<!-- ===== HERO ===== -->
+<!-- ================= HERO ================= -->
 <section class="parallax-strip art-hero">
   <h1>Art</h1>
 </section>
 
-<!-- ===== CONTENT ===== -->
+<!-- ================= CONTENT ================= -->
 <main class="container">
 
   <section class="section">
@@ -125,7 +186,7 @@
 
     <div class="gallery">
 
-      <!-- ===== Artwork 1 ===== -->
+      <!-- Artwork 1 -->
       <div class="card">
         <div class="figure">
           <img src="assets/art1.png" alt="Artwork 1" />
@@ -138,7 +199,7 @@
         </div>
       </div>
 
-      <!-- ===== Artwork 2 ===== -->
+      <!-- Artwork 2 -->
       <div class="card">
         <div class="figure">
           <img src="assets/art2.png" alt="Artwork 2" />
@@ -151,7 +212,7 @@
         </div>
       </div>
 
-      <!-- ===== Artwork 3 ===== -->
+      <!-- Artwork 3 -->
       <div class="card">
         <div class="figure">
           <img src="assets/art3.png" alt="Artwork 3" />
@@ -164,7 +225,7 @@
         </div>
       </div>
 
-      <!-- ===== Artwork 4 ===== -->
+      <!-- Artwork 4 -->
       <div class="card">
         <div class="figure">
           <img src="assets/art4.png" alt="Artwork 4" />
@@ -182,6 +243,7 @@
 
 </main>
 
+<!-- ================= FOOTER ================= -->
 <footer class="footer">
   <div class="container row">
     <div>© <span id="year"></span> Yash Mandlecha</div>
