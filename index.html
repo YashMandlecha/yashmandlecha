@@ -4,14 +4,20 @@
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
 
+  <!-- Mobile / PWA theming -->
+  <meta name="theme-color" content="#000000">
+  <link rel="apple-touch-icon" href="assets/apple-touch-icon.png">
+
   <title>Yash Mandlecha</title>
-  <meta name="description" content="Personal website of Yash Mandlecha — research, writing, art, and CV." />
+  <meta name="description" content="..." />
 
-  <!-- Latin Modern -->
+  <!-- Fonts -->
   <link rel="stylesheet"
-        href="https://cdn.jsdelivr.net/npm/lmweb@1.0.0/lmroman10.css" />
+        href="https://cdn.jsdelivr.net/npm/lmweb@1.0.0/lmroman10.css">
 
+  <!-- Site styles -->
   <link rel="stylesheet" href="assets/style.css">
+
 
   <style>
     /* ================= BASE ================= */
@@ -183,7 +189,13 @@
       <a href="art.html">Art</a>
 
       <button id="search-toggle" title="Search">🔍</button>
-      <input id="site-search" type="search" placeholder="Search…" />
+      <input
+        id="site-search"
+        type="search"
+        placeholder="Search…"
+        enterkeyhint="search"
+      />
+
 
       <div id="search-results"></div>
     </nav>

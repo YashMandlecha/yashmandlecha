@@ -511,3 +511,96 @@ footer.footer > * {
 .site-header .navlinks a:hover {
   color: #000000;
 }
+
+/* ================= MOBILE BASE ================= */
+* {
+  box-sizing: border-box;
+}
+
+img {
+  max-width: 100%;
+  height: auto;
+}
+
+@media (max-width: 768px) {
+
+  header .container.nav {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 0.6rem;
+  }
+
+  header .brand {
+    display: flex;
+    flex-direction: column;
+    gap: 0.2rem;
+  }
+
+  header .navlinks {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.8rem;
+  }
+
+  header .navlinks a {
+    font-size: 1rem;
+  }
+
+  #site-search {
+    width: 100%;
+    margin-top: 0.4rem;
+  }
+}
+
+/* ================= MOBILE HERO ADJUSTMENTS ================= */
+@media (max-width: 768px) {
+  .parallax-strip,
+  .cv-hero,
+  .blog-hero,
+  .art-hero {
+    background-size: cover;
+    background-position: center;
+    padding-top: 4rem;
+    padding-bottom: 3.5rem;
+  }
+
+  .parallax-strip h1,
+  .cv-hero h1 {
+    font-size: 1.9rem;
+  }
+}
+
+@media (max-width: 768px) {
+  .hero {
+    grid-template-columns: 1fr;
+  }
+
+  .personal-photo {
+    max-width: 220px;
+    margin: 0 auto;
+  }
+
+  .card.pad.flat {
+    max-width: 100%;
+  }
+}
+
+button,
+.navlinks a {
+  min-height: 44px;
+  display: inline-flex;
+  align-items: center;
+}
+
+#site-search {
+  -webkit-appearance: none;
+  border-radius: 12px;
+}
+
+html {
+  -webkit-text-size-adjust: 100%;
+}
+
+body {
+  overscroll-behavior-y: contain;
+}
