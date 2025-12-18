@@ -475,3 +475,39 @@ html, body {
 .research-hero + .container {
   margin-top: 2.5rem;
 }
+
+/* ===== GLOBAL HEADER / FOOTER THEME ===== */
+.site-header,
+footer.footer {
+  position: relative;
+  background-image: url("assets/index-bg.jpg");
+  background-size: cover;
+  background-position: center;
+}
+
+.site-header::before,
+footer.footer::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: rgba(0,0,0,0.55);
+  z-index: 0;
+}
+
+.site-header > *,
+footer.footer > * {
+  position: relative;
+  z-index: 1;
+}
+
+/* header text */
+.site-header .name,
+.site-header .tag,
+.site-header .navlinks a {
+  color: #ffffff;
+}
+
+/* hover */
+.site-header .navlinks a:hover {
+  color: #000000;
+}
