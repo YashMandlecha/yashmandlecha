@@ -8,59 +8,50 @@
   <meta name="description" content="Art and non-technical work by Yash Mandlecha." />
 
   <!-- LaTeX / Latin Modern font -->
-  <link rel="stylesheet"
-        href="https://cdn.jsdelivr.net/npm/lmweb@1.0.0/lmroman10.css">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/lmweb@1.0.0/lmroman10.css">
 
   <link rel="stylesheet" href="assets/style.css">
 
   <style>
-    /* ===== Header typography (same as research/blog) ===== */
+    /* ===== Sticky header (same as research.html) ===== */
+    header.site-header {
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+      background: white;
+      border-bottom: 1px solid rgba(0,0,0,0.08);
+      backdrop-filter: blur(6px);
+    }
+
     header .name {
       font-weight: 700;
       font-size: 1.4rem;
       color: #000;
     }
 
-    header .tag {
-      font-size: 0.95rem;
-      color: #000;
-    }
-
+    header .tag,
     header .navlinks a {
       color: #000;
     }
 
-    /* ===== Sticky header ===== */
-    header {
-      position: sticky;
-      top: 0;
-      z-index: 1000;
-      background: transparent;
-    }
-
-    /* ===== Art hero ===== */
+    /* ===== Art hero (same spacing as research hero) ===== */
     .art-hero {
       background-image: url("assets/art-bg.jpg");
       background-size: cover;
       background-position: center;
       background-repeat: no-repeat;
 
-      /* extend behind header */
-      margin-top: -4.5rem;
-      padding-top: 7.5rem;
+      padding-top: 6.5rem;
       padding-bottom: 4.5rem;
 
       border-bottom-left-radius: 40px;
       border-bottom-right-radius: 40px;
+      text-align: center;
     }
 
     .art-hero h1 {
-      color: #ffffff;
-    }
-
-    /* ===== Page ===== */
-    main {
-      background: transparent;
+      color: white;
+      margin: 0;
     }
 
     /* ===== Gallery grid ===== */
@@ -91,17 +82,18 @@
 
 <body>
 
-<header>
+<!-- ===== HEADER ===== -->
+<header class="site-header">
   <div class="container nav">
     <div class="brand">
       <a class="name" href="index.html">Yash Mandlecha</a>
       <div class="tag">Art</div>
     </div>
     <nav class="navlinks" aria-label="Primary">
-      <a data-nav href="research.html">Research</a>
-      <a data-nav href="blog.html">Blog</a>
-      <a data-nav href="art.html">Art</a>
-      <a data-nav href="cv.html">Curriculum Vitae</a>
+      <a href="research.html">Research</a>
+      <a href="blog.html">Blog</a>
+      <a href="art.html">Art</a>
+      <a href="cv.html">Curriculum Vitae</a>
     </nav>
   </div>
 </header>
@@ -111,6 +103,7 @@
   <h1>Art</h1>
 </section>
 
+<!-- ===== CONTENT ===== -->
 <main class="container">
 
   <section class="section">

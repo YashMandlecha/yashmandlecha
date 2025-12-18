@@ -7,17 +7,19 @@
   <title>Curriculum Vitae · Yash Mandlecha</title>
   <meta name="description" content="Curriculum vitae of Yash V. Mandlecha." />
 
-  <!-- Latin Modern -->
+  <!-- Latin Modern font -->
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/lmweb@1.0.0/lmroman10.css">
   <link rel="stylesheet" href="assets/style.css">
 
   <style>
-    /* ===== Sticky header (same behavior as research.html) ===== */
-    header {
+    /* ========= Sticky header with clear boundary (same as research.html) ========= */
+    header.site-header {
       position: sticky;
       top: 0;
       z-index: 1000;
-      background: transparent;
+      background: white;            /* Not transparent — clear separation */
+      border-bottom: 1px solid rgba(0,0,0,0.08);
+      backdrop-filter: blur(6px);
     }
 
     header .name {
@@ -26,37 +28,33 @@
       color: #000;
     }
 
-    header .tag {
-      font-size: 0.95rem;
-      color: #000;
-    }
-
+    header .tag,
     header .navlinks a {
       color: #000;
     }
 
-    /* ===== CV hero (same geometry as research hero) ===== */
+    /* ========= CV HERO (same geometry & spacing as research hero) ========= */
     .cv-hero {
       background-image: url("assets/cv-bg.jpg");
       background-size: cover;
       background-position: center;
       background-repeat: no-repeat;
 
-      /* extend behind header */
-      padding-top: 6.5rem;
+      padding-top: 6.5rem;   /* identical proportions */
       padding-bottom: 4.5rem;
 
       border-bottom-left-radius: 40px;
       border-bottom-right-radius: 40px;
+
       text-align: center;
     }
 
     .cv-hero h1 {
-      color: #ffffff;
+      color: white;
       margin: 0;
     }
 
-    /* ===== Two-column CV rows ===== */
+    /* ========= CV item layout (two-column rows) ========= */
     .cv-row {
       display: grid;
       grid-template-columns: 1fr auto;
@@ -68,13 +66,8 @@
     .cv-right {
       white-space: nowrap;
       text-align: right;
-      font-size: 0.95rem;
       opacity: 0.85;
-    }
-
-    /* Section spacing tighter than blog */
-    .section {
-      margin-top: 2.5rem;
+      font-size: 0.95rem;
     }
 
     @media (max-width: 800px) {
@@ -85,220 +78,224 @@
         text-align: left;
       }
     }
+
+    .section {
+      margin-top: 2.5rem;
+    }
   </style>
 </head>
 
 <body>
 
-  <!-- ===== HEADER ===== -->
-  <header>
-    <div class="container nav">
-      <div class="brand">
-        <a class="name" href="index.html">Yash Mandlecha</a>
-        <div class="tag">Curriculum Vitae</div>
-      </div>
-
-      <nav class="navlinks" aria-label="Primary">
-        <a href="research.html">Research</a>
-        <a href="blog.html">Blog</a>
-        <a href="art.html">Art</a>
-        <a href="cv.html">Curriculum Vitae</a>
-      </nav>
+<!-- ========= HEADER (same structure as research.html) ========= -->
+<header class="site-header">
+  <div class="container nav">
+    <div class="brand">
+      <a class="name" href="index.html">Yash Mandlecha</a>
+      <div class="tag">Curriculum Vitae</div>
     </div>
-  </header>
 
-  <!-- ===== HERO ===== -->
-  <section class="parallax-strip cv-hero">
-    <h1>Curriculum Vitae</h1>
+    <nav class="navlinks" aria-label="Primary">
+      <a href="research.html">Research</a>
+      <a href="blog.html">Blog</a>
+      <a href="art.html">Art</a>
+      <a href="cv.html">Curriculum Vitae</a>
+    </nav>
+  </div>
+</header>
+
+<!-- ========= HERO ========= -->
+<section class="parallax-strip cv-hero">
+  <h1>Curriculum Vitae</h1>
+</section>
+
+<!-- ========= MAIN CONTENT ========= -->
+<main class="container">
+
+  <!-- ===== CONTACT ===== -->
+  <section class="section">
+    <div class="item">
+      <p class="muted">
+        <strong>Email:</strong> mandlec1@msu.edu<br>
+        <strong>Phone:</strong> +1&nbsp;517-980-0618<br>
+        <strong>LinkedIn:</strong> yashmandlecha
+      </p>
+    </div>
   </section>
 
-  <!-- ===== CONTENT ===== -->
-  <main class="container">
+  <!-- ===== RESEARCH INTERESTS ===== -->
+  <section class="section">
+    <h3>Research Interests</h3>
+    <p class="muted">
+      Lattice Quantum Chromodynamics; Standard Model parameters; high-performance
+      computing; gradient flow; Gaussian processes.
+    </p>
+  </section>
 
-    <!-- ===== CONTACT ===== -->
-    <section class="section">
-      <div class="item">
-        <p class="muted">
-          <strong>Email:</strong> mandlec1@msu.edu<br />
-          <strong>Phone:</strong> +1&nbsp;517-980-0618<br />
-          <strong>LinkedIn:</strong> yashmandlecha
-        </p>
+  <!-- ===== EDUCATION ===== -->
+  <section class="section">
+    <h3>Education</h3>
+
+    <div class="cv-row">
+      <div>
+        <strong>Dual Doctor of Philosophy, Physics &amp; CMSE</strong><br>
+        Michigan State University<br>
+        Advisor: Prof. Alexei Bazavov<br>
+        Grade: 4.0 / 4.0
       </div>
-    </section>
-
-    <!-- ===== RESEARCH INTERESTS ===== -->
-    <section class="section">
-      <h3>Research Interests</h3>
-      <p class="muted">
-        Lattice Quantum Chromodynamics; Standard Model parameters; high-performance
-        computing; gradient flow; Gaussian processes.
-      </p>
-    </section>
-
-    <!-- ===== EDUCATION ===== -->
-    <section class="section">
-      <h3>Education</h3>
-
-      <div class="cv-row">
-        <div>
-          <strong>Dual Doctor of Philosophy, Physics &amp; CMSE</strong><br />
-          Michigan State University<br />
-          Advisor: Prof. Alexei Bazavov<br />
-          Grade: 4.0 / 4.0
-        </div>
-        <div class="cv-right">East Lansing, MI<br />2022–Present</div>
-      </div>
-
-      <div class="cv-row">
-        <div>
-          <strong>BS–MS Dual Degree, Physics</strong><br />
-          Indian Institute of Science Education and Research Bhopal<br />
-          CPI: 9.58 / 10
-        </div>
-        <div class="cv-right">Bhopal, India<br />2017–2022</div>
-      </div>
-    </section>
-
-    <!-- ===== RESEARCH EXPERIENCE ===== -->
-    <section class="section">
-      <h3>Research Experience &amp; Projects</h3>
-
-      <div class="cv-row">
-        <div>
-          <strong>Scale Setting &amp; Strong Coupling Constant with Gradient Flow</strong><br />
-          Supervisor: Prof. Alexei Bazavov
-          <ul class="muted">
-            <li>Gradient flow in 2+1+1 flavor lattice QCD for precision scale setting.</li>
-            <li>Continuous β-function framework treating flow as RG evolution.</li>
-            <li>Developing improved extrapolation and analysis techniques.</li>
-          </ul>
-        </div>
-        <div class="cv-right">MSU<br />Dec&nbsp;2024–Present</div>
-      </div>
-
-      <div class="cv-row">
-        <div>
-          <strong>Non-perturbative Study of Higher-Derivative Theories</strong><br />
-          Supervisors: Prof. Dean Lee, Prof. Alexei Bazavov
-          <ul class="muted">
-            <li>Lattice studies of strongly interacting Higgs-sector models.</li>
-            <li>Code development and large-scale ensemble generation.</li>
-          </ul>
-        </div>
-        <div class="cv-right">MSU<br />Jan&nbsp;2023–Present</div>
-      </div>
-
-      <div class="cv-row">
-        <div>
-          <strong>Machine Learning for Phase Transitions</strong><br />
-          Supervisor: Prof. Michael Murillo
-          <ul class="muted">
-            <li>CNN-based phase identification without Hamiltonian input.</li>
-            <li>Histogram reweighting and transfer learning (Potts, ϕ⁴).</li>
-          </ul>
-        </div>
-        <div class="cv-right">MSU<br />Jan–Jun&nbsp;2024</div>
-      </div>
-
-      <div class="cv-row">
-        <div>
-          <strong>MS Thesis: Casimir Effect for Lattice Fermions</strong><br />
-          Supervisor: Prof. Rajiv V. Gavai
-          <ul class="muted">
-            <li>Wilson and Möbius DWF agreement with continuum results.</li>
-            <li>Resolved universality issues for naive fermions.</li>
-          </ul>
-        </div>
-        <div class="cv-right">TIFR / IISER<br />Aug&nbsp;2021–Dec&nbsp;2022</div>
-      </div>
-    </section>
-
-    <!-- ===== TEACHING ===== -->
-    <section class="section">
-      <h3>Teaching</h3>
-
-      <div class="cv-row">
-        <div>
-          <strong>Teaching Assistant, Michigan State University</strong>
-          <ul class="muted">
-            <li>PHY 481 – Electromagnetism (Fall 2022)</li>
-            <li>PHY 222 – Physics for Life Sciences (Spring 2023)</li>
-            <li>PHY 831 – Statistical Mechanics (Fall 2024)</li>
-            <li>PHY 851 – Quantum Mechanics (Fall 2024)</li>
-            <li>Coming up to speed ’25 (Summer 2025)</li>
-          </ul>
-        </div>
-        <div class="cv-right">MSU</div>
-      </div>
-
-      <div class="cv-row">
-        <div>
-          <strong>Co-Instructor</strong><br />
-          CMSE 495 – Data Science Capstone
-        </div>
-        <div class="cv-right">Spring&nbsp;2025</div>
-      </div>
-    </section>
-
-    <!-- ===== PUBLICATIONS ===== -->
-    <section class="section">
-      <h3>Publications</h3>
-      <p class="muted">
-        Y. V. Mandlecha and R. V. Gavai,<br />
-        <em>Lattice fermionic Casimir effect in a slab bag and universality</em>,<br />
-        Physics Letters B <strong>832</strong>, 137558 (2022).
-      </p>
-    </section>
-
-    <!-- ===== SKILLS ===== -->
-    <section class="section">
-      <h3>Technical Skills</h3>
-      <p class="muted">
-        <strong>Languages:</strong> C++, C, Python, Wolfram Language, HTML, LaTeX<br />
-        <strong>Libraries:</strong> MPI, OpenMP, NumPy, Pandas, Matplotlib, Keras, TensorFlow<br />
-        <strong>Tools:</strong> Mathematica, Jupyter, Linux, Git
-      </p>
-    </section>
-
-    <!-- ===== LANGUAGES ===== -->
-    <section class="section">
-      <h3>Languages</h3>
-      <p class="muted">
-        English (Fluent), Hindi (Native), Marathi (Native), Marwari (Native), German (A2)
-      </p>
-    </section>
-
-    <!-- ===== AWARDS ===== -->
-    <section class="section">
-      <h3>Scholarships &amp; Awards</h3>
-      <ul class="muted">
-        <li>DST INSPIRE Scholarship, Government of India (2017–2022)</li>
-        <li>1st Position – Braincafe’ Budding Scientist Contest (ZEE Learn)</li>
-        <li>Winner – Model Solvay Conference, IISER Bhopal (2018)</li>
-        <li>Gold Medal – SOF International English Olympiad (2017)</li>
-      </ul>
-    </section>
-
-    <!-- ===== EXTRACURRICULAR ===== -->
-    <section class="section">
-      <h3>Extracurricular Activities</h3>
-      <ul class="muted">
-        <li>Grad-Grad Mentor, MSU Physics &amp; Astronomy (2024–2025)</li>
-        <li>Coordinator, Physics Club &amp; Model Solvay Conference, IISER Bhopal</li>
-        <li>Coordinator, Rashtriya Avishkaar Abhiyaan, IISER Bhopal</li>
-      </ul>
-    </section>
-
-  </main>
-
-  <!-- ===== FOOTER ===== -->
-  <footer class="footer">
-    <div class="container row">
-      <div>© <span id="year"></span> Yash Mandlecha</div>
-      <div class="muted"><a href="index.html">Home</a></div>
+      <div class="cv-right">East Lansing, MI<br>2022–Present</div>
     </div>
-  </footer>
 
-  <script src="assets/script.js"></script>
+    <div class="cv-row">
+      <div>
+        <strong>BS–MS Dual Degree, Physics</strong><br>
+        Indian Institute of Science Education and Research Bhopal<br>
+        CPI: 9.58 / 10
+      </div>
+      <div class="cv-right">Bhopal, India<br>2017–2022</div>
+    </div>
+  </section>
+
+  <!-- ===== RESEARCH EXPERIENCE ===== -->
+  <section class="section">
+    <h3>Research Experience &amp; Projects</h3>
+
+    <div class="cv-row">
+      <div>
+        <strong>Scale Setting &amp; Strong Coupling Constant with Gradient Flow</strong><br>
+        Supervisor: Prof. Alexei Bazavov
+        <ul class="muted">
+          <li>Gradient flow in 2+1+1 flavor lattice QCD for precision scale setting.</li>
+          <li>Continuous β-function framework treating flow as RG evolution.</li>
+          <li>Developing improved extrapolation and analysis techniques.</li>
+        </ul>
+      </div>
+      <div class="cv-right">MSU<br>Dec 2024–Present</div>
+    </div>
+
+    <div class="cv-row">
+      <div>
+        <strong>Non-perturbative Study of Higher-Derivative Theories</strong><br>
+        Supervisors: Prof. Dean Lee, Prof. Alexei Bazavov
+        <ul class="muted">
+          <li>Lattice studies of strongly interacting Higgs-sector models.</li>
+          <li>Code development and large-scale ensemble generation.</li>
+        </ul>
+      </div>
+      <div class="cv-right">MSU<br>Jan 2023–Present</div>
+    </div>
+
+    <div class="cv-row">
+      <div>
+        <strong>Machine Learning for Phase Transitions</strong><br>
+        Supervisor: Prof. Michael Murillo
+        <ul class="muted">
+          <li>CNN-based phase identification without Hamiltonian input.</li>
+          <li>Histogram reweighting and transfer learning (Potts, ϕ⁴).</li>
+        </ul>
+      </div>
+      <div class="cv-right">MSU<br>Jan–Jun 2024</div>
+    </div>
+
+    <div class="cv-row">
+      <div>
+        <strong>MS Thesis: Casimir Effect for Lattice Fermions</strong><br>
+        Supervisor: Prof. Rajiv V. Gavai
+        <ul class="muted">
+          <li>Wilson and Möbius DWF agreement with continuum results.</li>
+          <li>Resolved universality issues for naïve fermions.</li>
+        </ul>
+      </div>
+      <div class="cv-right">TIFR / IISER<br>Aug 2021–Dec 2022</div>
+    </div>
+  </section>
+
+  <!-- ===== TEACHING ===== -->
+  <section class="section">
+    <h3>Teaching</h3>
+
+    <div class="cv-row">
+      <div>
+        <strong>Teaching Assistant, Michigan State University</strong>
+        <ul class="muted">
+          <li>PHY 481 – Electromagnetism (Fall 2022)</li>
+          <li>PHY 222 – Physics for Life Sciences (Spring 2023)</li>
+          <li>PHY 831 – Statistical Mechanics (Fall 2024)</li>
+          <li>PHY 851 – Quantum Mechanics (Fall 2024)</li>
+          <li>Coming up to speed ’25 (Summer 2025)</li>
+        </ul>
+      </div>
+      <div class="cv-right">MSU</div>
+    </div>
+
+    <div class="cv-row">
+      <div>
+        <strong>Co-Instructor</strong><br>
+        CMSE 495 – Data Science Capstone
+      </div>
+      <div class="cv-right">Spring 2025</div>
+    </div>
+  </section>
+
+  <!-- ===== PUBLICATIONS ===== -->
+  <section class="section">
+    <h3>Publications</h3>
+    <p class="muted">
+      Y. V. Mandlecha and R. V. Gavai,<br>
+      <em>Lattice fermionic Casimir effect in a slab bag and universality</em>,<br>
+      Physics Letters B <strong>832</strong>, 137558 (2022).
+    </p>
+  </section>
+
+  <!-- ===== SKILLS ===== -->
+  <section class="section">
+    <h3>Technical Skills</h3>
+    <p class="muted">
+      <strong>Languages:</strong> C++, C, Python, Wolfram Language, HTML, LaTeX<br>
+      <strong>Libraries:</strong> MPI, OpenMP, NumPy, Pandas, Matplotlib, Keras, TensorFlow<br>
+      <strong>Tools:</strong> Mathematica, Jupyter, Linux, Git
+    </p>
+  </section>
+
+  <!-- ===== LANGUAGES ===== -->
+  <section class="section">
+    <h3>Languages</h3>
+    <p class="muted">
+      English (Fluent), Hindi (Native), Marathi (Native), Marwari (Native), German (A2)
+    </p>
+  </section>
+
+  <!-- ===== AWARDS ===== -->
+  <section class="section">
+    <h3>Scholarships &amp; Awards</h3>
+    <ul class="muted">
+      <li>DST INSPIRE Scholarship, Government of India (2017–2022)</li>
+      <li>1st Position – Braincafe’ Budding Scientist Contest (ZEE Learn)</li>
+      <li>Winner – Model Solvay Conference, IISER Bhopal (2018)</li>
+      <li>Gold Medal – SOF International English Olympiad (2017)</li>
+    </ul>
+  </section>
+
+  <!-- ===== EXTRACURRICULAR ===== -->
+  <section class="section">
+    <h3>Extracurricular Activities</h3>
+    <ul class="muted">
+      <li>Grad-Grad Mentor, MSU Physics &amp; Astronomy (2024–2025)</li>
+      <li>Coordinator, Physics Club &amp; Model Solvay Conference, IISER Bhopal</li>
+      <li>Coordinator, Rashtriya Avishkaar Abhiyaan, IISER Bhopal</li>
+    </ul>
+  </section>
+
+</main>
+
+<!-- ========= FOOTER ========= -->
+<footer class="footer">
+  <div class="container row">
+    <div>© <span id="year"></span> Yash Mandlecha</div>
+    <div class="muted"><a href="index.html">Home</a></div>
+  </div>
+</footer>
+
+<script src="assets/script.js"></script>
 </body>
 </html>
