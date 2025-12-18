@@ -1,0 +1,279 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <title>Yash Mandlecha</title>
+  <meta name="description" content="Personal website of Yash Mandlecha — research, writing, art, and CV." />
+
+  <!-- Latin Modern -->
+  <link rel="stylesheet"
+        href="https://cdn.jsdelivr.net/npm/lmweb@1.0.0/lmroman10.css" />
+
+  <link rel="stylesheet" href="assets/style.css">
+
+  <style>
+    /* ================= BASE ================= */
+    body {
+      background: #ffffff;
+    }
+
+    main {
+      background: #ffffff;
+      padding-top: 2rem;
+      padding-bottom: 4rem;
+    }
+
+    /* ================= HEADER ================= */
+    header.site-header {
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+
+      /* background image */
+      background-image: url("assets/index-bg.jpg");
+      background-size: cover;
+      background-position: center;
+      background-repeat: no-repeat;
+
+      /* translucent overlay */
+      background-color: rgba(0,0,0,0.45);
+      backdrop-filter: blur(6px);
+
+      /* increase height by ~1cm */
+      padding-top: 1.2rem;
+      padding-bottom: 1.2rem;
+
+      border-bottom: 1px solid rgba(255,255,255,0.25);
+    }
+
+    header.site-header .name {
+      font-weight: 700;
+      font-size: 2rem; /* increased */
+      color: #ffffff;
+    }
+
+    header.site-header .navlinks a {
+      font-size: 1.05rem;
+      color: #ffffff;
+    }
+
+    header.site-header button {
+      font-size: 1.05rem;
+      color: #ffffff;
+    }
+
+    header.site-header input[type="search"] {
+      font-size: 1rem;
+      color: #ffffff;
+      background: rgba(255,255,255,0.15);
+      border: 1px solid rgba(255,255,255,0.4);
+    }
+
+    header.site-header input::placeholder {
+      color: rgba(255,255,255,0.7);
+    }
+
+    /* ================= SEARCH RESULTS ================= */
+    #search-results {
+      position: absolute;
+      right: 1rem;
+      top: 100%;
+      margin-top: 0.5rem;
+      width: 360px;
+      max-height: 420px;
+      overflow-y: auto;
+
+      background: #ffffff;
+      border-radius: 12px;
+      border: 1px solid rgba(0,0,0,0.15);
+      box-shadow: 0 12px 30px rgba(0,0,0,0.25);
+      display: none;
+      z-index: 2000;
+    }
+
+    .search-item {
+      padding: 0.7rem 0.9rem;
+      border-bottom: 1px solid rgba(0,0,0,0.08);
+      cursor: pointer;
+    }
+
+    .search-item:last-child {
+      border-bottom: none;
+    }
+
+    .search-item strong {
+      display: block;
+      font-size: 0.95rem;
+    }
+
+    .search-item span {
+      font-size: 0.85rem;
+      opacity: 0.75;
+    }
+
+    /* ================= HERO ================= */
+    .hero {
+      display: grid;
+      grid-template-columns: 160px 1fr;
+      gap: 1.5rem;
+      margin-top: 1.5rem;
+    }
+
+    .personal-photo img {
+      width: 100%;
+      border-radius: 14px;
+    }
+
+    @media (max-width: 700px) {
+      .hero {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    /* ================= FOOTER ================= */
+    .footer {
+      background-image: url("assets/index-bg.jpg");
+      background-size: cover;
+      background-position: center;
+      background-repeat: no-repeat;
+
+      background-color: rgba(0,0,0,0.45);
+      backdrop-filter: blur(6px);
+
+      color: #ffffff;
+      border-top: 1px solid rgba(255,255,255,0.25);
+    }
+
+    .footer a {
+      color: #ffffff;
+    }
+  </style>
+</head>
+
+<body>
+
+<header class="site-header">
+  <div class="container nav" style="position:relative;">
+    <div class="brand">
+      <a class="name" href="index.html">Yash Mandlecha</a>
+    </div>
+
+    <nav class="navlinks">
+      <a href="research.html">Research</a>
+      <a href="cv.html">Curriculum Vitae</a>
+      <a href="blog.html">Blog</a>
+      <a href="art.html">Art</a>
+
+      <button id="search-toggle" title="Search">🔍</button>
+      <input id="site-search" type="search" placeholder="Search…" />
+
+      <div id="search-results"></div>
+    </nav>
+  </div>
+</header>
+
+<main class="container narrow">
+
+  <section class="hero">
+    <aside class="card personal-photo">
+      <img src="profile.jpg" alt="Photo of Yash Mandlecha">
+    </aside>
+
+    <div class="card pad flat">
+      <h1 id="greeting"></h1>
+
+      <p>
+        I am a dual PhD student in Physics and Computational Mathematics,
+        Science, and Engineering (CMSE) at Michigan State University.
+      </p>
+
+      <p>
+        I currently work on lattice quantum chromodynamics (QCD),
+        gradient flow, and high-performance computing.
+      </p>
+
+      <p class="muted">
+        Contact:
+        <a href="mailto:mandlec1@msu.edu">mandlec1@msu.edu</a> ·
+        <a href="https://github.com/YashMandlecha" target="_blank">GitHub</a>
+      </p>
+    </div>
+  </section>
+
+</main>
+
+<footer class="footer">
+  <div class="container row">
+    <div>© <span id="year"></span> Yash Mandlecha</div>
+    <div><a href="index.html">Home</a></div>
+  </div>
+</footer>
+
+<script src="assets/script.js"></script>
+<script src="assets/greeting.js"></script>
+
+<!-- ================= REAL SITE SEARCH ================= -->
+<script>
+(() => {
+  const pages = [
+    { url: "research.html", title: "Research" },
+    { url: "cv.html", title: "Curriculum Vitae" },
+    { url: "blog.html", title: "Blog" },
+    { url: "art.html", title: "Art" }
+  ];
+
+  const input = document.getElementById("site-search");
+  const resultsBox = document.getElementById("search-results");
+
+  let cache = [];
+
+  async function loadPages() {
+    for (const p of pages) {
+      const res = await fetch(p.url);
+      const text = await res.text();
+      const plain = text.replace(/<[^>]+>/g, " ");
+      cache.push({ ...p, text: plain.toLowerCase() });
+    }
+  }
+
+  loadPages();
+
+  input.addEventListener("input", () => {
+    const q = input.value.toLowerCase().trim();
+    resultsBox.innerHTML = "";
+    if (!q) {
+      resultsBox.style.display = "none";
+      return;
+    }
+
+    let found = false;
+
+    cache.forEach(p => {
+      const idx = p.text.indexOf(q);
+      if (idx !== -1) {
+        found = true;
+        const snippet = p.text.substring(idx, idx + 120) + "...";
+
+        const div = document.createElement("div");
+        div.className = "search-item";
+        div.innerHTML = `<strong>${p.title}</strong><span>${snippet}</span>`;
+        div.onclick = () => location.href = p.url;
+        resultsBox.appendChild(div);
+      }
+    });
+
+    if (!found) {
+      resultsBox.innerHTML =
+        `<div class="search-item"><strong>No results matched</strong></div>`;
+    }
+
+    resultsBox.style.display = "block";
+  });
+
+})();
+</script>
+
+</body>
+</html>
