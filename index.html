@@ -9,7 +9,7 @@
   <link rel="apple-touch-icon" href="assets/apple-touch-icon.png">
 
   <title>Yash Mandlecha</title>
-  <meta name="description" content="..." />
+  <meta name="description" content="Personal website of Yash Mandlecha." />
 
   <!-- Fonts -->
   <link rel="stylesheet"
@@ -17,7 +17,6 @@
 
   <!-- Site styles -->
   <link rel="stylesheet" href="assets/style.css">
-
 
   <style>
     /* ================= BASE ================= */
@@ -37,14 +36,11 @@
       top: 0;
       z-index: 1000;
       position: relative;
-
-      background-image: url("assets/index-bg.jpg") !important;
-      background-size: cover !important;
-      background-position: center !important;
-      background-repeat: no-repeat !important;
-
-      padding-top: 1.25rem;
-      padding-bottom: 1.25rem;
+      background-image: url("assets/index-bg.jpg");
+      background-size: cover;
+      background-position: center;
+      background-repeat: no-repeat;
+      padding: 1.25rem 0;
       border-bottom: 1px solid rgba(255,255,255,0.25);
     }
 
@@ -62,20 +58,20 @@
       z-index: 1;
     }
 
-    header.site-header .name {
+    header .name {
       font-weight: 700;
       font-size: 2.05rem;
       color: #ffffff;
     }
 
-    header.site-header .navlinks a,
-    header.site-header button {
+    header .navlinks a,
+    header button {
       font-size: 1.1rem;
       color: #ffffff;
       transition: color 0.15s ease;
     }
 
-    header.site-header .navlinks a:hover {
+    header .navlinks a:hover {
       color: #000000;
     }
 
@@ -84,9 +80,9 @@
       display: none;
       margin-left: 0.5rem;
       font-size: 1rem;
-      color: #ffffff;
       background: rgba(255,255,255,0.15);
       border: 1px solid rgba(255,255,255,0.4);
+      color: #ffffff;
       padding: 0.35rem 0.55rem;
       border-radius: 8px;
     }
@@ -117,40 +113,53 @@
       cursor: pointer;
     }
 
-    .search-item:last-child {
-      border-bottom: none;
-    }
-
     /* ================= HERO ================= */
     .hero {
       display: grid;
-      grid-template-columns: 260px 1fr; /* BROADER IMAGE */
+      grid-template-columns: 33% 67%;
       gap: 2rem;
+      align-items: start;
       margin-top: 1.5rem;
     }
 
     .personal-photo img {
       width: 100%;
-      border-radius: 16px;
+      border-radius: 18px;
+      display: block;
     }
 
-    .card.pad.flat {
-      max-width: 560px; /* SHORTER TEXT BLOCK */
-    }
-
-    @media (max-width: 700px) {
+    @media (max-width: 800px) {
       .hero {
         grid-template-columns: 1fr;
       }
     }
 
+    /* ================= LATEST UPDATES ================= */
+    .updates {
+      margin-top: 3rem;
+    }
+
+    .updates ul {
+      list-style: none;
+      padding-left: 0;
+      display: grid;
+      gap: 0.8rem;
+    }
+
+    .updates li {
+      padding: 0.8rem 1rem;
+      border-radius: 14px;
+      background: rgba(0,0,0,0.03);
+      border: 1px solid rgba(0,0,0,0.06);
+    }
+
     /* ================= FOOTER ================= */
     .footer {
       position: relative;
-      background-image: url("assets/index-bg.jpg") !important;
-      background-size: cover !important;
-      background-position: center !important;
-      background-repeat: no-repeat !important;
+      background-image: url("assets/index-bg.jpg");
+      background-size: cover;
+      background-position: center;
+      background-repeat: no-repeat;
       border-top: 1px solid rgba(255,255,255,0.25);
       color: #ffffff;
     }
@@ -188,32 +197,25 @@
       <a href="blog.html">Blog</a>
       <a href="art.html">Art</a>
 
-      <button id="search-toggle" title="Search">🔍</button>
-      <input
-        id="site-search"
-        type="search"
-        placeholder="Search…"
-        enterkeyhint="search"
-      />
-
-
+      <button id="search-toggle">🔍</button>
+      <input id="site-search" type="search" placeholder="Search…" />
       <div id="search-results"></div>
     </nav>
   </div>
 </header>
 
-<main class="container narrow">
+<main class="container">
 
+  <!-- ================= HERO ================= -->
   <section class="hero">
-    <aside class="card personal-photo">
-      <!-- ✅ CORRECT PATH -->
+    <aside class="personal-photo">
       <img src="assets/profile.jpg" alt="Photo of Yash Mandlecha">
     </aside>
 
     <div class="card pad flat">
       <h1 id="greeting"></h1>
 
-      <p>
+       <p>
           I am a dual PhD student in Physics and Computational Mathematics,
           Science, and Engineering (CMSE) at Michigan State University.
         </p>
@@ -247,6 +249,16 @@
     </div>
   </section>
 
+  <!-- ================= LATEST UPDATES ================= -->
+  <section class="updates">
+    <h2>Latest Updates</h2>
+    <ul>
+      <li>📌 New results added to the gradient flow project (March 2025)</li>
+      <li>📝 Blog post: <em>Not All Classrooms Have Four Walls</em></li>
+      <li>🎨 Art gallery updated with new digital works</li>
+    </ul>
+  </section>
+
 </main>
 
 <footer class="footer">
@@ -259,57 +271,57 @@
 <script src="assets/script.js"></script>
 <script src="assets/greeting.js"></script>
 
-<!-- ================= SEARCH TOGGLE + SEARCH LOGIC ================= -->
+<!-- ================= SEARCH LOGIC ================= -->
 <script>
 (() => {
   const toggle = document.getElementById("search-toggle");
-  const input  = document.getElementById("site-search");
+  const input = document.getElementById("site-search");
   const resultsBox = document.getElementById("search-results");
 
-  toggle.addEventListener("click", () => {
+  toggle.onclick = () => {
     input.style.display = input.style.display === "none" ? "inline-block" : "none";
     input.focus();
-  });
+  };
 
   const pages = [
+    { url: "index.html", title: "Home" },
     { url: "research.html", title: "Research" },
     { url: "cv.html", title: "Curriculum Vitae" },
     { url: "blog.html", title: "Blog" },
     { url: "art.html", title: "Art" }
   ];
 
-  let cache = [];
+  const cache = [];
 
-  async function loadPages() {
+  (async () => {
     for (const p of pages) {
       const res = await fetch(p.url);
-      const text = await res.text();
-      cache.push({ ...p, text: text.replace(/<[^>]+>/g, " ").toLowerCase() });
+      const text = (await res.text()).replace(/<[^>]+>/g, " ").toLowerCase();
+      cache.push({ ...p, text });
     }
-  }
-  loadPages();
+  })();
 
   input.addEventListener("input", () => {
     const q = input.value.toLowerCase().trim();
     resultsBox.innerHTML = "";
-    if (!q) return (resultsBox.style.display = "none");
+    if (!q) return resultsBox.style.display = "none";
 
     let found = false;
     cache.forEach(p => {
-      const idx = p.text.indexOf(q);
-      if (idx !== -1) {
+      if (p.text.includes(q)) {
         found = true;
         const div = document.createElement("div");
         div.className = "search-item";
-        div.innerHTML = `<strong>${p.title}</strong>`;
+        div.textContent = p.title;
         div.onclick = () => location.href = p.url;
         resultsBox.appendChild(div);
       }
     });
 
     if (!found) {
-      resultsBox.innerHTML = `<div class="search-item"><strong>No results matched</strong></div>`;
+      resultsBox.innerHTML = `<div class="search-item">No results found</div>`;
     }
+
     resultsBox.style.display = "block";
   });
 })();

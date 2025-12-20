@@ -7,7 +7,6 @@
   <!-- Mobile / PWA theming -->
   <meta name="theme-color" content="#000000">
   <link rel="apple-touch-icon" href="assets/apple-touch-icon.png">
- 
 
   <!-- Fonts -->
   <link rel="stylesheet"
@@ -16,13 +15,11 @@
   <!-- Site styles -->
   <link rel="stylesheet" href="assets/style.css">
 
-
   <title>Art · Yash Mandlecha</title>
   <meta name="description" content="Art and non-technical work by Yash Mandlecha." />
 
-
   <style>
-    /* ================= HEADER (MATCH BLOG / INDEX) ================= */
+    /* ================= HEADER (IDENTICAL TO RESEARCH) ================= */
     header.site-header {
       position: sticky;
       top: 0;
@@ -61,7 +58,8 @@
 
     header .tag {
       font-size: 1rem;
-      color: rgba(255,255,255,0.85);
+      color: #ffffff;
+      opacity: 0.85;
     }
 
     header .navlinks a {
@@ -74,19 +72,38 @@
       color: #000000;
     }
 
-    /* ================= ART HERO ================= */
+    /* ================= HERO SIZE (EXACT MATCH TO RESEARCH) ================= */
+    .parallax-strip.tall {
+      padding-top: 6.5rem;
+      padding-bottom: 5.5rem;
+    }
+
     .art-hero {
+      position: relative;
       background-image: url("assets/art-bg.jpg");
       background-size: cover;
       background-position: center;
       background-repeat: no-repeat;
 
-      padding-top: 6.5rem;
-      padding-bottom: 4.5rem;
-
       border-bottom-left-radius: 40px;
       border-bottom-right-radius: 40px;
       text-align: center;
+      overflow: hidden;
+    }
+
+    /* Slight dim (lighter than header/footer) */
+    .art-hero::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background: rgba(0,0,0,0.25);
+      z-index: 0;
+      pointer-events: none;
+    }
+
+    .art-hero > * {
+      position: relative;
+      z-index: 1;
     }
 
     .art-hero h1 {
@@ -118,7 +135,7 @@
       font-weight: 600;
     }
 
-    /* ================= FOOTER (MATCH BLOG / INDEX) ================= */
+    /* ================= FOOTER (IDENTICAL TO RESEARCH) ================= */
     .footer {
       position: relative;
 
@@ -169,8 +186,8 @@
   </div>
 </header>
 
-<!-- ================= HERO ================= -->
-<section class="parallax-strip art-hero">
+<!-- ================= HERO (IDENTICAL HEIGHT TO RESEARCH) ================= -->
+<section class="parallax-strip tall art-hero">
   <h1>Art</h1>
 </section>
 
@@ -182,7 +199,7 @@
       <h2>Gallery</h2>
       <a
         class="muted"
-        href="https://www.instagram.com/artbyyaman?utm_source=ig_web_button_share_sheet&igsh=ZDNlZDc0MzIxNw=="
+        href="https://www.instagram.com/artbyyaman"
         target="_blank"
         rel="noopener"
       >
@@ -196,7 +213,6 @@
 
     <div class="gallery">
 
-      <!-- Artwork 1 -->
       <div class="card">
         <div class="figure">
           <img src="assets/art1.png" alt="Artwork 1" />
@@ -209,7 +225,6 @@
         </div>
       </div>
 
-      <!-- Artwork 2 -->
       <div class="card">
         <div class="figure">
           <img src="assets/art2.png" alt="Artwork 2" />
@@ -222,7 +237,6 @@
         </div>
       </div>
 
-      <!-- Artwork 3 -->
       <div class="card">
         <div class="figure">
           <img src="assets/art3.png" alt="Artwork 3" />
@@ -235,7 +249,6 @@
         </div>
       </div>
 
-      <!-- Artwork 4 -->
       <div class="card">
         <div class="figure">
           <img src="assets/art4.png" alt="Artwork 4" />

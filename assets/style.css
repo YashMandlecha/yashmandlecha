@@ -560,8 +560,8 @@ img {
   .art-hero {
     background-size: cover;
     background-position: center;
-    padding-top: 4rem;
-    padding-bottom: 3.5rem;
+    padding-top: 6.5rem;
+    padding-bottom: 5.5rem;
   }
 
   .parallax-strip h1,
@@ -603,4 +603,11 @@ html {
 
 body {
   overscroll-behavior-y: contain;
+}
+
+.parallax-strip,
+.cv-hero,
+.blog-hero,
+.art-hero {
+  margin-top: 1cm; /* thin blank gap below header */
 }
