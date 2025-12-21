@@ -241,11 +241,43 @@
       <a class="name" href="index.html">Yash Mandlecha</a>
       <div class="tag">Blog</div>
     </div>
-    <nav class="navlinks">
-      <a data-nav href="research.html">Research</a>
-      <a data-nav href="cv.html">Curriculum Vitae</a>
-      <a data-nav href="blog.html">Blog</a>
-      <a data-nav href="art.html">Art</a>
+    <nav class="navlinks" id="desktop-nav">
+    <a href="research.html">Research</a>
+    <a href="cv.html">Curriculum Vitae</a>
+    <a href="blog.html">Blog</a>
+    <a href="art.html">Art</a>
+    </nav>
+
+    <!-- Mobile hamburger -->
+    <button
+    id="menu-toggle"
+    aria-label="Open menu"
+    aria-expanded="false"
+    >
+    ☰
+    </button>
+
+    <!-- Mobile dropdown -->
+    <div id="mobile-menu">
+    <a href="research.html">Research</a>
+    <a href="cv.html">Curriculum Vitae</a>
+    <a href="blog.html">Blog</a>
+    <a href="art.html">Art</a>
+    </div>
+
+
+      <button id="search-toggle" title="Search" type="button" aria-label="Search">🔍</button>
+
+        <input
+        id="site-search"
+        type="search"
+        placeholder="Search…"
+        enterkeyhint="search"
+        autocomplete="off"
+        />
+
+        <div id="search-results"></div>
+
     </nav>
   </div>
 </header>
@@ -438,6 +470,8 @@
 </footer>
 
 <script src="assets/script.js"></script>
+<script src="assets/site-search.js"></script>
+
 
 <script>
 (function() {
@@ -470,6 +504,67 @@
   showIndex();
 })();
 </script>
+
+<script>
+(() => {
+  const params = new URLSearchParams(window.location.search);
+  const q = params.get("q");
+  if (!q) return;
+
+  const query = q.toLowerCase();
+
+  // Walk all text nodes and highlight first match
+  const walker = document.createTreeWalker(document.body, NodeFilter.SHOW_TEXT);
+  while (walker.nextNode()) {
+    const node = walker.currentNode;
+    const text = node.nodeValue;
+    const idx = text.toLowerCase().indexOf(query);
+    if (idx === -1) continue;
+
+    const before = text.slice(0, idx);
+    const match = text.slice(idx, idx + q.length);
+    const after = text.slice(idx + q.length);
+
+    const mark = document.createElement("mark");
+    mark.textContent = match;
+    mark.style.background = "yellow";
+    mark.style.padding = "0 0.1em";
+    mark.style.borderRadius = "0.2em";
+
+    const frag = document.createDocumentFragment();
+    frag.appendChild(document.createTextNode(before));
+    frag.appendChild(mark);
+    frag.appendChild(document.createTextNode(after));
+
+    node.parentNode.replaceChild(frag, node);
+
+    mark.scrollIntoView({ behavior: "smooth", block: "center" });
+    break;
+  }
+})();
+</script>
+
+<script>
+(() => {
+  const toggle = document.getElementById("menu-toggle");
+  const menu = document.getElementById("mobile-menu");
+
+  toggle.addEventListener("click", () => {
+    const open = menu.style.display === "block";
+    menu.style.display = open ? "none" : "block";
+    toggle.setAttribute("aria-expanded", String(!open));
+  });
+
+  // Close menu when clicking outside
+  document.addEventListener("click", (e) => {
+    if (!menu.contains(e.target) && !toggle.contains(e.target)) {
+      menu.style.display = "none";
+      toggle.setAttribute("aria-expanded", "false");
+    }
+  });
+})();
+</script>
+
 
 </body>
 </html>

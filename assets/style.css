@@ -611,3 +611,113 @@ body {
 .art-hero {
   margin-top: 1cm; /* thin blank gap below header */
 }
+
+/* ================= SEARCH UI ================= */
+#site-search {
+  display: none;
+  margin-left: 0.5rem;
+  font-size: 1rem;
+  color: #ffffff;
+  background: rgba(255,255,255,0.15);
+  border: 1px solid rgba(255,255,255,0.4);
+  padding: 0.35rem 0.55rem;
+  border-radius: 8px;
+}
+
+#site-search::placeholder {
+  color: rgba(255,255,255,0.7);
+}
+
+#search-results {
+  position: absolute;
+  right: 1rem;
+  top: 100%;
+  margin-top: 0.5rem;
+  width: 360px;
+  max-height: 420px;
+  overflow-y: auto;
+  background: #ffffff;
+  border-radius: 12px;
+  border: 1px solid rgba(0,0,0,0.15);
+  box-shadow: 0 12px 30px rgba(0,0,0,0.25);
+  display: none;
+  z-index: 2000;
+}
+
+.search-item {
+  padding: 0.7rem 0.9rem;
+  border-bottom: 1px solid rgba(0,0,0,0.08);
+  cursor: pointer;
+}
+
+.search-item:last-child {
+  border-bottom: none;
+}
+
+.search-item strong {
+  display: block;
+  font-size: 0.95rem;
+  color: #111;
+}
+
+.search-item span {
+  display: block;
+  font-size: 0.85rem;
+  opacity: 0.75;
+  color: #111;
+}
+
+/* ================= MOBILE MENU ================= */
+
+/* Hide hamburger on desktop */
+#menu-toggle {
+  display: none;
+  background: none;
+  border: none;
+  font-size: 1.9rem;
+  color: white;
+  cursor: pointer;
+}
+
+/* Mobile dropdown menu */
+#mobile-menu {
+  display: none;
+  position: absolute;
+  top: 100%;
+  right: 1rem;
+  background: white;
+  border-radius: 14px;
+  box-shadow: 0 12px 30px rgba(0,0,0,0.25);
+  overflow: hidden;
+  z-index: 3000;
+}
+
+#mobile-menu a {
+  display: block;
+  padding: 0.9rem 1.2rem;
+  color: #000;
+  text-decoration: none;
+  font-size: 1.05rem;
+  border-bottom: 1px solid rgba(0,0,0,0.08);
+}
+
+#mobile-menu a:last-child {
+  border-bottom: none;
+}
+
+#mobile-menu a:hover {
+  background: rgba(0,0,0,0.05);
+}
+
+/* ================= MOBILE BREAKPOINT ================= */
+@media (max-width: 768px) {
+  /* Hide desktop nav */
+  #desktop-nav {
+    display: none;
+  }
+
+  /* Show hamburger */
+  #menu-toggle {
+    display: inline-block;
+  }
+}
