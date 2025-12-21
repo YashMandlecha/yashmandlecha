@@ -2,29 +2,25 @@
 <html lang="en">
 <head>
   <!-- Google tag (gtag.js) -->
-<script async src="https://www.googletagmanager.com/gtag/js?id=G-NRBYRV9L8V"></script>
-<script>
-  window.dataLayer = window.dataLayer || [];
-  function gtag(){dataLayer.push(arguments);}
-  gtag('js', new Date());
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-NRBYRV9L8V"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-NRBYRV9L8V');
+  </script>
 
-  gtag('config', 'G-NRBYRV9L8V');
-</script>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
 
-  <!-- Mobile / PWA -->
   <meta name="theme-color" content="#000000">
   <link rel="apple-touch-icon" href="assets/apple-touch-icon.png">
 
   <title>Yash Mandlecha</title>
   <meta name="description" content="Personal website of Yash Mandlecha." />
 
-  <!-- Fonts -->
   <link rel="stylesheet"
         href="https://cdn.jsdelivr.net/npm/lmweb@1.0.0/lmroman10.css">
-
-  <!-- Site styles -->
   <link rel="stylesheet" href="assets/style.css">
 
   <style>
@@ -43,6 +39,7 @@
       background-image: url("assets/index-bg.jpg");
       background-size: cover;
       background-position: center;
+      background-repeat: no-repeat;
       padding: 1.25rem 0;
       border-bottom: 1px solid rgba(255,255,255,0.25);
     }
@@ -84,10 +81,6 @@
       border:1px solid rgba(255,255,255,.4);
       color:#fff;
       border-radius:8px;
-    }
-
-    #site-search::placeholder {
-      color:rgba(255,255,255,.7);
     }
 
     #search-results {
@@ -153,16 +146,18 @@
     }
 
     /* ================= FOOTER ================= */
-    .footer {
+    footer.footer {
+      width:100%;
       position:relative;
       background-image:url("assets/index-bg.jpg");
       background-size:cover;
       background-position:center;
+      background-repeat:no-repeat;
       border-top:1px solid rgba(255,255,255,.25);
       color:#fff;
     }
 
-    .footer::before {
+    footer.footer::before {
       content:"";
       position:absolute;
       inset:0;
@@ -170,12 +165,12 @@
       z-index:0;
     }
 
-    .footer > * {
+    footer.footer > * {
       position:relative;
       z-index:1;
     }
 
-    .footer a { color:#fff; }
+    footer.footer a { color:#fff; }
   </style>
 </head>
 
@@ -194,16 +189,8 @@
       <a href="art.html">Art</a>
     </nav>
 
-    <!-- Mobile hamburger -->
-    <button
-      id="menu-toggle"
-      aria-label="Open menu"
-      aria-expanded="false"
-    >
-      ☰
-    </button>
+    <button id="menu-toggle" aria-label="Open menu" aria-expanded="false">☰</button>
 
-    <!-- Mobile dropdown -->
     <div id="mobile-menu">
       <a href="research.html">Research</a>
       <a href="cv.html">Curriculum Vitae</a>
@@ -211,16 +198,13 @@
       <a href="art.html">Art</a>
     </div>
 
-
-      <button id="search-toggle" type="button" aria-label="Search">🔍</button>
-      <input id="site-search" type="search" placeholder="Search…" autocomplete="off">
-      <div id="search-results"></div>
-    </nav>
+    <button id="search-toggle" type="button" aria-label="Search">🔍</button>
+    <input id="site-search" type="search" placeholder="Search…" autocomplete="off">
+    <div id="search-results"></div>
   </div>
 </header>
 
 <main class="container">
-
   <section class="hero">
     <aside class="personal-photo">
       <img src="assets/profile.jpg" alt="Photo of Yash Mandlecha">
@@ -228,7 +212,6 @@
 
     <div class="card pad flat">
       <h1 id="greeting"></h1>
-
       <p>
           I am a dual PhD student in Physics and Computational Mathematics,
           Science, and Engineering (CMSE) at Michigan State University.
@@ -254,7 +237,6 @@
           classrooms, writing, and creative expression. This website is a
           space where I document that journey — technical and otherwise.
         </p>
-
       <p class="muted">
         Contact:
         <a href="mailto:mandlec1@msu.edu">mandlec1@msu.edu</a> ·
@@ -271,7 +253,6 @@
       <li>🎨 Art gallery updated</li>
     </ul>
   </section>
-
 </main>
 
 <footer class="footer">
@@ -283,78 +264,6 @@
 
 <script src="assets/script.js"></script>
 <script src="assets/greeting.js"></script>
-
-<!-- ================= WORKING SEARCH ================= -->
-<script>
-(() => {
-  const toggle = document.getElementById("search-toggle");
-  const input = document.getElementById("site-search");
-  const resultsBox = document.getElementById("search-results");
-
-  let index = [];
-
-  fetch("assets/search-index.json")
-    .then(res => res.json())
-    .then(data => index = data);
-
-  toggle.onclick = () => {
-    input.style.display =
-      input.style.display === "inline-block" ? "none" : "inline-block";
-    input.focus();
-  };
-
-  input.addEventListener("input", () => {
-    const q = input.value.trim().toLowerCase();
-    resultsBox.innerHTML = "";
-
-    if (!q) {
-      resultsBox.style.display = "none";
-      return;
-    }
-
-    const matches = index.filter(item =>
-      item.content.includes(q)
-    );
-
-    if (matches.length === 0) {
-      resultsBox.innerHTML =
-        `<div class="search-item"><strong>No results found</strong></div>`;
-    } else {
-      matches.forEach(item => {
-        const div = document.createElement("div");
-        div.className = "search-item";
-        div.innerHTML = `<strong>${item.title}</strong>`;
-        div.onclick = () => window.location.href = item.url;
-        resultsBox.appendChild(div);
-      });
-    }
-
-    resultsBox.style.display = "block";
-  });
-})();
-</script>
-
-<script>
-(() => {
-  const toggle = document.getElementById("menu-toggle");
-  const menu = document.getElementById("mobile-menu");
-
-  toggle.addEventListener("click", () => {
-    const open = menu.style.display === "block";
-    menu.style.display = open ? "none" : "block";
-    toggle.setAttribute("aria-expanded", String(!open));
-  });
-
-  // Close menu when clicking outside
-  document.addEventListener("click", (e) => {
-    if (!menu.contains(e.target) && !toggle.contains(e.target)) {
-      menu.style.display = "none";
-      toggle.setAttribute("aria-expanded", "false");
-    }
-  });
-})();
-</script>
-
 
 </body>
 </html>
