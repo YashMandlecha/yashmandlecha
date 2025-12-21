@@ -4,35 +4,25 @@
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
 
-  <!-- Mobile / PWA theming -->
   <meta name="theme-color" content="#000000">
   <link rel="apple-touch-icon" href="assets/apple-touch-icon.png">
 
-  <!-- Fonts -->
   <link rel="stylesheet"
         href="https://cdn.jsdelivr.net/npm/lmweb@1.0.0/lmroman10.css">
-
-  <!-- Site styles -->
   <link rel="stylesheet" href="assets/style.css">
 
   <title>Art · Yash Mandlecha</title>
   <meta name="description" content="Art and non-technical work by Yash Mandlecha." />
 
   <style>
-    /* ================= HEADER (IDENTICAL TO RESEARCH) ================= */
     header.site-header {
       position: sticky;
       top: 0;
       z-index: 1000;
-      position: relative;
-
-      background-image: url("assets/index-bg.jpg") !important;
-      background-size: cover !important;
-      background-position: center !important;
-      background-repeat: no-repeat !important;
-
-      padding-top: 1.25rem;
-      padding-bottom: 1.25rem;
+      background-image: url("assets/index-bg.jpg");
+      background-size: cover;
+      background-position: center;
+      padding: 1.25rem 0;
       border-bottom: 1px solid rgba(255,255,255,0.25);
     }
 
@@ -42,110 +32,128 @@
       inset: 0;
       background: rgba(0,0,0,0.55);
       z-index: 0;
-      pointer-events: none;
     }
 
-    header.site-header > * {
-      position: relative;
-      z-index: 1;
-    }
+    header.site-header > * { position: relative; z-index: 1; }
 
     header .name {
       font-weight: 700;
       font-size: 2.05rem;
-      color: #ffffff;
-    }
-
-    header .tag {
-      font-size: 1rem;
-      color: #ffffff;
-      opacity: 0.85;
+      color: #fff;
     }
 
     header .navlinks a {
       font-size: 1.1rem;
-      color: #ffffff;
-      transition: color 0.15s ease;
+      color: #fff;
     }
 
-    header .navlinks a:hover {
-      color: #000000;
+    #menu-toggle {
+      display: none;
+      margin-left: 0.75rem;
+      font-size: 1.35rem;
+      background: rgba(255,255,255,0.1);
+      color: #fff;
+      border-radius: 10px;
+      padding: 0.35rem 0.55rem;
+      cursor: pointer;
     }
 
-    /* ================= HERO SIZE (EXACT MATCH TO RESEARCH) ================= */
+    #mobile-menu {
+      display: none;
+      position: absolute;
+      right: 1rem;
+      top: 100%;
+      margin-top: 0.6rem;
+      background: rgba(0,0,0,0.88);
+      border-radius: 14px;
+      overflow: hidden;
+      z-index: 2000;
+      min-width: 220px;
+    }
+
+    #mobile-menu a {
+      display: block;
+      padding: 0.8rem 1rem;
+      color: #fff;
+      border-bottom: 1px solid rgba(255,255,255,0.1);
+    }
+
+    @media (max-width: 820px) {
+      #desktop-nav { display: none; }
+      #menu-toggle { display: inline-block; }
+    }
+
     .parallax-strip.tall {
       padding-top: 6.5rem;
       padding-bottom: 5.5rem;
     }
 
     .art-hero {
-      position: relative;
       background-image: url("assets/art-bg.jpg");
       background-size: cover;
       background-position: center;
-      background-repeat: no-repeat;
-
       border-bottom-left-radius: 40px;
       border-bottom-right-radius: 40px;
       text-align: center;
-      overflow: hidden;
+      position: relative;
     }
 
-    /* Slight dim (lighter than header/footer) */
     .art-hero::before {
       content: "";
       position: absolute;
       inset: 0;
       background: rgba(0,0,0,0.25);
-      z-index: 0;
-      pointer-events: none;
-    }
-
-    .art-hero > * {
-      position: relative;
-      z-index: 1;
     }
 
     .art-hero h1 {
-      color: #ffffff;
-      margin: 0;
+      color: #fff;
+      position: relative;
     }
 
-    /* ================= GALLERY ================= */
     .gallery {
       display: grid;
       grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
       gap: 2rem;
     }
 
+    .figure { position: relative; }
+
     .figure img {
       width: 100%;
-      height: auto;
       border-radius: 16px;
-      display: block;
+      pointer-events: none;
+      user-select: none;
+      -webkit-user-drag: none;
+    }
+
+    .img-shield {
+      position: absolute;
+      inset: 0;
+      border-radius: 16px;
     }
 
     .caption {
       margin-top: 0.6rem;
       font-size: 0.95rem;
-      line-height: 1.4;
+      line-height: 1.45;
     }
 
-    .caption strong {
-      font-weight: 600;
+    .caption em {
+      font-style: italic;
     }
 
-    /* ================= FOOTER (IDENTICAL TO RESEARCH) ================= */
+    .art-note {
+      margin-top: 0.35rem;
+      font-size: 0.9rem;
+      color: #555;
+    }
+
     .footer {
-      position: relative;
-
-      background-image: url("assets/index-bg.jpg") !important;
-      background-size: cover !important;
-      background-position: center !important;
-      background-repeat: no-repeat !important;
-
+      background-image: url("assets/index-bg.jpg");
+      background-size: cover;
       border-top: 1px solid rgba(255,255,255,0.25);
-      color: #ffffff;
+      color: #fff;
+      position: relative;
     }
 
     .footer::before {
@@ -153,221 +161,123 @@
       position: absolute;
       inset: 0;
       background: rgba(0,0,0,0.55);
-      z-index: 0;
-      pointer-events: none;
     }
 
-    .footer > * {
-      position: relative;
-      z-index: 1;
-    }
-
-    .footer a {
-      color: #ffffff;
-    }
+    .footer > * { position: relative; z-index: 1; }
   </style>
 </head>
 
 <body>
 
-<!-- ================= HEADER ================= -->
 <header class="site-header">
   <div class="container nav">
     <div class="brand">
       <a class="name" href="index.html">Yash Mandlecha</a>
       <div class="tag">Art</div>
     </div>
+
     <nav class="navlinks" id="desktop-nav">
-    <a href="research.html">Research</a>
-    <a href="cv.html">Curriculum Vitae</a>
-    <a href="blog.html">Blog</a>
-    <a href="art.html">Art</a>
+      <a href="research.html">Research</a>
+      <a href="cv.html">Curriculum Vitae</a>
+      <a href="blog.html">Blog</a>
+      <a href="art.html">Art</a>
     </nav>
 
-    <!-- Mobile hamburger -->
-    <button
-    id="menu-toggle"
-    aria-label="Open menu"
-    aria-expanded="false"
-    >
-    ☰
-    </button>
+    <button id="menu-toggle">☰</button>
 
-    <!-- Mobile dropdown -->
     <div id="mobile-menu">
-    <a href="research.html">Research</a>
-    <a href="cv.html">Curriculum Vitae</a>
-    <a href="blog.html">Blog</a>
-    <a href="art.html">Art</a>
+      <a href="research.html">Research</a>
+      <a href="cv.html">Curriculum Vitae</a>
+      <a href="blog.html">Blog</a>
+      <a href="art.html">Art</a>
     </div>
-
-
-      <button id="search-toggle" title="Search" type="button" aria-label="Search">🔍</button>
-
-        <input
-        id="site-search"
-        type="search"
-        placeholder="Search…"
-        enterkeyhint="search"
-        autocomplete="off"
-        />
-
-        <div id="search-results"></div>
-
-    </nav>
   </div>
 </header>
 
-<!-- ================= HERO (IDENTICAL HEIGHT TO RESEARCH) ================= -->
 <section class="parallax-strip tall art-hero">
   <h1>Art</h1>
 </section>
 
-<!-- ================= CONTENT ================= -->
 <main class="container">
-
   <section class="section">
     <div class="section-head">
       <h2>Gallery</h2>
-      <a
-        class="muted"
-        href="https://www.instagram.com/artbyyaman"
-        target="_blank"
-        rel="noopener"
-      >
-        Instagram →
-      </a>
+      <a class="muted" href="https://www.instagram.com/artbyyaman" target="_blank">Instagram →</a>
     </div>
 
-    <p class="muted">
-      A selection of artworks across digital and traditional media.
-    </p>
-
-    <div class="gallery">
-
-      <div class="card">
-        <div class="figure">
-          <img src="assets/art1.png" alt="Artwork 1" />
-          <div class="caption">
-            <strong>Untitled I</strong><br>
-            Created: March 2021<br>
-            Medium: Digital / Canvas<br>
-            Size: 3000 × 4000 px
-          </div>
-        </div>
-      </div>
-
-      <div class="card">
-        <div class="figure">
-          <img src="assets/art2.png" alt="Artwork 2" />
-          <div class="caption">
-            <strong>Untitled II</strong><br>
-            Created: July 2021<br>
-            Medium: Acrylic on Canvas<br>
-            Size: 18 × 24 in
-          </div>
-        </div>
-      </div>
-
-      <div class="card">
-        <div class="figure">
-          <img src="assets/art3.png" alt="Artwork 3" />
-          <div class="caption">
-            <strong>Untitled III</strong><br>
-            Created: January 2022<br>
-            Medium: Oil on Canvas<br>
-            Size: 24 × 36 in
-          </div>
-        </div>
-      </div>
-
-      <div class="card">
-        <div class="figure">
-          <img src="assets/art4.png" alt="Artwork 4" />
-          <div class="caption">
-            <strong>Untitled IV</strong><br>
-            Created: August 2022<br>
-            Medium: Digital / Canvas<br>
-            Size: 3500 × 5000 px
-          </div>
-        </div>
-      </div>
-
-    </div>
+    <div class="gallery" id="art-gallery"></div>
   </section>
-
 </main>
 
-<!-- ================= FOOTER ================= -->
 <footer class="footer">
   <div class="container row">
     <div>© <span id="year"></span> Yash Mandlecha</div>
-    <div class="muted"><a href="index.html">Home</a></div>
+    <div><a href="index.html">Home</a></div>
   </div>
 </footer>
 
-<script src="assets/script.js"></script>
-<script src="assets/site-search.js"></script>
-
-
 <script>
+/* ===== CUSTOM ARTWORK METADATA ===== */
+const ARTWORKS = [
+  { file: "art1.jpg", title: "Cello", medium: "Acrylic on Canvas", note: "Early exploration of abstraction." },
+  { file: "art2.jpg", title: "Kasumi", medium: "Oil on Canvas", note: "" },
+  { file: "art3.jpg", title: "Vidya Vinayak", medium: "Oil on Canvas", note: "Inspired by motion and decay." },
+  { file: "art4.jpg", title: "Shrimant Yogi", medium: "Digital", note: "" },
+  { file: "art7.jpg", title: "1931 - ∞", medium: "Acrylic on Canvas", note: "" },
+  { file: "art6.jpg", title: "Richard Feynman", medium: "Sketch/ Pencil", note: "" },
+  { file: "art5.jpg", title: "Kamdhenu", medium: "Poster on Paper", note: "" },
+  { file: "art8.jpg", title: "Bhakti-Shakti", medium: "Digital", note: "" },
+  { file: "art9.jpg", title: "Wings of Dusk", medium: "Poster on Paper", note: "" },
+  { file: "art10.jpg", title: "Dagdusheth Halwai Ganapati", medium: "Acrylic on Canvas", note: "" },
+  { file: "art11.jpg", title: "Amitabh Bachchan", medium: "Sketch/ Pencil", note: "" },
+  { file: "art16.jpg", title: "Pancham; R. D Burman", medium: "Poster on Paper", note: "" },
+  { file: "art13.jpg", title: "Listener of Light", medium: "Digital", note: "" },
+  { file: "art14.jpg", title: "Mirror", medium: "Digital", note: "" },
+  { file: "art12.jpg", title: "Mahatma", medium: "Sketch/ Pencil", note: "" },
+   
+];
+
 (() => {
-  const params = new URLSearchParams(window.location.search);
-  const q = params.get("q");
-  if (!q) return;
+  const gallery = document.getElementById("art-gallery");
 
-  const query = q.toLowerCase();
+  ARTWORKS.forEach(a => {
+    const card = document.createElement("div");
+    card.className = "card";
 
-  // Walk all text nodes and highlight first match
-  const walker = document.createTreeWalker(document.body, NodeFilter.SHOW_TEXT);
-  while (walker.nextNode()) {
-    const node = walker.currentNode;
-    const text = node.nodeValue;
-    const idx = text.toLowerCase().indexOf(query);
-    if (idx === -1) continue;
+    card.innerHTML = `
+      <div class="figure">
+        <img src="assets/${a.file}" alt="${a.title}" draggable="false">
+        <div class="img-shield"></div>
+        <div class="caption">
+          <strong><em>${a.title}</em></strong><br>
+          Medium: ${a.medium}
+          ${a.note ? `<div class="art-note">${a.note}</div>` : ""}
+        </div>
+      </div>
+    `;
 
-    const before = text.slice(0, idx);
-    const match = text.slice(idx, idx + q.length);
-    const after = text.slice(idx + q.length);
-
-    const mark = document.createElement("mark");
-    mark.textContent = match;
-    mark.style.background = "yellow";
-    mark.style.padding = "0 0.1em";
-    mark.style.borderRadius = "0.2em";
-
-    const frag = document.createDocumentFragment();
-    frag.appendChild(document.createTextNode(before));
-    frag.appendChild(mark);
-    frag.appendChild(document.createTextNode(after));
-
-    node.parentNode.replaceChild(frag, node);
-
-    mark.scrollIntoView({ behavior: "smooth", block: "center" });
-    break;
-  }
+    gallery.appendChild(card);
+  });
 })();
 </script>
 
 <script>
+/* Mobile menu */
 (() => {
-  const toggle = document.getElementById("menu-toggle");
-  const menu = document.getElementById("mobile-menu");
-
-  toggle.addEventListener("click", () => {
-    const open = menu.style.display === "block";
-    menu.style.display = open ? "none" : "block";
-    toggle.setAttribute("aria-expanded", String(!open));
-  });
-
-  // Close menu when clicking outside
-  document.addEventListener("click", (e) => {
-    if (!menu.contains(e.target) && !toggle.contains(e.target)) {
-      menu.style.display = "none";
-      toggle.setAttribute("aria-expanded", "false");
-    }
-  });
+  const t = document.getElementById("menu-toggle");
+  const m = document.getElementById("mobile-menu");
+  t.onclick = () => m.style.display = m.style.display === "block" ? "none" : "block";
 })();
+</script>
+
+<script>
+/* Anti-save deterrents */
+document.addEventListener("contextmenu", e => {
+  if (e.target.closest(".gallery")) e.preventDefault();
+});
+document.addEventListener("dragstart", e => {
+  if (e.target.tagName === "IMG") e.preventDefault();
+});
 </script>
 
 </body>
