@@ -235,19 +235,6 @@
   <a href="art.html">Art</a>
 </div>
 
-
-      <button id="search-toggle" title="Search" type="button" aria-label="Search">🔍</button>
-
-        <input
-        id="site-search"
-        type="search"
-        placeholder="Search…"
-        enterkeyhint="search"
-        autocomplete="off"
-        />
-
-        <div id="search-results"></div>
-
     </nav>
   </div>
 </header>
@@ -462,47 +449,6 @@
 </footer>
 
 <script src="assets/script.js"></script>
-<script src="assets/site-search.js"></script>
-
-
-<script>
-(() => {
-  const params = new URLSearchParams(window.location.search);
-  const q = params.get("q");
-  if (!q) return;
-
-  const query = q.toLowerCase();
-
-  // Walk all text nodes and highlight first match
-  const walker = document.createTreeWalker(document.body, NodeFilter.SHOW_TEXT);
-  while (walker.nextNode()) {
-    const node = walker.currentNode;
-    const text = node.nodeValue;
-    const idx = text.toLowerCase().indexOf(query);
-    if (idx === -1) continue;
-
-    const before = text.slice(0, idx);
-    const match = text.slice(idx, idx + q.length);
-    const after = text.slice(idx + q.length);
-
-    const mark = document.createElement("mark");
-    mark.textContent = match;
-    mark.style.background = "yellow";
-    mark.style.padding = "0 0.1em";
-    mark.style.borderRadius = "0.2em";
-
-    const frag = document.createDocumentFragment();
-    frag.appendChild(document.createTextNode(before));
-    frag.appendChild(mark);
-    frag.appendChild(document.createTextNode(after));
-
-    node.parentNode.replaceChild(frag, node);
-
-    mark.scrollIntoView({ behavior: "smooth", block: "center" });
-    break;
-  }
-})();
-</script>
 
 <script>
 (() => {
@@ -524,7 +470,6 @@
   });
 })();
 </script>
-
 
 </body>
 </html>

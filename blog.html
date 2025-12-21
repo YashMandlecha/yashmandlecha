@@ -1,51 +1,39 @@
 <!doctype html>
 <html lang="en">
 <head>
-    <!-- Google tag (gtag.js) -->
-<script async src="https://www.googletagmanager.com/gtag/js?id=G-NRBYRV9L8V"></script>
-<script>
-  window.dataLayer = window.dataLayer || [];
-  function gtag(){dataLayer.push(arguments);}
-  gtag('js', new Date());
+  <!-- Google tag (gtag.js) -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-NRBYRV9L8V"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-NRBYRV9L8V');
+  </script>
 
-  gtag('config', 'G-NRBYRV9L8V');
-</script>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
 
-  <!-- Mobile / PWA theming -->
   <meta name="theme-color" content="#000000">
   <link rel="apple-touch-icon" href="assets/apple-touch-icon.png">
 
-  <!-- Fonts -->
   <link rel="stylesheet"
         href="https://cdn.jsdelivr.net/npm/lmweb@1.0.0/lmroman10.css">
-
-  <!-- Site styles -->
   <link rel="stylesheet" href="assets/style.css">
-
 
   <title>Blog · Yash Mandlecha</title>
   <meta name="description" content="Essays and reflections by Yash Mandlecha." />
 
- 
-
   <style>
-    /* ================= HEADER (MATCH INDEX / RESEARCH) ================= */
     header.site-header {
       position: sticky;
       top: 0;
       z-index: 1000;
       position: relative;
-
-      background-image: url("assets/index-bg.jpg") !important;
-      background-size: cover !important;
-      background-position: center !important;
-      background-repeat: no-repeat !important;
-
-      padding-top: 1.25rem;
-      padding-bottom: 1.25rem;
-
+      background-image: url("assets/index-bg.jpg");
+      background-size: cover;
+      background-position: center;
+      background-repeat: no-repeat;
+      padding: 1.25rem 0;
       border-bottom: 1px solid rgba(255,255,255,0.25);
     }
 
@@ -55,7 +43,6 @@
       inset: 0;
       background: rgba(0,0,0,0.55);
       z-index: 0;
-      pointer-events: none;
     }
 
     header.site-header > * {
@@ -66,69 +53,49 @@
     header .name {
       font-weight: 700;
       font-size: 2.05rem;
-      color: #ffffff;
+      color: #fff;
     }
 
     header .tag {
       font-size: 1rem;
-      color: #ffffff;
+      color: #fff;
       opacity: 0.85;
     }
 
     header .navlinks a {
       font-size: 1.1rem;
-      color: #ffffff;
-      transition: color 0.15s ease;
+      color: #fff;
     }
 
-    header .navlinks a:hover {
-      color: #000000;
-    }
+    header .navlinks a:hover { color: #000; }
 
-    /* ================= BLOG HERO ================= */
     .parallax-strip.tall {
       padding-top: 6.5rem;
       padding-bottom: 5.5rem;
     }
 
     .blog-hero {
-      position: relative; /* REQUIRED for overlay */
+      position: relative;
       background-image: url("assets/blog-bg.jpg");
       background-size: cover;
       background-position: center;
-      background-repeat: no-repeat;
       border-bottom-left-radius: 40px;
       border-bottom-right-radius: 40px;
       overflow: hidden;
     }
 
-    /* ===== DIM OVERLAY (ONLY CHANGE) ===== */
     .blog-hero::before {
       content: "";
       position: absolute;
       inset: 0;
       background: rgba(0,0,0,0.45);
       z-index: 0;
-      pointer-events: none;
     }
 
-    .blog-hero > * {
-      position: relative;
-      z-index: 1;
-    }
+    .blog-hero > * { position: relative; z-index: 1; }
+    .blog-hero h1 { color: #fff; }
 
-    .blog-hero h1 {
-      color: #ffffff;
-    }
-
-    /* ================= PAGE ================= */
-    main {
-      background: transparent;
-    }
-
-    #post-view {
-      display: none;
-    }
+    #post-view { display: none; }
 
     .blog-card {
       cursor: pointer;
@@ -136,90 +103,14 @@
       text-decoration: none;
     }
 
-    /* ================= SUBSCRIBE ================= */
-    .subscribe {
-      display: grid;
-      gap: 0.6rem;
-      margin-top: 1rem;
-    }
-
-    .subscribe-row {
-      display: flex;
-      gap: 0.6rem;
-      flex-wrap: wrap;
-    }
-
-    .subscribe input[type="email"] {
-      flex: 1 1 260px;
-      padding: 0.65rem 0.8rem;
-      border-radius: 12px;
-      border: 1px solid rgba(0,0,0,0.15);
-    }
-
-    .subscribe button {
-      padding: 0.65rem 0.9rem;
-      border-radius: 12px;
-      border: 1px solid rgba(0,0,0,0.15);
-      background: #fff;
-      cursor: pointer;
-    }
-
-    /* ================= COMMENTS ================= */
-    .claps {
-      display: flex;
-      align-items: center;
-      gap: 0.6rem;
-      margin-top: 1rem;
-    }
-
-    .clap-btn {
-      border: 1px solid rgba(0,0,0,0.15);
-      background: #fff;
-      border-radius: 999px;
-      padding: 0.45rem 0.75rem;
-      cursor: pointer;
-    }
-
-    .comments textarea {
-      width: 100%;
-      padding: 0.7rem 0.8rem;
-      border-radius: 12px;
-      border: 1px solid rgba(0,0,0,0.15);
-    }
-
-    .comment-submit {
-      margin-top: 0.6rem;
-      padding: 0.55rem 0.85rem;
-      border-radius: 12px;
-      border: 1px solid rgba(0,0,0,0.15);
-      background: #fff;
-      cursor: pointer;
-    }
-
-    .comment-list {
-      list-style: none;
-      padding-left: 0;
-      margin-top: 0.9rem;
-      display: grid;
-      gap: 0.6rem;
-    }
-
-    .comment-item {
-      border: 1px solid rgba(0,0,0,0.12);
-      border-radius: 14px;
-      padding: 0.7rem 0.85rem;
-      background: rgba(255,255,255,0.85);
-    }
-
-    /* ================= FOOTER (MATCH INDEX / RESEARCH) ================= */
     .footer {
       position: relative;
-      background-image: url("assets/index-bg.jpg") !important;
-      background-size: cover !important;
-      background-position: center !important;
-      background-repeat: no-repeat !important;
+      background-image: url("assets/index-bg.jpg");
+      background-size: cover;
+      background-position: center;
+      background-repeat: no-repeat;
       border-top: 1px solid rgba(255,255,255,0.25);
-      color: #ffffff;
+      color: #fff;
     }
 
     .footer::before {
@@ -228,17 +119,10 @@
       inset: 0;
       background: rgba(0,0,0,0.55);
       z-index: 0;
-      pointer-events: none;
     }
 
-    .footer > * {
-      position: relative;
-      z-index: 1;
-    }
-
-    .footer a {
-      color: #ffffff;
-    }
+    .footer > * { position: relative; z-index: 1; }
+    .footer a { color: #fff; }
   </style>
 </head>
 
@@ -250,44 +134,22 @@
       <a class="name" href="index.html">Yash Mandlecha</a>
       <div class="tag">Blog</div>
     </div>
+
     <nav class="navlinks" id="desktop-nav">
-    <a href="research.html">Research</a>
-    <a href="cv.html">Curriculum Vitae</a>
-    <a href="blog.html">Blog</a>
-    <a href="art.html">Art</a>
+      <a href="research.html">Research</a>
+      <a href="cv.html">Curriculum Vitae</a>
+      <a href="blog.html">Blog</a>
+      <a href="art.html">Art</a>
     </nav>
 
-    <!-- Mobile hamburger -->
-    <button
-    id="menu-toggle"
-    aria-label="Open menu"
-    aria-expanded="false"
-    >
-    ☰
-    </button>
+    <button id="menu-toggle" aria-label="Open menu" aria-expanded="false">☰</button>
 
-    <!-- Mobile dropdown -->
     <div id="mobile-menu">
-    <a href="research.html">Research</a>
-    <a href="cv.html">Curriculum Vitae</a>
-    <a href="blog.html">Blog</a>
-    <a href="art.html">Art</a>
+      <a href="research.html">Research</a>
+      <a href="cv.html">Curriculum Vitae</a>
+      <a href="blog.html">Blog</a>
+      <a href="art.html">Art</a>
     </div>
-
-
-      <button id="search-toggle" title="Search" type="button" aria-label="Search">🔍</button>
-
-        <input
-        id="site-search"
-        type="search"
-        placeholder="Search…"
-        enterkeyhint="search"
-        autocomplete="off"
-        />
-
-        <div id="search-results"></div>
-
-    </nav>
   </div>
 </header>
 
@@ -295,37 +157,17 @@
   <h1>Blog</h1>
 </section>
 
-
 <main class="container">
 
-<!-- ================= INTRO ================= -->
 <section class="section">
-  <div class="item">
-    <p class="muted">
-      This blog spans theoretical physics, high-performance computing,
-      data analysis, and inspirations drawn from nature.
-      A new article is added approximately every two weeks.
-    </p>
-
-    <div class="subscribe">
-      <strong>Subscribe for new posts</strong>
-      <form id="subscribe-form" class="subscribe-row">
-        <input id="subscribe-email" type="email"
-               placeholder="Your email address" required>
-        <button type="submit">Subscribe</button>
-      </form>
-      <small class="muted">
-        Subscription requests are sent to the author by email.
-      </small>
-    </div>
-  </div>
+  <p class="muted">
+    This blog spans theoretical physics, high-performance computing,
+    and reflections inspired by nature.
+  </p>
 </section>
 
-<!-- ================= POST INDEX ================= -->
 <section class="section" id="post-index">
-  <div class="section-head">
-    <h2>Posts</h2>
-  </div>
+  <h2>Posts</h2>
 
   <a class="blog-card" data-open-post="not-all-classrooms">
     <h3>Not All Classrooms Have Four Walls</h3>
@@ -336,15 +178,10 @@
   </a>
 </section>
 
-<!-- ================= FULL POST ================= -->
 <section class="section" id="post-view">
-  <div class="section-head">
-    <h2>Post</h2>
-    <a href="#" id="back-to-posts">Back to posts →</a>
-  </div>
+  <a href="#" id="back-to-posts">← Back to posts</a>
 
-  <article class="item blog-post" id="not-all-classrooms">
-
+  <article class="blog-post" id="not-all-classrooms">
     <h2>Not All Classrooms Have Four Walls</h2>
 
         <p class="meta muted">
@@ -453,25 +290,11 @@
           — Yash Mandlecha
         </p>
 
-
-    <div class="claps">
-      <button class="clap-btn">👏 Clap</button>
-      <span class="clap-count">0</span>
-    </div>
-
-    <div class="comments">
-      <h4>Comments</h4>
-      <textarea rows="3" placeholder="Write a comment…"></textarea>
-      <button class="comment-submit">Post</button>
-      <ul class="comment-list"></ul>
-    </div>
-
   </article>
 </section>
 
 </main>
 
-<!-- ================= FOOTER ================= -->
 <footer class="footer">
   <div class="container row">
     <div>© <span id="year"></span> Yash Mandlecha</div>
@@ -479,11 +302,9 @@
 </footer>
 
 <script src="assets/script.js"></script>
-<script src="assets/site-search.js"></script>
-
 
 <script>
-(function() {
+(() => {
   const postIndex = document.getElementById("post-index");
   const postView  = document.getElementById("post-view");
 
@@ -495,61 +316,19 @@
   function showPost(id) {
     postIndex.style.display = "none";
     postView.style.display = "block";
-    const el = document.getElementById(id);
-    if (el) el.scrollIntoView({ behavior: "instant", block: "start" });
+    document.getElementById(id).scrollIntoView();
   }
 
   document.querySelectorAll("[data-open-post]").forEach(card => {
-    card.addEventListener("click", () => {
-      showPost(card.getAttribute("data-open-post"));
-    });
+    card.addEventListener("click", () => showPost(card.dataset.openPost));
   });
 
-  document.getElementById("back-to-posts").addEventListener("click", e => {
+  document.getElementById("back-to-posts").onclick = e => {
     e.preventDefault();
     showIndex();
-  });
+  };
 
   showIndex();
-})();
-</script>
-
-<script>
-(() => {
-  const params = new URLSearchParams(window.location.search);
-  const q = params.get("q");
-  if (!q) return;
-
-  const query = q.toLowerCase();
-
-  // Walk all text nodes and highlight first match
-  const walker = document.createTreeWalker(document.body, NodeFilter.SHOW_TEXT);
-  while (walker.nextNode()) {
-    const node = walker.currentNode;
-    const text = node.nodeValue;
-    const idx = text.toLowerCase().indexOf(query);
-    if (idx === -1) continue;
-
-    const before = text.slice(0, idx);
-    const match = text.slice(idx, idx + q.length);
-    const after = text.slice(idx + q.length);
-
-    const mark = document.createElement("mark");
-    mark.textContent = match;
-    mark.style.background = "yellow";
-    mark.style.padding = "0 0.1em";
-    mark.style.borderRadius = "0.2em";
-
-    const frag = document.createDocumentFragment();
-    frag.appendChild(document.createTextNode(before));
-    frag.appendChild(mark);
-    frag.appendChild(document.createTextNode(after));
-
-    node.parentNode.replaceChild(frag, node);
-
-    mark.scrollIntoView({ behavior: "smooth", block: "center" });
-    break;
-  }
 })();
 </script>
 
@@ -558,22 +337,19 @@
   const toggle = document.getElementById("menu-toggle");
   const menu = document.getElementById("mobile-menu");
 
-  toggle.addEventListener("click", () => {
+  toggle.onclick = () => {
     const open = menu.style.display === "block";
     menu.style.display = open ? "none" : "block";
-    toggle.setAttribute("aria-expanded", String(!open));
-  });
+    toggle.setAttribute("aria-expanded", !open);
+  };
 
-  // Close menu when clicking outside
-  document.addEventListener("click", (e) => {
+  document.addEventListener("click", e => {
     if (!menu.contains(e.target) && !toggle.contains(e.target)) {
       menu.style.display = "none";
-      toggle.setAttribute("aria-expanded", "false");
     }
   });
 })();
 </script>
-
 
 </body>
 </html>

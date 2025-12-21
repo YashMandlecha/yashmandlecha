@@ -1,15 +1,15 @@
 <!doctype html>
 <html lang="en">
 <head>
-    <!-- Google tag (gtag.js) -->
-<script async src="https://www.googletagmanager.com/gtag/js?id=G-NRBYRV9L8V"></script>
-<script>
-  window.dataLayer = window.dataLayer || [];
-  function gtag(){dataLayer.push(arguments);}
-  gtag('js', new Date());
+  <!-- Google tag (gtag.js) -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-NRBYRV9L8V"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-NRBYRV9L8V');
+  </script>
 
-  gtag('config', 'G-NRBYRV9L8V');
-</script>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
 
@@ -24,30 +24,23 @@
   <!-- Site styles -->
   <link rel="stylesheet" href="assets/style.css">
 
-
   <title>Research · Yash Mandlecha</title>
   <meta
     name="description"
     content="Research overview, interests, publications, and projects."
   />
 
-  <!-- Page-specific adjustments -->
   <style>
-    /* ================= HEADER (SAME AS INDEX) ================= */
     header.site-header {
       position: sticky;
       top: 0;
       z-index: 1000;
       position: relative;
-
-      background-image: url("assets/index-bg.jpg") !important;
-      background-size: cover !important;
-      background-position: center !important;
-      background-repeat: no-repeat !important;
-
-      padding-top: 1.25rem;
-      padding-bottom: 1.25rem;
-
+      background-image: url("assets/index-bg.jpg");
+      background-size: cover;
+      background-position: center;
+      background-repeat: no-repeat;
+      padding: 1.25rem 0;
       border-bottom: 1px solid rgba(255,255,255,0.25);
     }
 
@@ -87,7 +80,6 @@
       color: #000000;
     }
 
-    /* ================= RESEARCH HERO ================= */
     .parallax-strip.tall {
       padding-top: 6.5rem;
       padding-bottom: 5.5rem;
@@ -104,7 +96,6 @@
       color: #ffffff;
     }
 
-    /* ================= INTERESTS + PROFILES ================= */
     .grid2 {
       display: grid;
       grid-template-columns: 1.2fr 0.8fr;
@@ -117,15 +108,12 @@
       }
     }
 
-    /* ================= FOOTER (SAME AS INDEX) ================= */
     .footer {
       position: relative;
-
-      background-image: url("assets/index-bg.jpg") !important;
-      background-size: cover !important;
-      background-position: center !important;
-      background-repeat: no-repeat !important;
-
+      background-image: url("assets/index-bg.jpg");
+      background-size: cover;
+      background-position: center;
+      background-repeat: no-repeat;
       border-top: 1px solid rgba(255,255,255,0.25);
       color: #ffffff;
     }
@@ -152,206 +140,135 @@
 
 <body>
 
-  <!-- ================= HEADER ================= -->
-  <header class="site-header">
-    <div class="container nav">
-      <div class="brand">
-        <a class="name" href="index.html">Yash Mandlecha</a>
-        <div class="tag">Research</div>
-      </div>
-
-      <nav class="navlinks" id="desktop-nav">
-        <a href="research.html">Research</a>
-        <a href="cv.html">Curriculum Vitae</a>
-        <a href="blog.html">Blog</a>
-        <a href="art.html">Art</a>
-        </nav>
-
-        <!-- Mobile hamburger -->
-        <button
-        id="menu-toggle"
-        aria-label="Open menu"
-        aria-expanded="false"
-        >
-        ☰
-        </button>
-
-        <!-- Mobile dropdown -->
-        <div id="mobile-menu">
-        <a href="research.html">Research</a>
-        <a href="cv.html">Curriculum Vitae</a>
-        <a href="blog.html">Blog</a>
-        <a href="art.html">Art</a>
-        </div>
-
-
-        <button id="search-toggle" title="Search" type="button" aria-label="Search">🔍</button>
-
-        <input
-        id="site-search"
-        type="search"
-        placeholder="Search…"
-        enterkeyhint="search"
-        autocomplete="off"
-        />
-
-        <div id="search-results"></div>
-
-      </nav>
+<header class="site-header">
+  <div class="container nav">
+    <div class="brand">
+      <a class="name" href="index.html">Yash Mandlecha</a>
+      <div class="tag">Research</div>
     </div>
-  </header>
 
-  <!-- ===== HERO WITH BACKGROUND IMAGE ===== -->
-  <section class="parallax-strip tall research-hero">
-    <h1>Research</h1>
+    <nav class="navlinks" id="desktop-nav">
+      <a href="research.html">Research</a>
+      <a href="cv.html">Curriculum Vitae</a>
+      <a href="blog.html">Blog</a>
+      <a href="art.html">Art</a>
+    </nav>
+
+    <!-- Mobile hamburger -->
+    <button
+      id="menu-toggle"
+      aria-label="Open menu"
+      aria-expanded="false"
+      type="button"
+    >
+      ☰
+    </button>
+
+    <!-- Mobile dropdown -->
+    <div id="mobile-menu">
+      <a href="research.html">Research</a>
+      <a href="cv.html">Curriculum Vitae</a>
+      <a href="blog.html">Blog</a>
+      <a href="art.html">Art</a>
+    </div>
+  </div>
+</header>
+
+<section class="parallax-strip tall research-hero">
+  <h1>Research</h1>
+</section>
+
+<main class="container">
+
+  <div class="grid2">
+
+    <div class="item card">
+      <h3>Interests</h3>
+      <p class="muted">
+        My research interests lie in lattice field theory, particularly
+        lattice quantum chromodynamics (QCD), gradient flow and
+        renormalization methods, numerical algorithms, and
+        high-performance computing using MPI/OpenMP and GPU offload where
+        relevant.
+      </p>
+
+      <div class="badges">
+        <span class="badge">Lattice</span>
+        <span class="badge">RG / β-function</span>
+        <span class="badge">HPC</span>
+        <span class="badge">Data analysis</span>
+      </div>
+    </div>
+
+    <div class="item card">
+      <h3>Profiles</h3>
+      <p class="muted">External academic and professional profiles:</p>
+
+      <p>
+        • <a href="#" target="_blank" rel="noopener">INSPIRE-HEP</a><br />
+        • <a href="https://github.com/YashMandlecha" target="_blank" rel="noopener">GitHub</a><br />
+        • <a href="https://gitlab.msu.edu/hostet22/lgt_codebase" target="_blank" rel="noopener">MSU GitLab</a>
+      </p>
+    </div>
+
+  </div>
+
+  <section class="section" id="projects">
+    <div class="section-head">
+      <h2>Projects</h2>
+      <a href="cv.html">Citations &amp; CV →</a>
+    </div>
+
+    <section class="project">
+      <div class="project-text">
+        <h3>Gradient Flow Scale Setting in Lattice QCD</h3>
+        <p class="muted">
+          High-precision scale setting and continuous β-function analysis
+          using gradient flow.
+        </p>
+      </div>
+      <div class="project-figure">
+        <img src="assets/FNAL_MILC_Nf0_beta.webp" alt="Gradient flow project">
+      </div>
+    </section>
+
+    <section class="project">
+      <div class="project-text">
+        <h3>Higher-Derivative Scalar Field Theories</h3>
+        <p class="muted">
+          Non-perturbative lattice study of higher-derivative theories at
+          strong coupling.
+        </p>
+      </div>
+      <div class="project-figure">
+        <img src="assets/HD.jpg" alt="Higher derivative project">
+      </div>
+    </section>
   </section>
 
-  <main class="container">
-
-    <!-- ===== INTERESTS + PROFILES ===== -->
-    <div class="grid2">
-
-      <div class="item card">
-        <h3>Interests</h3>
-        <p class="muted">
-          My research interests lie in lattice field theory, particularly
-          lattice quantum chromodynamics (QCD), gradient flow and
-          renormalization methods, numerical algorithms, and
-          high-performance computing using MPI/OpenMP and GPU offload where
-          relevant.
-        </p>
-
-        <div class="badges">
-          <span class="badge">Lattice</span>
-          <span class="badge">RG / β-function</span>
-          <span class="badge">HPC</span>
-          <span class="badge">Data analysis</span>
-        </div>
-      </div>
-
-      <div class="item card">
-        <h3>Profiles</h3>
-        <p class="muted">External academic and professional profiles:</p>
-
-        <p>
-          • <a href="#" target="_blank" rel="noopener">INSPIRE-HEP</a><br />
-          • <a
-              href="https://github.com/YashMandlecha"
-              target="_blank"
-              rel="noopener"
-            >GitHub</a><br />
-          • <a
-              href="https://gitlab.msu.edu/hostet22/lgt_codebase"
-              target="_blank"
-              rel="noopener"
-            >MSU GitLab</a>
-        </p>
-      </div>
-
+  <section class="section" id="publications">
+    <div class="section-head">
+      <h2>Publications</h2>
+      <a href="#">Full list →</a>
     </div>
 
-    <!-- ===== PROJECTS ===== -->
-    <section class="section" id="projects">
-      <div class="section-head">
-        <h2>Projects</h2>
-        <a href="cv.html">Citations &amp; CV →</a>
-      </div>
-
-      <section class="project">
-        <div class="project-text">
-          <h3>Gradient Flow Scale Setting in Lattice QCD</h3>
-          <p class="muted">
-            High-precision scale setting and continuous β-function analysis
-            using gradient flow.
-          </p>
-        </div>
-
-        <div class="project-figure">
-          <img src="assets/FNAL_MILC_Nf0_beta.webp" alt="Gradient flow project">
-        </div>
-      </section>
-
-      <section class="project">
-        <div class="project-text">
-          <h3>Higher-Derivative Scalar Field Theories</h3>
-          <p class="muted">
-            Non-perturbative lattice study of higher-derivative theories at
-            strong coupling.
-          </p>
-        </div>
-
-        <div class="project-figure">
-          <img src="assets/HD.jpg" alt="Higher derivative project">
-        </div>
-      </section>
-    </section>
-
-    <!-- ===== PUBLICATIONS ===== -->
-    <section class="section" id="publications">
-      <div class="section-head">
-        <h2>Publications</h2>
-        <a href="#">Full list →</a>
-      </div>
-
-      <div class="item">
-        <p class="muted">
-          Put a short list here (3–8 items), each as one line.
-        </p>
-      </div>
-    </section>
-
-  </main>
-
-  <!-- ================= FOOTER ================= -->
-  <footer class="footer">
-    <div class="container row">
-      <div>© <span id="year"></span> Yash Mandlecha</div>
-      <div class="muted"><a href="index.html">Home</a></div>
+    <div class="item">
+      <p class="muted">
+        Put a short list here (3–8 items), each as one line.
+      </p>
     </div>
-  </footer>
+  </section>
 
-  <script src="assets/script.js"></script>
-  <script src="assets/site-search.js"></script>
+</main>
 
+<footer class="footer">
+  <div class="container row">
+    <div>© <span id="year"></span> Yash Mandlecha</div>
+    <div class="muted"><a href="index.html">Home</a></div>
+  </div>
+</footer>
 
-  <script>
-(() => {
-  const params = new URLSearchParams(window.location.search);
-  const q = params.get("q");
-  if (!q) return;
-
-  const query = q.toLowerCase();
-
-  // Walk all text nodes and highlight first match
-  const walker = document.createTreeWalker(document.body, NodeFilter.SHOW_TEXT);
-  while (walker.nextNode()) {
-    const node = walker.currentNode;
-    const text = node.nodeValue;
-    const idx = text.toLowerCase().indexOf(query);
-    if (idx === -1) continue;
-
-    const before = text.slice(0, idx);
-    const match = text.slice(idx, idx + q.length);
-    const after = text.slice(idx + q.length);
-
-    const mark = document.createElement("mark");
-    mark.textContent = match;
-    mark.style.background = "yellow";
-    mark.style.padding = "0 0.1em";
-    mark.style.borderRadius = "0.2em";
-
-    const frag = document.createDocumentFragment();
-    frag.appendChild(document.createTextNode(before));
-    frag.appendChild(mark);
-    frag.appendChild(document.createTextNode(after));
-
-    node.parentNode.replaceChild(frag, node);
-
-    mark.scrollIntoView({ behavior: "smooth", block: "center" });
-    break;
-  }
-})();
-</script>
+<script src="assets/script.js"></script>
 
 <script>
 (() => {
@@ -364,7 +281,6 @@
     toggle.setAttribute("aria-expanded", String(!open));
   });
 
-  // Close menu when clicking outside
   document.addEventListener("click", (e) => {
     if (!menu.contains(e.target) && !toggle.contains(e.target)) {
       menu.style.display = "none";
@@ -374,7 +290,5 @@
 })();
 </script>
 
-
 </body>
 </html>
-
